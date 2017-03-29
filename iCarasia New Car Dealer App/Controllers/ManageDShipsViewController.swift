@@ -32,6 +32,10 @@ class ManageDShipsViewController: UIViewController   , UITableViewDelegate , UIT
         
         self.getDealerships()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
