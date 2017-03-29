@@ -99,6 +99,58 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         })
     }
     
+    func addComment () {
+        
+        if !SVProgressHUD.isVisible() {
+            SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+        }
+        
+        let servicesManager = ServicesManager()
+        let parmDict        = NSMutableDictionary()
+        parmDict.setValue("", forKey: "dealership_ID")
+        parmDict.setValue("", forKey: "reviewer_ID")
+        parmDict.setValue("PUT", forKey: "_method")
+        parmDict.setValue("Thank you for the warm words, feel free to visit us again for a cup of coffee", forKey: "reply")
+        
+        servicesManager.addComment(parameters: parmDict, completion: { (result, error) in
+            DispatchQueue.main.async {
+                
+                
+                if result.value(forKey: "review") is NSDictionary {
+                    SVProgressHUD.dismiss()
+                    print("Review Added Successfully")
+                }else{
+                    
+                    TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+                    
+                    if let value = result.value(forKey: "error") {
+                        
+                        if value as! String == "Unauthenticated." {
+                            
+                            //SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+                            let servicesManager = ServicesManager()
+                            servicesManager.autheticateUser(parameters: nil, completion: { (result, error) in
+                                
+                                DispatchQueue.main.async {
+                                    //SVProgressHUD.dismiss()
+                                    if let token = result.value(forKey: "token") {
+                                        
+                                        // Save Token To User Defaults //
+                                        let tokenValue = UserDefaults()
+                                        tokenValue.set(token, forKey: "iCar_Token")
+                                        self.addComment()
+                                    }
+                                }
+                            })
+                        }
+                    }
+                    
+                }
+                
+            }
+        })
+    }
+    
     
     func filterAction(){
         let secondDetailViewController = storyboard?.instantiateViewController(withIdentifier: "ReviewFilterVC")as! ReviewFilterVC

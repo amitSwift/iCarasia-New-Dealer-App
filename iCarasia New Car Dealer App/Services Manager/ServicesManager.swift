@@ -703,7 +703,6 @@ class ServicesManager: NSObject {
     func getReviews(parameters : NSMutableDictionary!, completion: @escaping (_ result: NSDictionary , _ error : NSError? ) -> Void){
         
         let dealership_ID                   = parameters.value(forKey: "dealership_ID")
-        
         let urlString: String               = BASE_URL + "dealer-api/dealership/3/reviews"
         let urlWithPercentEscapes           = urlString.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
         let request: NSMutableURLRequest    = NSMutableURLRequest(url: NSURL(string: urlWithPercentEscapes!)! as URL)
@@ -712,6 +711,62 @@ class ServicesManager: NSObject {
         request.addValue("Bearer : \(self.token())", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-type")
+        request.timeoutInterval             = 90.0
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            DispatchQueue.main.async {
+                
+                
+                if error?._code == -1009 {
+                    SVProgressHUD.dismiss()
+                    
+                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                    TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nNo internet connection!", subtitle: nil, type: TSMessageNotificationType.message)
+                    return
+                }
+                
+                do {
+                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                        print(jsonDict)
+                        completion(jsonDict , error as NSError?)
+                    }
+                } catch let error as NSError {
+                    SVProgressHUD.dismiss()
+                    print(error)
+                }
+            }
+        }
+        task.resume()
+        return
+    }
+    
+    //MARK: - Add Comment To Reviews -
+    
+    func addComment(parameters : NSMutableDictionary!, completion: @escaping (_ result: NSDictionary , _ error : NSError? ) -> Void){
+        
+        let dealership_ID       = parameters.value(forKey: "dealership_ID")
+        let reviewer_ID        = parameters.value(forKey: "reviewer_ID")
+        
+        var parametersString: String                            = ""
+         for (key, value) in parameters{
+         if(parametersString.isEmpty){ parametersString      = parametersString+"\(key)"+"=\(value)" }
+         else{
+         parametersString                                = parametersString+"&\(key)"+"=\(value)" }
+         }
+         parametersString                          = parametersString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        
+        
+        let urlString: String               = BASE_URL + "http://newcar.icarlabs.com/dealer-api/dealership/\(dealership_ID!)/reviews/\(reviewer_ID!)"
+        let urlWithPercentEscapes           = urlString.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
+        let request: NSMutableURLRequest    = NSMutableURLRequest(url: NSURL(string: urlWithPercentEscapes!)! as URL)
+        request.httpMethod                  = "POST"
+        
+        request.addValue("Bearer : \(self.token())", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-type")
+        //request.setValue("\(UInt(parametersString.lengthOfBytes(using: String.Encoding.utf8)))", forHTTPHeaderField: "Content-Length")
+        //request.httpBody                    = parametersString.data(using: String.Encoding.utf8, allowLossyConversion: true)
         request.timeoutInterval             = 90.0
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
