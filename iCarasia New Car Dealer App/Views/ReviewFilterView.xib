@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q2j-Dc-ixa">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdL-IW-vjv" customClass="CustomView" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target">
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FYI-VU-4mG">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="kBp-lf-psU"/>
+                                <outlet property="delegate" destination="-1" id="fUl-hq-dQ7"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="FYI-VU-4mG" secondAttribute="trailing" id="N0z-28-BR2"/>
+                        <constraint firstItem="FYI-VU-4mG" firstAttribute="top" secondItem="tdL-IW-vjv" secondAttribute="top" constant="20" id="OM1-qi-qWs"/>
+                        <constraint firstItem="FYI-VU-4mG" firstAttribute="leading" secondItem="tdL-IW-vjv" secondAttribute="leading" id="oLF-QC-YaH"/>
+                        <constraint firstAttribute="bottom" secondItem="FYI-VU-4mG" secondAttribute="bottom" id="pYt-wU-SZd"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.0" green="0.62745098040000002" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tdL-IW-vjv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="68" id="LLa-qh-hJy"/>
+                <constraint firstAttribute="bottom" secondItem="q2j-Dc-ixa" secondAttribute="bottom" id="YcG-wN-ovI"/>
+                <constraint firstAttribute="trailing" secondItem="tdL-IW-vjv" secondAttribute="trailing" constant="36" id="hte-o7-dhJ"/>
+                <constraint firstItem="q2j-Dc-ixa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jV7-ti-PRp"/>
+                <constraint firstItem="tdL-IW-vjv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="37" id="oZo-pm-Xve"/>
+                <constraint firstItem="q2j-Dc-ixa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="op2-Zn-Xc6"/>
+                <constraint firstAttribute="bottom" secondItem="tdL-IW-vjv" secondAttribute="bottom" constant="30" id="y7j-z6-hgN"/>
+                <constraint firstAttribute="trailing" secondItem="q2j-Dc-ixa" secondAttribute="trailing" id="zgI-b9-zPM"/>
+            </constraints>
+            <point key="canvasLocation" x="26.5" y="51.5"/>
+        </view>
+    </objects>
+</document>
