@@ -264,7 +264,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         
         
         tableReview.beginUpdates()
-        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         tableReview.endUpdates()
         
     }
@@ -280,7 +280,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         
         
         tableReview.beginUpdates()
-        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         tableReview.endUpdates()
         
     }
@@ -297,7 +297,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         
         
         tableReview.beginUpdates()
-        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         tableReview.endUpdates()
         
     }
@@ -337,7 +337,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
                     
                     
                     self.tableReview.beginUpdates()
-                    self.tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+                    self.tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
                     self.tableReview.endUpdates()
 
                     
