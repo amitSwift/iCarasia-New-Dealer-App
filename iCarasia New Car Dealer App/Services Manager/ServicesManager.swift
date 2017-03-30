@@ -765,8 +765,8 @@ class ServicesManager: NSObject {
         request.addValue("Bearer : \(self.token())", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-type")
-        //request.setValue("\(UInt(parametersString.lengthOfBytes(using: String.Encoding.utf8)))", forHTTPHeaderField: "Content-Length")
-        //request.httpBody                    = parametersString.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        request.setValue("\(UInt(parametersString.lengthOfBytes(using: String.Encoding.utf8)))", forHTTPHeaderField: "Content-Length")
+        request.httpBody                    = parametersString.data(using: String.Encoding.utf8, allowLossyConversion: true)
         request.timeoutInterval             = 90.0
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in

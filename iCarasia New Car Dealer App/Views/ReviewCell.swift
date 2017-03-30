@@ -16,6 +16,7 @@ class ReviewCell: UITableViewCell {
     @IBOutlet var labelDate: UILabel!
     @IBOutlet var labelContent: UILabel!
     
+    @IBOutlet var buttonReply: UIButton!
     //reply user's outlet for cell2 and cell3
     
     @IBOutlet var imageReplyUser: UIImageView!

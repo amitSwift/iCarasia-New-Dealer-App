@@ -183,6 +183,8 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
                 print(isEdit)
                 cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell3", for: indexPath)  as! ReviewCell
                 
+                cell.commentText.text = (mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "reply") as? String ?? "Hi!"
+                
                 cell.buttonCross.addTarget(self, action: #selector(crossAction(sender:)), for: .touchUpInside)
                 cell.buttonCross.tag = indexPath.row
                 
@@ -216,6 +218,24 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         self.navigationController?.pushViewController(secondDetailViewController, animated: true)
     }
     
+    
+    
+    func replyAction(sender:UIButton!) {
+        let indexPath   = IndexPath(row: sender.tag, section: 0)
+        
+        let mTempDeict      = NSMutableDictionary(dictionary: self.mArrayReviews.object(at: indexPath.row) as! NSDictionary)
+        mTempDeict.setValue( "Yes" , forKey: "isEdit")
+        self.mArrayReviews.replaceObject(at: indexPath.row, with: mTempDeict)
+        //self.tableReview.reloadData()
+        
+        
+        tableReview.beginUpdates()
+        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableReview.endUpdates()
+        
+    }
+
+    
     func editAction(sender:UIButton!) {
         let indexPath           = IndexPath(row: sender.tag, section: 0)
         
@@ -241,6 +261,78 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         
     }
     func submitAction(sender:UIButton!) {
+        
+        
+        let indexPath   = IndexPath(row: sender.tag, section: 0)
+        let cell        = tableReview.cellForRow(at: indexPath as IndexPath) as! ReviewCell
+        
+        if !SVProgressHUD.isVisible() {
+            SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+        }
+        
+        let servicesManager = ServicesManager()
+        let parmDict        = NSMutableDictionary()
+        parmDict.setValue((self.mArrayReviews.object(at: sender.tag) as! NSDictionary).value(forKey: "dealer_id"), forKey: "dealership_ID")
+        parmDict.setValue((self.mArrayReviews.object(at: sender.tag) as! NSDictionary).value(forKey: "id"), forKey: "reviewer_ID")
+        parmDict.setValue("PUT", forKey: "_method")
+        parmDict.setValue(cell.commentText.text, forKey: "reply")
+        
+        print(parmDict)
+        
+        servicesManager.addComment(parameters: parmDict, completion: { (result, error) in
+            DispatchQueue.main.async {
+                
+                
+                if result.value(forKey: "review") is NSDictionary {
+                    SVProgressHUD.dismiss()
+                    
+                    
+                    
+                    let indexPath   = IndexPath(row: sender.tag, section: 0)
+                    
+                    let mTempDeict      = result.value(forKey: "review")as! NSDictionary
+                    
+                    self.mArrayReviews.replaceObject(at: indexPath.row, with: mTempDeict)
+                    
+                    
+                    self.tableReview.beginUpdates()
+                    self.tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+                    self.tableReview.endUpdates()
+
+                    
+                    
+                    print("Review Added Successfully")
+                }else{
+                    
+                    TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+                    
+                    if let value = result.value(forKey: "error") {
+                        
+                        if value as! String == "Unauthenticated." {
+                            
+                            //SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+                            let servicesManager = ServicesManager()
+                            servicesManager.autheticateUser(parameters: nil, completion: { (result, error) in
+                                
+                                DispatchQueue.main.async {
+                                    //SVProgressHUD.dismiss()
+                                    if let token = result.value(forKey: "token") {
+                                        
+                                        // Save Token To User Defaults //
+                                        let tokenValue = UserDefaults()
+                                        tokenValue.set(token, forKey: "iCar_Token")
+                                        self.submitAction(sender: sender)
+                                    }
+                                }
+                            })
+                        }
+                    }
+                    
+                }
+                
+            }
+        })
+
         
     }
     
