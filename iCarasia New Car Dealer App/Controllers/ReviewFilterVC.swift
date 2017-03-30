@@ -38,11 +38,10 @@ class ReviewFilterVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
         // Do any additional setup after loading the view.
         
    
-        
-        let tapRecognizerLeft = UITapGestureRecognizer(target: self, action: #selector(ReviewFilterVC.handleTap))
+        let tapRecognizerLeft   = UITapGestureRecognizer(target: self, action: #selector(ReviewFilterVC.handleTap))
         backGroundImage.addGestureRecognizer(tapRecognizerLeft)
         
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ReviewFilterVC.handleTapTable))
+        let tapRecognizer       = UITapGestureRecognizer(target: self, action: #selector(ReviewFilterVC.handleTapTable))
         tableFilter.addGestureRecognizer(tapRecognizer)
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -122,34 +121,27 @@ class ReviewFilterVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
                 cell.star4.isHidden = false
                 cell.star5.isHidden = false
             }
-            
         }
-        
         return cell
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionArr.object(at: section) as? String
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.cancelButtonClicked(self)
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor.white
-        
+        view.tintColor                  = UIColor.white
         let header: UITableViewHeaderFooterView? = (view as? UITableViewHeaderFooterView)
-        header?.textLabel?.textColor = UIColor.gray
-        
-        header?.textLabel?.font = UIFont.systemFont(ofSize: 12.0)
-        
-      
-        
-        
+        header?.textLabel?.textColor    = UIColor.gray
+        header?.textLabel?.font         = UIFont.systemFont(ofSize: 12.0)
     }
 
     
     @IBAction func dismissPopView(_ sender: AnyObject) {
-        
            // self.delegate?.cancelButtonClicked(self)
         }
 

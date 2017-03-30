@@ -757,7 +757,7 @@ class ServicesManager: NSObject {
          parametersString                          = parametersString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         
         
-        let urlString: String               = BASE_URL + "http://newcar.icarlabs.com/dealer-api/dealership/\(dealership_ID!)/reviews/\(reviewer_ID!)"
+        let urlString: String               = BASE_URL + "dealer-api/dealership/\(dealership_ID!)/reviews/\(reviewer_ID!)"
         let urlWithPercentEscapes           = urlString.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
         let request: NSMutableURLRequest    = NSMutableURLRequest(url: NSURL(string: urlWithPercentEscapes!)! as URL)
         request.httpMethod                  = "POST"
