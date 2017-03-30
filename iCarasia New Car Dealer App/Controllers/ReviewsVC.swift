@@ -13,6 +13,25 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
     internal func cancelButtonClicked(_ secondDetailViewController: ReviewFilterVC) {
         self.dismissPopupViewControllerWithanimationType(MJPopupViewAnimationFade)
     }
+    internal func passFilterArray(_ filterArr : NSMutableArray,_ secondDetailViewController: ReviewFilterVC){
+        
+        self.dismissPopupViewControllerWithanimationType(MJPopupViewAnimationFade)
+        
+        var filterStr = String()
+        for (index ,value) in filterArr.enumerated(){
+            
+            if index == 0{
+              filterStr += value as! String
+            }else{
+                filterStr = filterStr + "&\(value)"
+            }
+            
+            
+        }
+           print(filterStr)
+        self.getReviewsWithFilter(filterStr)
+        
+    }
 
     @IBOutlet var tableReview: UITableView!
     
@@ -97,6 +116,59 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
                 
             }
         })
+    }
+    
+    //MARK: filter function
+    func getReviewsWithFilter(_ filterStr : String){
+        
+        if !SVProgressHUD.isVisible() {
+            SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+        }
+        
+        let servicesManager = ServicesManager()
+        let parmDict        = NSMutableDictionary()
+        parmDict.setValue(self.mDealerShipID, forKey: "dealership_id")
+        
+        servicesManager.getFilterReviews(parameters: parmDict,filterStr : filterStr, completion: { (result, error) in
+            DispatchQueue.main.async {
+                
+                
+                if result.value(forKey: "reviews") is NSDictionary {
+                    SVProgressHUD.dismiss()
+                    self.mArrayReviews = (result.value(forKeyPath: "reviews.data") as! NSArray ).mutableCopy() as! NSMutableArray
+                    self.tableReview.reloadData()
+                    
+                }else{
+                    
+                    TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+                    
+                    if let value = result.value(forKey: "error") {
+                        
+                        if value as! String == "Unauthenticated." {
+                            
+                            //SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+                            let servicesManager = ServicesManager()
+                            servicesManager.autheticateUser(parameters: nil, completion: { (result, error) in
+                                
+                                DispatchQueue.main.async {
+                                    //SVProgressHUD.dismiss()
+                                    if let token = result.value(forKey: "token") {
+                                        
+                                        // Save Token To User Defaults //
+                                        let tokenValue = UserDefaults()
+                                        tokenValue.set(token, forKey: "iCar_Token")
+                                        self.getReviewsWithFilter(filterStr)
+                                    }
+                                }
+                            })
+                        }
+                    }
+                    
+                }
+                
+            }
+        })
+        
     }
     
     func addComment () {

@@ -2739,20 +2739,20 @@
                                     <outletCollection property="gestureRecognizers" destination="NFw-ab-aQt" appends="YES" id="ccd-so-I2Z"/>
                                 </connections>
                             </imageView>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7s-9Y-yYv" customClass="CustomView" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7s-9Y-yYv" customClass="CustomView" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target">
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j8C-PO-pc3">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReviewFilterCell" id="jlf-F5-Ayx" customClass="ReviewFilterCell" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="1000" height="44"/>
+                                                <rect key="frame" x="0.0" y="28" width="302" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jlf-F5-Ayx" id="EA0-pU-ni5">
-                                                    <frame key="frameInset" width="1000" height="44"/>
+                                                    <frame key="frameInset" width="302" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23d-8L-Lqj">
-                                                            <frame key="frameInset" minX="21" minY="10" width="19" height="22"/>
+                                                            <frame key="frameInset" minX="21" minY="10" width="20" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" image="radio-empty"/>
                                                             <state key="selected" image="radio"/>
@@ -2772,14 +2772,14 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReviewFilterCellStar" id="yaH-On-U3W" customClass="ReviewFilterCell" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="72" width="1000" height="44"/>
+                                                <rect key="frame" x="0.0" y="72" width="302" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yaH-On-U3W" id="7l8-Tl-4Zi">
-                                                    <frame key="frameInset" width="1000" height="44"/>
+                                                    <frame key="frameInset" width="302" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9x-5j-din">
-                                                            <frame key="frameInset" minX="21" minY="10" width="19" height="22"/>
+                                                            <frame key="frameInset" minX="21" minY="10" width="22" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" image="checkbox_empty"/>
                                                             <state key="selected" image="checkbox"/>

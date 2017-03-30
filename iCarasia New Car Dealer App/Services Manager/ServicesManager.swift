@@ -741,6 +741,52 @@ class ServicesManager: NSObject {
         return
     }
     
+    
+    //MARK: - Add Offer -
+    
+    func getFilterReviews(parameters : NSMutableDictionary!,filterStr : String, completion: @escaping (_ result: NSDictionary , _ error : NSError? ) -> Void){
+        
+        let dealership_ID                   = parameters.value(forKey: "dealership_ID")
+        let urlString: String               = BASE_URL + "dealer-api/dealership/3/reviews?" + "\(filterStr)"
+        let urlWithPercentEscapes           = urlString.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
+        let request: NSMutableURLRequest    = NSMutableURLRequest(url: NSURL(string: urlWithPercentEscapes!)! as URL)
+        request.httpMethod                  = "GET"
+        
+        request.addValue("Bearer : \(self.token())", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-type")
+        request.timeoutInterval             = 90.0
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            DispatchQueue.main.async {
+                
+                
+                if error?._code == -1009 {
+                    SVProgressHUD.dismiss()
+                    
+                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                    TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nNo internet connection!", subtitle: nil, type: TSMessageNotificationType.message)
+                    return
+                }
+                
+                do {
+                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                        print(jsonDict)
+                        completion(jsonDict , error as NSError?)
+                    }
+                } catch let error as NSError {
+                    SVProgressHUD.dismiss()
+                    print(error)
+                }
+            }
+        }
+        task.resume()
+        return
+    }
+
+    
+    
     //MARK: - Add Comment To Reviews -
     
     func addComment(parameters : NSMutableDictionary!, completion: @escaping (_ result: NSDictionary , _ error : NSError? ) -> Void){

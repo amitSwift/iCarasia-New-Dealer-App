@@ -9,6 +9,10 @@
 import UIKit
 
 class ReviewsReplyVC: UITableViewController,MJSecondPopupDelegate {
+    internal func passFilterArray(_ filterArr: NSMutableArray, _ secondDetailViewController: ReviewFilterVC) {
+        
+    }
+
     internal func cancelButtonClicked(_ secondDetailViewController: ReviewFilterVC) {
         
         self.dismissPopupViewControllerWithanimationType(MJPopupViewAnimationFade)
