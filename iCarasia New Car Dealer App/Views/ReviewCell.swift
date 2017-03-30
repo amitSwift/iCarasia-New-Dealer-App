@@ -9,7 +9,26 @@
 import UIKit
 
 class ReviewCell: UITableViewCell {
-
+    
+    
+    @IBOutlet var imageUser: UIImageView!
+    @IBOutlet var labelUser: UILabel!
+    @IBOutlet var labelDate: UILabel!
+    @IBOutlet var labelContent: UILabel!
+    
+    //reply user's outlet for cell2 and cell3
+    
+    @IBOutlet var imageReplyUser: UIImageView!
+    @IBOutlet var labelNameReplyUser: UILabel!
+    @IBOutlet var labelDateReply: UILabel!
+    @IBOutlet var labelContentReply: UILabel!
+    
+    @IBOutlet var buttonEdit: UIButton! //in cell replycell2
+    
+    @IBOutlet var buttonCross: UIButton!//in cell replycell2
+    @IBOutlet var buttonSubmit: CustomButton!//in cell replycell2
+    @IBOutlet var commentText: CustumTextView!//in cell replycell2
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

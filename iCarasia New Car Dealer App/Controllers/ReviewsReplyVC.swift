@@ -58,7 +58,10 @@ class ReviewsReplyVC: UITableViewController,MJSecondPopupDelegate {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell2", for: indexPath)  as! ReviewCell
+        
+        
         
         // Configure the cell...
         

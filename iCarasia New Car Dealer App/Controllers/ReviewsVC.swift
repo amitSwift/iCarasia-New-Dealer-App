@@ -18,7 +18,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
     
     var mDealerShipID = NSNumber()
     
-    var mArrayReviews = NSArray()
+    var mArrayReviews = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
                 
                 if result.value(forKey: "reviews") is NSDictionary {
                     SVProgressHUD.dismiss()
-                    self.mArrayReviews = result.value(forKeyPath: "reviews.data") as! NSArray
+                    self.mArrayReviews = (result.value(forKeyPath: "reviews.data") as! NSArray ).mutableCopy() as! NSMutableArray
                     self.tableReview.reloadData()
                     
                 }else{
@@ -167,7 +167,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return mArrayReviews.count
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
@@ -175,7 +175,52 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell2", for: indexPath)  as! ReviewCell
+        
+        var cell = ReviewCell()
+        
+        if let reply = (mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "reply") as? String {
+            print(reply)
+            
+            if let isEdit = (mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "isEdit") as? String{
+                
+                print(isEdit)
+                cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell3", for: indexPath)  as! ReviewCell
+                
+                cell.buttonCross.addTarget(self, action: #selector(crossAction(sender:)), for: .touchUpInside)
+                cell.buttonCross.tag = indexPath.row
+                
+                cell.buttonSubmit.addTarget(self, action: #selector(submitAction(sender:)), for: .touchUpInside)
+                cell.buttonSubmit.tag = indexPath.row
+
+            }else{
+                cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell2", for: indexPath)  as! ReviewCell
+                
+                cell.buttonEdit.addTarget(self, action: #selector(editAction(sender:)), for: .touchUpInside)
+                cell.buttonEdit.tag = indexPath.row
+                
+                cell.labelNameReplyUser.text = ((mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "replied_by") as? NSDictionary)?.value(forKey: "name") as? String ?? "Micheal"
+                cell.labelDateReply.text = ((mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "replied_by") as? NSDictionary)?.value(forKey: "created_at") as? String ?? "28 feb"
+                cell.labelContentReply.text = (mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "reply") as? String ?? "Hi!"
+
+            }
+            
+            
+          
+            
+            
+
+            
+        }else{
+            print("Reply not found")
+             cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath)  as! ReviewCell
+        }
+        
+       
+        
+        
+        cell.labelUser.text = (mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "replied_by") as? String ?? "Micheal"
+        cell.labelDate.text = (mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "created_at") as? String ?? ""
+        cell.labelContent.text = (mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "content") as? String ?? "Hi!"
 
         // Configure the cell...
 
@@ -184,6 +229,41 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let secondDetailViewController = storyboard?.instantiateViewController(withIdentifier: "ReviewsReplyVC")as! ReviewsReplyVC
         self.navigationController?.pushViewController(secondDetailViewController, animated: true)
+    }
+    
+    func editAction(sender:UIButton!) {
+        let indexPath   = IndexPath(row: sender.tag, section: 0)
+        
+        let mTempDeict      = NSMutableDictionary(dictionary: self.mArrayReviews.object(at: indexPath.row) as! NSDictionary)
+        mTempDeict.setValue( "Yes" , forKey: "isEdit")
+        self.mArrayReviews.replaceObject(at: indexPath.row, with: mTempDeict)
+        //self.tableReview.reloadData()
+        
+        
+        tableReview.beginUpdates()
+        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableReview.endUpdates()
+        
+    }
+    func crossAction(sender:UIButton!) {
+        
+        let indexPath   = IndexPath(row: sender.tag, section: 0)
+        
+        let mTempDeict      = NSMutableDictionary(dictionary: self.mArrayReviews.object(at: indexPath.row) as! NSMutableDictionary)
+         mTempDeict.setValue( nil , forKey: "isEdit")
+         mTempDeict.removeObject(forKey: "isEdit")
+        
+        self.mArrayReviews.replaceObject(at: indexPath.row, with: mTempDeict)
+        //self.tableReview.reloadData()
+        
+        
+        tableReview.beginUpdates()
+        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableReview.endUpdates()
+        
+    }
+    func submitAction(sender:UIButton!) {
+        
     }
     
 
