@@ -12,13 +12,16 @@ import UIKit
  protocol MJSecondPopupDelegate : NSObjectProtocol
 {
     func cancelButtonClicked(_ secondDetailViewController: ReviewFilterVC)
-    
+    func passFilterArray(_ filterArr : NSMutableArray,_ secondDetailViewController: ReviewFilterVC)
 }
 
 var sectionArr :NSMutableArray  = []
 var sortArr :NSMutableArray  = []
 var typeArr :NSMutableArray  = []
 var ratingArr :NSMutableArray  = []
+var filterArray:NSMutableArray = []
+var sortFilterArray:NSMutableArray = []
+var typeFilterArray:NSMutableArray = []
 
 class ReviewFilterVC: UIViewController ,UITableViewDelegate,UITableViewDataSource{
     
@@ -35,6 +38,12 @@ class ReviewFilterVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
         sortArr     = ["Most resent reviews first","Oldest reviews first","Higest ratings first","Lowest ratings first"]
         typeArr     = ["All reviews","Reviews with replys","Reviews without replys"]
         ratingArr   = ["1 star","2 star","3 star","4 star","5 star"]
+        
+        
+        //add values for shorting
+        
+        sortFilterArray = ["sort=created_at&order=DESC","sort=created_at&order=ASC","sort=rating&order=DESC","sort=rating&order=ASC"]
+        typeFilterArray = ["","replies_filter=with_replies","replies_filter=no_replies"]
         // Do any additional setup after loading the view.
         
    
@@ -87,16 +96,65 @@ class ReviewFilterVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
             
             cell = tableView.dequeueReusableCell(withIdentifier: "ReviewFilterCell", for: indexPath)  as! ReviewFilterCell
             cell.labelType.text = sortArr.object(at: indexPath.row) as? String
+            cell.buttonRadio.addTarget(self, action: #selector(radioButtonAction(sender: )), for: .touchUpInside)
+            
+            
+            cell.buttonRadio.isSelected = false
+            
+            if filterArray.count>0
+            {
+                if filterArray.contains("sort=created_at&order=DESC") && indexPath.row == 0/*filterArray.object(at: indexPath.row)as? String == "sort=created_at&order=DESC" */{
+                    cell.buttonRadio.isSelected = true
+                }else if filterArray.contains("sort=created_at&order=ASC") && indexPath.row == 1/*filterArray.object(at: indexPath.row) as? String == "sort=created_at&order=ASC" */{
+                    cell.buttonRadio.isSelected = true
+                }else if filterArray.contains("sort=rating&order=DESC") && indexPath.row == 2/*filterArray.object(at: indexPath.row) as? String == "sort=rating&order=DESC"*/ {
+                    cell.buttonRadio.isSelected = true
+                }else if filterArray.contains("sort=rating&order=ASC") && indexPath.row == 3/*filterArray.object(at: indexPath.row) as? String == "sort=rating&order=ASC"*/ {
+                    cell.buttonRadio.isSelected = true
+                }
+            }
+            
+            
+           
+            
+            
+            
+            
             
         }else if indexPath.section == 1{
             
             cell = tableView.dequeueReusableCell(withIdentifier: "ReviewFilterCell", for: indexPath)  as! ReviewFilterCell
             cell.labelType.text = typeArr.object(at: indexPath.row) as? String
+            cell.buttonRadio.addTarget(self, action: #selector(radioButtonAction(sender: )), for: .touchUpInside)
+            
+            
+            cell.buttonRadio.isSelected = false
+            
+            
+            if filterArray.count>0
+            {
+                if filterArray.contains("") && indexPath.row == 0/*filterArray.object(at: indexPath.row) as? String == ""*/{
+                    cell.buttonRadio.isSelected = true
+                }else if filterArray.contains("replies_filter=with_replies") && indexPath.row == 1/*filterArray.object(at: indexPath.row) as? String == "replies_filter=with_replies"*/ {
+                    cell.buttonRadio.isSelected = true
+                }else if filterArray.contains("replies_filter=no_replies") && indexPath.row == 2/*filterArray.object(at: indexPath.row) as? String == "replies_filter=no_replies"*/ {
+                    cell.buttonRadio.isSelected = true
+                }
+
+            }
+            
+            
             
         }else if indexPath.section == 2{
             
             cell = tableView.dequeueReusableCell(withIdentifier: "ReviewFilterCellStar", for: indexPath)  as! ReviewFilterCell
             cell.labelStar.text = ratingArr.object(at: indexPath.row) as? String
+            
+            cell.buttonBox.addTarget(self, action: #selector(boxButtonAction(sender: )), for: .touchUpInside)
+            
+            
+            
+            
             
             if indexPath.row == 0{
                 cell.star2.isHidden = true
@@ -142,6 +200,58 @@ class ReviewFilterVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
         header?.textLabel?.textColor    = UIColor.gray
         header?.textLabel?.font         = UIFont.systemFont(ofSize: 12.0)
     }
+    
+    func radioButtonAction(sender:UIButton){
+        
+        let point = tableFilter.convert(CGPoint.zero, from: sender)
+        if let indexPath = tableFilter.indexPathForRow(at: point) {
+            // Do something with indexPath
+            let section = indexPath.section
+            let row = indexPath.row
+            
+            var selectValue = String()
+            if section == 0{
+                
+                filterArray.remove("sort=created_at&order=DESC")
+                filterArray.remove("sort=created_at&order=ASC")
+                filterArray.remove("sort=rating&order=DESC")
+                filterArray.remove("sort=rating&order=ASC")
+                
+                if sender.isSelected == true{
+                    
+                }else{
+                   
+                    selectValue = sortFilterArray.object(at: row) as! String
+                }
+                
+                
+            }else if section == 1{
+                
+                
+                filterArray.remove("")
+                filterArray.remove("replies_filter=with_replies")
+                filterArray.remove("replies_filter=no_replies")
+                
+                if sender.isSelected == true{
+                    //filterArray.remove(sortFilterArray.object(at: row))
+                }else{
+                    selectValue = typeFilterArray.object(at: row) as! String
+                }
+            }
+            filterArray.add(selectValue)
+            tableFilter.reloadData()
+            print(section,row)
+        }
+    }
+    func boxButtonAction(sender:UIButton){
+        let point = tableFilter.convert(CGPoint.zero, from: sender)
+        if let indexPath = tableFilter.indexPathForRow(at: point) {
+            // Do something with indexPath
+            let section = indexPath.section
+            let row = indexPath.row
+             print(section,row)
+        }
+    }
 
     
     @IBAction func dismissPopView(_ sender: AnyObject) {
@@ -149,7 +259,9 @@ class ReviewFilterVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
         }
 
     @IBAction func applyAction(_ sender: AnyObject) {
-        self.delegate?.cancelButtonClicked(self)
+        
+        self.delegate?.passFilterArray(filterArray, self)
+        //self.delegate?.cancelButtonClicked(self)
     }
     
 

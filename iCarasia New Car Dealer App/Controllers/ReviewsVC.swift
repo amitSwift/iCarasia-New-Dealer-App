@@ -103,6 +103,59 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         })
     }
     
+    //MARK: filter function
+    func getReviewsWithFilter(_ filterStr : String){
+        
+        if !SVProgressHUD.isVisible() {
+            SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+        }
+        
+        let servicesManager = ServicesManager()
+        let parmDict        = NSMutableDictionary()
+        parmDict.setValue(self.mDealerShipID, forKey: "dealership_id")
+        
+        servicesManager.getFilterReviews(parameters: parmDict,filterStr : filterStr, completion: { (result, error) in
+            DispatchQueue.main.async {
+                
+                
+                if result.value(forKey: "reviews") is NSDictionary {
+                    SVProgressHUD.dismiss()
+                    self.mArrayReviews = (result.value(forKeyPath: "reviews.data") as! NSArray ).mutableCopy() as! NSMutableArray
+                    self.tableReview.reloadData()
+                    
+                }else{
+                    
+                    TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+                    
+                    if let value = result.value(forKey: "error") {
+                        
+                        if value as! String == "Unauthenticated." {
+                            
+                            //SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+                            let servicesManager = ServicesManager()
+                            servicesManager.autheticateUser(parameters: nil, completion: { (result, error) in
+                                
+                                DispatchQueue.main.async {
+                                    //SVProgressHUD.dismiss()
+                                    if let token = result.value(forKey: "token") {
+                                        
+                                        // Save Token To User Defaults //
+                                        let tokenValue = UserDefaults()
+                                        tokenValue.set(token, forKey: "iCar_Token")
+                                        self.getReviewsWithFilter(filterStr)
+                                    }
+                                }
+                            })
+                        }
+                    }
+                    
+                }
+                
+            }
+        })
+        
+    }
+    
     func addComment () {
         
         if !SVProgressHUD.isVisible() {
@@ -236,7 +289,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         
         
         tableReview.beginUpdates()
-        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         tableReview.endUpdates()
         
     }
@@ -249,7 +302,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         mTempDeict.setValue( "Yes" , forKey: "isEdit")
         self.mArrayReviews.replaceObject(at: indexPath.row, with: mTempDeict)
         tableReview.beginUpdates()
-        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         tableReview.endUpdates()
         
     }
@@ -262,7 +315,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         
         self.mArrayReviews.replaceObject(at: indexPath.row, with: mTempDeict)
         tableReview.beginUpdates()
-        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+        tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         tableReview.endUpdates()
         
     }
@@ -302,7 +355,7 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
                     
                     
                     self.tableReview.beginUpdates()
-                    self.tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
+                    self.tableReview.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
                     self.tableReview.endUpdates()
 
                     
