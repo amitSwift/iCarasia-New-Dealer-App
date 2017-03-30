@@ -26,9 +26,16 @@ class OffersModelViewController: UIViewController  , UITableViewDelegate , UITab
         self.title = "\(mTitle.uppercased()) MODELS"
         self.navigationItem.backBarButtonItem   = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.mTableVarientsList.tableFooterView = UIView()
-        self.getVarients()
         
         self.mLabelError.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if mArrayVariants.count == 0{
+            self.getVarients()
+        }
     }
 
     override func didReceiveMemoryWarning() {

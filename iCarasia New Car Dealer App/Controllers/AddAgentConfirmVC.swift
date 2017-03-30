@@ -27,6 +27,10 @@ class AddAgentConfirmVC: UIViewController {
         // Do any additional setup after loading the view.
         mLabelText.text =  "\(self.mPhoneNumber) has been added to your dealership.If you don't see your agent immediately, please ask your agent to first create your account"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

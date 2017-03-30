@@ -53,6 +53,10 @@ class AgentsViewController: UIViewController , UITableViewDataSource , UITableVi
         self.agentsList()
         NotificationCenter.default.addObserver(self, selector: #selector(agentsList), name: NSNotification.Name(rawValue: "refresh_Agents_List"), object: nil)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

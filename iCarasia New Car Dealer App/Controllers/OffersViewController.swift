@@ -24,7 +24,14 @@ class OffersViewController: UIViewController , UITableViewDelegate , UITableView
         
         self.mTableViewOffers.tableFooterView = UIView()
         
-        self.getDealerships()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if mArrayDealerships.count == 0{
+            self.getDealerships()
+        }
     }
 
     override func didReceiveMemoryWarning() {

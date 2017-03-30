@@ -25,9 +25,16 @@ class BrandOffersViewController: UIViewController , UITableViewDelegate , UITabl
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.mTableBrandList.tableFooterView  = UIView()
         
-        self.getModels()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if mArrayModels.count == 0{
+            self.getModels()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

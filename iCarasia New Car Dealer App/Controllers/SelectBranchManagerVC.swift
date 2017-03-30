@@ -44,6 +44,10 @@ class SelectBranchManagerVC: UIViewController , UITableViewDelegate , UITableVie
         //self.mDealerID = userIDValue.value(forKey: "current_User_ID") as! NSNumber
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,7 +61,7 @@ class SelectBranchManagerVC: UIViewController , UITableViewDelegate , UITableVie
         let cell : UITableViewCell  = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
         
         
-        //let mCheckImageView  = cell.viewWithTag(1) as! UIImageView
+        let mCheckImageView  = cell.viewWithTag(1) as! UIImageView
         //let mUserImageView   = cell.viewWithTag(2) as! UIImageView
         let mUserNameLabel   = cell.viewWithTag(3) as! UILabel
         let mUserPhoneLabel  = cell.viewWithTag(4) as! UILabel
@@ -74,6 +78,20 @@ class SelectBranchManagerVC: UIViewController , UITableViewDelegate , UITableVie
         }else{
             mUserPhoneLabel.text    = ""
         }
+        
+        
+        if dictInfo.value(forKey: "is_branch_manager") as! NSNumber == 1 {
+            mUserNameLabel.textColor        = UIColor.lightGray
+            mUserPhoneLabel.textColor       = UIColor.lightGray
+            mCheckImageView.isHidden        = true
+            cell.isUserInteractionEnabled   = false
+        }else{
+            mUserNameLabel.textColor        = UIColor.black
+            mUserPhoneLabel.textColor       = UIColor.black
+            mCheckImageView.isHidden        = false
+            cell.isUserInteractionEnabled   = true
+        }
+        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -45,7 +45,10 @@ class ReviewFilterVC: UIViewController ,UITableViewDelegate,UITableViewDataSourc
         tableFilter.addGestureRecognizer(tapRecognizer)
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func handleTap(sender: UITapGestureRecognizer? = nil) {

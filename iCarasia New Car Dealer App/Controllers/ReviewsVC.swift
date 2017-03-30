@@ -38,7 +38,13 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         let filterItem = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(filterAction))
         self.navigationItem.rightBarButtonItem = filterItem
         
+        self.tableReview.tableFooterView = UIView()
+        
         self.getReviews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {

@@ -63,6 +63,7 @@
 		F1B1F06B1E682E6D00CAC9EA /* PerformaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1F06A1E682E6D00CAC9EA /* PerformaceViewController.swift */; };
 		F1B1F06D1E682E8100CAC9EA /* OffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1F06C1E682E8100CAC9EA /* OffersViewController.swift */; };
 		F1B1F06F1E682E9000CAC9EA /* AgentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B1F06E1E682E9000CAC9EA /* AgentsViewController.swift */; };
+		F1CCAD071E8CEF3A005D9AF8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CCAD061E8CEF3A005D9AF8 /* Utilities.swift */; };
 		F1E885631E7FF3AC0041E44B /* AgentsDealershipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E885621E7FF3AB0041E44B /* AgentsDealershipsViewController.swift */; };
 		F1E885661E7FFCAF0041E44B /* AddAgentPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E885641E7FFCAF0041E44B /* AddAgentPopUpVC.swift */; };
 		F1E885671E7FFCAF0041E44B /* AddAgentConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E885651E7FFCAF0041E44B /* AddAgentConfirmVC.swift */; };
@@ -138,6 +139,7 @@
 		F1B1F06A1E682E6D00CAC9EA /* PerformaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformaceViewController.swift; sourceTree = "<group>"; };
 		F1B1F06C1E682E8100CAC9EA /* OffersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersViewController.swift; sourceTree = "<group>"; };
 		F1B1F06E1E682E9000CAC9EA /* AgentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentsViewController.swift; sourceTree = "<group>"; };
+		F1CCAD061E8CEF3A005D9AF8 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F1E885621E7FF3AB0041E44B /* AgentsDealershipsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgentsDealershipsViewController.swift; sourceTree = "<group>"; };
 		F1E885641E7FFCAF0041E44B /* AddAgentPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAgentPopUpVC.swift; sourceTree = "<group>"; };
 		F1E885651E7FFCAF0041E44B /* AddAgentConfirmVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAgentConfirmVC.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				F10591351E6D5C0A0025B45B /* CustomButton.swift */,
 				F10591361E6D5C0A0025B45B /* CustomImageView.swift */,
 				F10591371E6D5C0A0025B45B /* CustumTextView.swift */,
+				F1CCAD061E8CEF3A005D9AF8 /* Utilities.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				F105912C1E6D3C920025B45B /* CreateOfferViewController.swift in Sources */,
 				F174D8651E717BC000CBC1BE /* ReviewsReplyVC.swift in Sources */,
 				F12ED3A41E88EB9B00B7FA43 /* SelectBranchManagerVC.swift in Sources */,
+				F1CCAD071E8CEF3A005D9AF8 /* Utilities.swift in Sources */,
 				F174D86E1E717C1300CBC1BE /* ReviewFilterCell.swift in Sources */,
 				F10591421E6D6E420025B45B /* MIBadgeButton.swift in Sources */,
 				F10591581E6D7B380025B45B /* UUChart.m in Sources */,
@@ -594,7 +598,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -638,7 +642,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -658,7 +662,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = HP5HATHJEV;
 				INFOPLIST_FILE = "iCarasia New Car Dealer App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iCarasia.malaysia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -681,7 +685,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = HP5HATHJEV;
 				INFOPLIST_FILE = "iCarasia New Car Dealer App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iCarasia.malaysia;
 				PRODUCT_NAME = "$(TARGET_NAME)";

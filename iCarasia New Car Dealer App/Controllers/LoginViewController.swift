@@ -151,7 +151,9 @@ class LoginViewController: UIViewController {
                     //self.loginUserOnApplogic(userName: self.mTextFieldUserName.text!, eMailAddress: self.mTextFieldEmailAddress.text! , password: "12345678")
                 }else{
                     
-                     TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "message") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+                     //TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "message") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+                    
+                    print("User Not Found !")
                     
                     let userInfoVC          = self.storyboard?.instantiateViewController(withIdentifier: "UserInfoViewController") as! UserInfoViewController
                     userInfoVC.mPhoneNumber = self.mPhoneNumber
