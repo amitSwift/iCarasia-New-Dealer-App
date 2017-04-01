@@ -186,12 +186,12 @@
 			children = (
 				F10591471E6D7B100025B45B /* ChartCell.swift */,
 				F10591321E6D424E0025B45B /* CustomAlertView.swift */,
-				F105912F1E6D420A0025B45B /* CustomAlertView.xib */,
 				F10591431E6D725C0025B45B /* PerformanceCell.swift */,
 				F174D8671E717C1300CBC1BE /* ReviewCell.swift */,
-				F174D8681E717C1300CBC1BE /* ReviewFilterView.xib */,
 				F174D8691E717C1300CBC1BE /* ReviewFilterView.swift */,
 				F174D86A1E717C1300CBC1BE /* ReviewFilterCell.swift */,
+				F174D8681E717C1300CBC1BE /* ReviewFilterView.xib */,
+				F105912F1E6D420A0025B45B /* CustomAlertView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -8,7 +8,25 @@
 
 import UIKit
 
-class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
+class ReviewsVC: UITableViewController , MJSecondPopupDelegate {
+    
+    internal func passFilterArray(_ filterArr: NSMutableArray, _ secondDetailViewController: ReviewFilterVC) {
+        
+        self.dismissPopupViewControllerWithanimationType(MJPopupViewAnimationFade)
+        
+        var filterStr = String()
+        for (index ,value) in filterArr.enumerated(){
+            
+            if index == 0{
+                filterStr += value as! String
+            }else{
+                filterStr = filterStr + "&\(value)"
+            }
+        }
+        print(filterStr)
+        self.getReviewsWithFilter(filterStr)
+
+    }
     
     internal func cancelButtonClicked(_ secondDetailViewController: ReviewFilterVC) {
         self.dismissPopupViewControllerWithanimationType(MJPopupViewAnimationFade)
@@ -45,6 +63,15 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.enableIQKeyBoardManager()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.disableIQKeyBoardManager()
     }
     
     override func didReceiveMemoryWarning() {
@@ -261,8 +288,26 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
                 cell.labelContentReply.text = (mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "reply") as? String ?? "Hi!"
             }
         }else{
-            print("Reply not found")
-            cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath)  as! ReviewCell
+            if let isEdit = (mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "isEdit") as? String{
+                
+                print(isEdit)
+                cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell3", for: indexPath)  as! ReviewCell
+                
+                cell.commentText.text = ""
+                
+                cell.buttonCross.addTarget(self, action: #selector(crossAction(sender:)), for: .touchUpInside)
+                cell.buttonCross.tag = indexPath.row
+                
+                cell.buttonSubmit.addTarget(self, action: #selector(submitAction(sender:)), for: .touchUpInside)
+                cell.buttonSubmit.tag = indexPath.row
+                
+            }else{
+                print("Reply not found")
+                cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath)  as! ReviewCell
+                
+                cell.buttonReply.addTarget(self, action: #selector(replyAction(sender:)), for: .touchUpInside)
+                cell.buttonReply.tag = indexPath.row
+            }
         }
         
         cell.labelUser.text     = (mArrayReviews.object(at: indexPath.row) as! NSDictionary).value(forKey: "replied_by") as? String ?? "Micheal"
@@ -273,8 +318,8 @@ class ReviewsVC: UITableViewController,MJSecondPopupDelegate {
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let secondDetailViewController = storyboard?.instantiateViewController(withIdentifier: "ReviewsReplyVC")as! ReviewsReplyVC
-        self.navigationController?.pushViewController(secondDetailViewController, animated: true)
+        //let secondDetailViewController = storyboard?.instantiateViewController(withIdentifier: "ReviewsReplyVC")as! ReviewsReplyVC
+        //self.navigationController?.pushViewController(secondDetailViewController, animated: true)
     }
     
     

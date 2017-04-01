@@ -31,12 +31,14 @@ class AgentsDealershipsViewController: UIViewController , UITableViewDelegate , 
         if userType == "sales_agent"{
             mButtonAddDealerShip.isHidden = true
         }
-        
-        self.getDealerships()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if mArrayDealerships.count == 0 {
+            self.getDealerships()
+        }
      }
     
     override func didReceiveMemoryWarning() {

@@ -49,13 +49,14 @@ class AgentsViewController: UIViewController , UITableViewDataSource , UITableVi
         self.navigationController?.navigationBar.backItem?.title    = ""
         self.navigationItem.backBarButtonItem                       = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
-        
-        self.agentsList()
         NotificationCenter.default.addObserver(self, selector: #selector(agentsList), name: NSNotification.Name(rawValue: "refresh_Agents_List"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if mArrayAgentsList.count == 0 {
+            self.agentsList()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -197,7 +198,7 @@ class AgentsViewController: UIViewController , UITableViewDataSource , UITableVi
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : UITableViewCell  = tableView.dequeueReusableCell(withIdentifier: "agentsCell", for: indexPath)
-        
+        cell.selectionStyle         = .blue
         
         let dictInfo                = self.mArrayAgentsList.object(at: indexPath.row) as! NSDictionary
         

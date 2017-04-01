@@ -899,6 +899,116 @@ class ServicesManager: NSObject {
         return
     }
 
+    
+    //MARK: - Edit Profile -
+    
+    func editProfile(parameters : NSMutableDictionary!, completion: @escaping (_ result: NSDictionary , _ error : NSError? ) -> Void){
+        
+        var parametersString: String                            = ""
+        for (key, value) in parameters{
+            if(parametersString.isEmpty){ parametersString      = parametersString+"\(key)"+"=\(value)" }
+            else{
+                parametersString                                = parametersString+"&\(key)"+"=\(value)" }
+        }
+        parametersString                          = parametersString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        
+        
+        let urlString: String               = BASE_URL + "/api/profile"
+        let urlWithPercentEscapes           = urlString.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
+        let request: NSMutableURLRequest    = NSMutableURLRequest(url: NSURL(string: urlWithPercentEscapes!)! as URL)
+        request.httpMethod                  = "POST"
+        
+        request.addValue("Bearer : \(self.token())", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-type")
+        request.setValue("\(UInt(parametersString.lengthOfBytes(using: String.Encoding.utf8)))", forHTTPHeaderField: "Content-Length")
+        request.httpBody                    = parametersString.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        request.timeoutInterval             = 90.0
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            DispatchQueue.main.async {
+                
+                
+                if error?._code == -1009 {
+                    SVProgressHUD.dismiss()
+                    
+                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                    TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nNo internet connection!", subtitle: nil, type: TSMessageNotificationType.message)
+                    return
+                }
+                
+                do {
+                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                        print(jsonDict)
+                        completion(jsonDict , error as NSError?)
+                    }
+                } catch let error as NSError {
+                    SVProgressHUD.dismiss()
+                    print(error)
+                }
+            }
+        }
+        task.resume()
+        return
+    }
+    
+    
+    //MARK: - Edit Dealership -
+    
+    func editDealership(parameters : NSMutableDictionary!, completion: @escaping (_ result: NSDictionary , _ error : NSError? ) -> Void){
+        
+        let delarId                                             = parameters.value(forKey:"dealer_ID")
+        
+        var parametersString: String                            = ""
+        for (key, value) in parameters{
+            if(parametersString.isEmpty){ parametersString      = parametersString+"\(key)"+"=\(value)" }
+            else{
+                parametersString                                = parametersString+"&\(key)"+"=\(value)" }
+        }
+        parametersString                          = parametersString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        
+        
+        let urlString: String               = BASE_URL + "dealer-api/dealership/\(delarId!)/profile"
+        let urlWithPercentEscapes           = urlString.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
+        let request: NSMutableURLRequest    = NSMutableURLRequest(url: NSURL(string: urlWithPercentEscapes!)! as URL)
+        request.httpMethod                  = "POST"
+        
+        request.addValue("Bearer : \(self.token())", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-type")
+        request.setValue("\(UInt(parametersString.lengthOfBytes(using: String.Encoding.utf8)))", forHTTPHeaderField: "Content-Length")
+        request.httpBody                    = parametersString.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        request.timeoutInterval             = 90.0
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            
+            DispatchQueue.main.async {
+                
+                
+                if error?._code == -1009 {
+                    SVProgressHUD.dismiss()
+                    
+                    let delegate = UIApplication.shared.delegate as! AppDelegate
+                    TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nNo internet connection!", subtitle: nil, type: TSMessageNotificationType.message)
+                    return
+                }
+                
+                do {
+                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                        print(jsonDict)
+                        completion(jsonDict , error as NSError?)
+                    }
+                } catch let error as NSError {
+                    SVProgressHUD.dismiss()
+                    print(error)
+                }
+            }
+        }
+        task.resume()
+        return
+    }
+    
 }
 
 // MARK: - Extension for image Uploading -

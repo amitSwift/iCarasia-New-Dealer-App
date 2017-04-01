@@ -68,8 +68,6 @@ class AgentProfileViewController: UIViewController , UITableViewDataSource , UIT
             mLabelAgentInfo.text    = ""
         }
         
-        
-        
         // First Section //
         
         let arrayFirstSection = NSMutableArray()

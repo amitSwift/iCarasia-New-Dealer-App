@@ -62,12 +62,19 @@ class UserInfoViewController: UIViewController {
     
     @IBAction func createAccountAction(_ sender: UIButton) {
         
+        self.mTextFieldUserName.text            = self.mTextFieldUserName.text?.trimmingCharacters(in: .whitespaces)
+        self.mTextFieldEmailAddress.text        = self.mTextFieldEmailAddress.text?.trimmingCharacters(in: .whitespaces)
+        
         if mTextFieldUserName.text?.characters.count == 0 {
             TSMessage.showNotification(in: self , title: "\nUser name can't be empty", subtitle: nil, type: TSMessageNotificationType.message)
             return
         }
-        if mTextFieldEmailAddress.text?.characters.count == 0 {
+        else if mTextFieldEmailAddress.text?.characters.count == 0 {
             TSMessage.showNotification(in: self , title: "\nEmail address can't be empty", subtitle: nil, type: TSMessageNotificationType.message)
+            return
+        }
+        else if (!(mTextFieldEmailAddress.text?.isValidEmail)!){
+            TSMessage.showNotification(in: self , title: "\nPlease fill a valid Email address.", subtitle: nil, type: TSMessageNotificationType.message)
             return
         }
         

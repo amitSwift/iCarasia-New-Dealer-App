@@ -62,6 +62,7 @@ class AddAgentPopUpVC: UIViewController , UITextFieldDelegate {
     
     @IBAction func rightAction(_ sender: UIButton) {
         
+        self.mTextFieldPhone.text            = self.mTextFieldPhone.text?.trimmingCharacters(in: .whitespaces)
         if (mTextFieldPhone.text?.characters.count)! < 10 {
             
             TSMessage.showNotification(in: self , title: "\n Phone number must contains 10 digits.", subtitle: nil, type: TSMessageNotificationType.message)

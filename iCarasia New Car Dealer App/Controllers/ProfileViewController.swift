@@ -1,4 +1,5 @@
 
+
 //
 //  ProfileViewController.swift
 //  iCarasia New Car Dealer App
@@ -9,7 +10,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController,MJPendingPopupDelegate{
+class ProfileViewController: UIViewController , MJPendingPopupDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate , UITextFieldDelegate {
     
     
     internal func cancelButtonClickedPendingPopup(_ secondDetailViewController: PendingPopUp) {
@@ -23,10 +24,16 @@ class ProfileViewController: UIViewController,MJPendingPopupDelegate{
     
     @IBOutlet weak var mImageViewUser       : UIImageView!
     @IBOutlet weak var mCameraButton        : UIButton!
+    @IBOutlet weak var mEditButton          : UIButton!
+    @IBOutlet weak var mSaveButton          : UIButton!
+    @IBOutlet weak var mLogoutButton        : UIButton!
     @IBOutlet weak var mTextFieldUserName   : UITextField!
     @IBOutlet weak var mLabelPhoneNumber    : UILabel!
     
     var mDictUserInfo = NSDictionary()
+    
+    var mImageData    = Data()
+    var mStrBase64    = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,17 +44,28 @@ class ProfileViewController: UIViewController,MJPendingPopupDelegate{
         self.navigationItem.title   = "PROFILE"
         self.mCameraButton.isHidden                      = true
         self.mTextFieldUserName.isUserInteractionEnabled = false
+        self.mSaveButton.isHidden                        = true
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
         
-         if let userName = self.mDictUserInfo.value(forKey: "name") as? String {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.enableIQKeyBoardManager()
+        
+        if let userName = self.mDictUserInfo.value(forKey: "name") as? String {
             print("User Name = \(userName)")
         }else{
             self.profile()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.disableIQKeyBoardManager()
     }
     
     override func didReceiveMemoryWarning() {
@@ -103,7 +121,7 @@ class ProfileViewController: UIViewController,MJPendingPopupDelegate{
                     SVProgressHUD.dismiss()
                     
                     self.mDictUserInfo              = result
-                    //mImageViewUser.image          = UIImage( named: "" )
+                    //self.mImageViewUser.sd_setImage(with: URL(string:self.mDictUserInfo.value(forKey: "profile_image_thumb_url") as! String)  , placeholderImage: UIImage.init(named: "Profile-1"))
                     self.mTextFieldUserName.text    = self.mDictUserInfo.value(forKey: "name") as? String
                     self.mLabelPhoneNumber .text    = "\(self.mDictUserInfo.value(forKey: "phone") as! String)"
                     
@@ -118,14 +136,32 @@ class ProfileViewController: UIViewController,MJPendingPopupDelegate{
         
     }
     
+    @IBAction func saveAction ( sender : UIButton ){
+        
+        self.mTextFieldUserName.text            = self.mTextFieldUserName.text?.trimmingCharacters(in: .whitespaces)
+        if mTextFieldUserName.text?.characters.count == 0 {
+            TSMessage.showNotification(in: self , title: "\nEnter user name.", subtitle: nil, type: TSMessageNotificationType.message)
+            return
+        }
+        
+        self.saveProfileInfo()
+    }
+    
+    
     @IBAction func editAction ( sender : UIButton ) {
         
-        self.mCameraButton.isHidden                      = false
-        self.mTextFieldUserName.isUserInteractionEnabled = true
+        self.mCameraButton.isHidden                         = false
+        self.mTextFieldUserName.isUserInteractionEnabled    = true
+        
+        self.mSaveButton.isHidden                           = false
+        self.mEditButton.isHidden                           = true
+        self.mLogoutButton.isHidden                         = true
         self.mTextFieldUserName.becomeFirstResponder()
     }
     
     @IBAction func cameraAction ( sender : UIButton ) {
+        
+        self.view.endEditing(true)
         
         let alert           = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cameraAction    = UIAlertAction(title: "Camera", style: .default) {
@@ -190,14 +226,112 @@ class ProfileViewController: UIViewController,MJPendingPopupDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
-            self.mImageViewUser.image = image
-            let resizedImage          = image.resizeWith(width: 250)
-            //let mImageData            = UIImagePNGRepresentation(resizedImage!)! as NSData
-            //let mStrBase64            = mImageData.base64EncodedString(options:.lineLength64Characters) as String
+            let resizedImage            = image.resizeWith(width: 250)
+            self.mImageViewUser.image   = resizedImage
+            
+            self.mImageData             = UIImageJPEGRepresentation(resizedImage!, 1.0)! as Data
+            self.mStrBase64             = mImageData.base64EncodedString(options:.lineLength64Characters) as String
+            
+            print("Update Profile")
+            
+            self.mCameraButton.isHidden                      = true
+            self.mTextFieldUserName.isUserInteractionEnabled = false
             
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        
+        print("Update Profile")
+        
+        self.mCameraButton.isHidden                      = true
+        self.mTextFieldUserName.isUserInteractionEnabled = false
+        
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool{
+        
+        //self.mCameraButton.isHidden                      = true
+        //self.mTextFieldUserName.isUserInteractionEnabled = false
+        return true
+    }
+    
+    func saveProfileInfo () {
+        
+        
+        if !SVProgressHUD.isVisible() {
+            SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+        }
+        
+        let servicesManager = ServicesManager()
+        let parmDict        = NSMutableDictionary()
+        parmDict.setValue("PUT", forKey: "_method")
+        parmDict.setValue(self.mTextFieldUserName.text!, forKey: "name")
+        //parmDict.setValue(((self.mArrayDealershipInfo.object(at: 0) as! NSMutableArray).object(at: 1) as! NSMutableDictionary).value(forKey: "website") as! String, forKey: "email")
+        //parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 0) as! NSMutableDictionary).value(forKey: "facebook") as! String, forKey: "facebook")
+        //parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 1) as! NSMutableDictionary).value(forKey: "instagram") as! String, forKey: "instagram")
+        //parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 2) as! NSMutableDictionary).value(forKey: "google_plus") as! String, forKey: "google_plus")
+        //parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 3) as! NSMutableDictionary).value(forKey: "twitter") as! String, forKey: "twitter")
+        //parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 4) as! NSMutableDictionary).value(forKey: "whatsapp") as! String, forKey: "whatsapp")
+        //parmDict.setValue(self.mTextViewDealershipInfo.text!, forKey: "short_bio")
+        parmDict.setValue(self.mImageData, forKey: "photo")
+        
+        
+        servicesManager.editProfile(parameters: parmDict, completion: { (result, error) in
+            DispatchQueue.main.async {
+                
+                
+                if let success = result.value(forKey: "updated") as? NSNumber {
+                    SVProgressHUD.dismiss()
+                    print("Updated Successfully \(success)")
+                    TSMessage.showNotification(in: self , title: "\nProfile info updated successfully.", subtitle: nil, type: TSMessageNotificationType.message)
+                    self.mSaveButton.isHidden                           = true
+                    self.mEditButton.isHidden                           = false
+                    self.mLogoutButton.isHidden                         = false
+                    
+                    
+                }else{
+                    
+                    TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+                    
+                    if let value = result.value(forKey: "error") {
+                        
+                        if value as! String == "Unauthenticated." {
+                            
+                            //SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+                            let servicesManager = ServicesManager()
+                            servicesManager.autheticateUser(parameters: nil, completion: { (result, error) in
+                                
+                                DispatchQueue.main.async {
+                                    //SVProgressHUD.dismiss()
+                                    if let token = result.value(forKey: "token") {
+                                        
+                                        // Save Token To User Defaults //
+                                        let tokenValue = UserDefaults()
+                                        tokenValue.set(token, forKey: "iCar_Token")
+                                        self.saveProfileInfo()
+                                    }
+                                }
+                            })
+                        }else{
+                            SVProgressHUD.dismiss()
+                            
+                        }
+                    } else{
+                        SVProgressHUD.dismiss()
+                        
+                    }
+                    
+                    
+                }
+                
+            }
+        })
+        
+    }
+    
     
     /*
      // MARK: - Navigation
