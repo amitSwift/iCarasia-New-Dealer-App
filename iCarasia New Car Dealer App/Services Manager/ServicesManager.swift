@@ -966,7 +966,8 @@ class ServicesManager: NSObject {
             else{
                 parametersString                                = parametersString+"&\(key)"+"=\(value)" }
         }
-        parametersString                          = parametersString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        parametersString                    = parametersString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        parametersString                    = parametersString.replacingOccurrences(of: "+", with: "%2B")
         
         
         let urlString: String               = BASE_URL + "dealer-api/dealership/\(delarId!)/profile"

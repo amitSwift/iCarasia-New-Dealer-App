@@ -261,8 +261,8 @@ class AgentProfileViewController: UIViewController , UITableViewDataSource , UIT
         let imageView       = cell.viewWithTag(1) as! UIImageView
         imageView.image     = UIImage(named: image)
         
-        let mTextLabel      = cell.viewWithTag(2) as! UILabel
-        mTextLabel.text     = title
+        //let mTextLabel      = cell.viewWithTag(2) as! UILabel
+        //mTextLabel.text     = title
         
         let mTextLabelInfo  = cell.viewWithTag(3) as! UILabel
         mTextLabelInfo.text = titleInfo

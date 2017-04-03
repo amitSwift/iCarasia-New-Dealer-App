@@ -121,31 +121,31 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         
         let arraySecondSection = NSMutableArray()
         
-        if let facebook  = mDealershipInfoDict.value(forKeyPath: "user.facebook") as? String {
+        if let facebook  = mDealershipInfoDict.value(forKey: "facebook") as? String {
             let tempDict    = NSMutableDictionary()
             tempDict.setValue(facebook, forKey: "facebook")
             arraySecondSection.add(tempDict)
         }
         
-        if let instagram      = mDealershipInfoDict.value(forKeyPath: "user.instagram") as? String {
+        if let instagram      = mDealershipInfoDict.value(forKey: "instagram") as? String {
             let tempDict    = NSMutableDictionary()
             tempDict.setValue(instagram, forKey: "instagram")
             arraySecondSection.add(tempDict)
         }
         
-        if let google_plus      = mDealershipInfoDict.value(forKeyPath: "user.google_plus") as? String {
+        if let google_plus      = mDealershipInfoDict.value(forKey: "google_plus") as? String {
             let tempDict    = NSMutableDictionary()
             tempDict.setValue(google_plus, forKey: "google_plus")
             arraySecondSection.add(tempDict)
         }
         
-        if let twitter      = mDealershipInfoDict.value(forKeyPath: "user.twitter") as? String {
+        if let twitter      = mDealershipInfoDict.value(forKey: "twitter") as? String {
             let tempDict    = NSMutableDictionary()
             tempDict.setValue(twitter, forKey: "twitter")
             arraySecondSection.add(tempDict)
         }
         
-        if let whatsapp     = mDealershipInfoDict.value(forKeyPath: "user.whatsapp") as? String {
+        if let whatsapp     = mDealershipInfoDict.value(forKey: "whatsapp") as? String {
             let tempDict    = NSMutableDictionary()
             tempDict.setValue(whatsapp, forKey: "whatsapp")
             arraySecondSection.add(tempDict)
@@ -162,6 +162,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         
         if self.isEditMode {
             
+            self.view.endEditing(true)
             
             self.mTextFieldDealershipTitle.text          = self.mTextFieldDealershipTitle.text?.trimmingCharacters(in: .whitespaces)
             self.mTextViewDealershipInfo.text            = self.mTextViewDealershipInfo.text?.trimmingCharacters(in: .whitespaces)
@@ -171,9 +172,16 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 return
             }
             
-            self.isEditMode                                     = false
-            mTextFieldDealershipTitle.isUserInteractionEnabled  = false
-            mTextViewDealershipInfo.isUserInteractionEnabled    = false
+            let website = (((self.mArrayDealershipInfo.object(at: 0) as! NSMutableArray).object(at: 1) as! NSMutableDictionary).value(forKey: "website")) as! String
+            
+            if website.characters.count > 0 {
+                
+                if validateWebsiteUrl(stringURL: website as NSString) == false {
+                    TSMessage.showNotification(in: self , title: "\nEnter a valid website url.", subtitle: nil, type: TSMessageNotificationType.message)
+                    return
+                }
+            }
+           
             self.saveDealershipInfo()
         }else{
             
@@ -225,13 +233,33 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 arrayFirstSection.add(tempDict)
             }
             
+            if let city      = mDealershipInfoDict.value(forKey: "city") {
+                let tempDict    = NSMutableDictionary()
+                tempDict.setValue(city, forKey: "city")
+                arrayFirstSection.add(tempDict)
+            }else{
+                let tempDict    = NSMutableDictionary()
+                tempDict.setValue("", forKey: "city")
+                arrayFirstSection.add(tempDict)
+            }
+            
+            if let zip      = mDealershipInfoDict.value(forKey: "zip") {
+                let tempDict    = NSMutableDictionary()
+                tempDict.setValue(zip, forKey: "zip")
+                arrayFirstSection.add(tempDict)
+            }else{
+                let tempDict    = NSMutableDictionary()
+                tempDict.setValue("", forKey: "zip")
+                arrayFirstSection.add(tempDict)
+            }
+            
             mArrayDealershipInfo.add(arrayFirstSection)
             
             // Second Section //
             
             let arraySecondSection = NSMutableArray()
             
-            if let facebook  = mDealershipInfoDict.value(forKeyPath: "user.facebook") as? String {
+            if let facebook  = mDealershipInfoDict.value(forKey: "facebook") as? String {
                 let tempDict    = NSMutableDictionary()
                 tempDict.setValue(facebook, forKey: "facebook")
                 arraySecondSection.add(tempDict)
@@ -241,7 +269,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 arraySecondSection.add(tempDict)
             }
             
-            if let instagram      = mDealershipInfoDict.value(forKeyPath: "user.instagram") as? String {
+            if let instagram      = mDealershipInfoDict.value(forKey: "instagram") as? String {
                 let tempDict    = NSMutableDictionary()
                 tempDict.setValue(instagram, forKey: "instagram")
                 arraySecondSection.add(tempDict)
@@ -251,7 +279,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 arraySecondSection.add(tempDict)
             }
             
-            if let google_plus      = mDealershipInfoDict.value(forKeyPath: "user.google_plus") as? String {
+            if let google_plus      = mDealershipInfoDict.value(forKey: "google_plus") as? String {
                 let tempDict    = NSMutableDictionary()
                 tempDict.setValue(google_plus, forKey: "google_plus")
                 arraySecondSection.add(tempDict)
@@ -261,7 +289,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 arraySecondSection.add(tempDict)
             }
             
-            if let twitter      = mDealershipInfoDict.value(forKeyPath: "user.twitter") as? String {
+            if let twitter      = mDealershipInfoDict.value(forKey: "twitter") as? String {
                 let tempDict    = NSMutableDictionary()
                 tempDict.setValue(twitter, forKey: "twitter")
                 arraySecondSection.add(tempDict)
@@ -272,7 +300,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 
             }
             
-            if let whatsapp      = mDealershipInfoDict.value(forKeyPath: "user.whatsapp") as? String {
+            if let whatsapp      = mDealershipInfoDict.value(forKey: "whatsapp") as? String {
                 let tempDict    = NSMutableDictionary()
                 tempDict.setValue(whatsapp, forKey: "whatsapp")
                 arraySecondSection.add(tempDict)
@@ -340,7 +368,6 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         
         self.present(alert, animated: true, completion: nil)
     }
-    
     
     func editAction() {
         
@@ -480,33 +507,65 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         
         let dictDetails     = (self.mArrayDealershipInfo.object(at: indexPath.section) as! NSArray).object(at: indexPath.row) as! NSDictionary
         var titleValue      : String!
+        var placeHolder     : String!
         var enableField     : Bool!
+        var keyBoard        : UIKeyboardType!
         
         switch dictDetails.allKeys[0] as! String {
         case "phone_number":
             enableField     = false
             cellIdentifier  = "phoneCell"
+            placeHolder     = "Phone Number"
+            keyBoard        = .phonePad
             titleValue      = dictDetails.value(forKey: "phone_number") as! String!
             break
         case "website":
             enableField     = true
             cellIdentifier  = "websiteCell"
+            placeHolder     = "Website"
+            keyBoard        = .emailAddress
             titleValue      = dictDetails.value(forKey: "website") as! String!
             break
         case "address":
             enableField     = false
+            placeHolder     = "Location"
             cellIdentifier  = "locationCell"
-            titleValue      = dictDetails.value(forKey: "address") as! String!
+            keyBoard        = .emailAddress
+            if isEditMode {
+                titleValue      = dictDetails.value(forKey: "address") as! String!
+            }else{
+                titleValue      = dictDetails.value(forKey: "address") as! String! + ", \(self.mDealershipInfoDict.value(forKey: "zip") as! String)" + " \(self.mDealershipInfoDict.value(forKey: "city") as! String)"
+            }
+            
             break
+            
+        case "city":
+            enableField     = false
+            cellIdentifier  = "locationCell"
+            placeHolder     = "City"
+            keyBoard        = .emailAddress
+            titleValue      = dictDetails.value(forKey: "city") as! String!
+            break
+            
+        case "zip":
+            enableField     = false
+            cellIdentifier  = "locationCell"
+            placeHolder     = "Aip Code"
+            keyBoard        = .numberPad
+            titleValue      = dictDetails.value(forKey: "zip") as! String!
+            break
+            
         default:
             break
         }
         
-        cell                = self.mTableDealerShipDetails.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        let mTextLabel      = cell.viewWithTag(2) as! UITextField
-        mTextLabel.text     = titleValue
+        cell                    = self.mTableDealerShipDetails.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let mTextField          = cell.viewWithTag(2) as! UITextField
+        mTextField.placeholder  = placeHolder
+        mTextField.text         = titleValue
+        mTextField.keyboardType = keyBoard
         
-        isEditMode ? (mTextLabel.isUserInteractionEnabled = enableField) : (mTextLabel.isUserInteractionEnabled = false)
+        //isEditMode ? (mTextLabel.isUserInteractionEnabled = enableField) : (mTextLabel.isUserInteractionEnabled = false)
         
         return cell
     }
@@ -518,34 +577,48 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         var cell            : UITableViewCell!
         let dictDetails     = (self.mArrayDealershipInfo.object(at: indexPath.section) as! NSArray).object(at: indexPath.row) as! NSDictionary
         var image           : String!
-        var title           : String!
+        //var title           : String!
+        var placeHolder     : String!
         var titleInfo       : String!
+        var keyBoard        : UIKeyboardType!
         
         switch dictDetails.allKeys[0] as! String {
         case "facebook":
-            image = "facebook"
-            title = "Facebook"
-            titleInfo = dictDetails.value(forKey: "facebook") as! String
+            image           = "facebook"
+            title           = "Facebook"
+            placeHolder     = "Facebook"
+            keyBoard        = .emailAddress
+
+            titleInfo       = dictDetails.value(forKey: "facebook") as! String
             break
         case "instagram":
-            image = "instagram"
-            title = "Instagram"
-            titleInfo = dictDetails.value(forKey: "instagram") as! String
+            image           = "instagram"
+            title           = "Instagram"
+            placeHolder     = "Instagram"
+            keyBoard        = .emailAddress
+            
+            titleInfo       = dictDetails.value(forKey: "instagram") as! String
             break
         case "google_plus":
-            image = "google-plus"
-            title = "Google +"
+            image           = "google-plus"
+            title           = "Google +"
+            placeHolder     = "Google +"
+            keyBoard        = .emailAddress
             titleInfo = dictDetails.value(forKey: "google_plus") as! String
             break
         case "twitter":
-            image = "twitter"
-            title = "Twitter"
-            titleInfo = dictDetails.value(forKey: "twitter") as! String
+            image           = "twitter"
+            title           = "Twitter"
+            placeHolder     = "Twitter"
+            keyBoard        = .emailAddress
+            titleInfo       = dictDetails.value(forKey: "twitter") as! String
             break
         case "whatsapp":
-            image = "whatsapp"
-            title = "Whatsapp"
-            titleInfo = dictDetails.value(forKey: "whatsapp") as! String
+            image           = "whatsapp"
+            title           = "Whatsapp"
+            placeHolder     = "Whatsapp"
+            keyBoard        = .phonePad
+            titleInfo       = dictDetails.value(forKey: "whatsapp") as! String
             break
         default:
             break
@@ -558,13 +631,15 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         let imageView       = cell.viewWithTag(1) as! UIImageView
         imageView.image     = UIImage(named: image)
         
-        let mTextLabel      = cell.viewWithTag(2) as! UILabel
-        mTextLabel.text     = title
+        //let mTextLabel      = cell.viewWithTag(2) as! UILabel
+        //mTextLabel.text     = title
         
-        let mTextLabelInfo  = cell.viewWithTag(3) as! UITextField
-        mTextLabelInfo.text = titleInfo
+        let mTextFieldInfo          = cell.viewWithTag(3) as! UITextField
+        mTextFieldInfo.placeholder  = placeHolder
+        mTextFieldInfo.text         = titleInfo
+        mTextFieldInfo.keyboardType = keyBoard
         
-        isEditMode ? (mTextLabelInfo.isUserInteractionEnabled = true) : (mTextLabelInfo.isUserInteractionEnabled = false)
+        isEditMode ? (mTextFieldInfo.isUserInteractionEnabled = true) : (mTextFieldInfo.isUserInteractionEnabled = false)
         
         return cell
     }
@@ -600,6 +675,9 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         }else{
             print("May be later")
         }
+        
+        textField.text          = textField.text?.trimmingCharacters(in: .whitespaces)
+        
         return true
     }
     
@@ -627,29 +705,80 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     
     func saveDealershipInfo () {
         
+        
+        if !SVProgressHUD.isVisible() {
+            SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+        }
+        
         let servicesManager = ServicesManager()
         let parmDict        = NSMutableDictionary()
         parmDict.setValue("PUT", forKey: "_method")
         parmDict.setValue(self.mDealershipInfoDict.value(forKey: "id") as! NSNumber, forKey: "dealer_ID")
         parmDict.setValue(self.mTextFieldDealershipTitle.text!, forKey: "name")
-        parmDict.setValue(((self.mArrayDealershipInfo.object(at: 0) as! NSMutableArray).object(at: 1) as! NSMutableDictionary).value(forKey: "website") as! String, forKey: "email")
-        parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 0) as! NSMutableDictionary).value(forKey: "facebook") as! String, forKey: "facebook")
-        parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 1) as! NSMutableDictionary).value(forKey: "instagram") as! String, forKey: "instagram")
-        parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 2) as! NSMutableDictionary).value(forKey: "google_plus") as! String, forKey: "google_plus")
-        parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 3) as! NSMutableDictionary).value(forKey: "twitter") as! String, forKey: "twitter")
-        parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 4) as! NSMutableDictionary).value(forKey: "whatsapp") as! String, forKey: "whatsapp")
-        parmDict.setValue(self.mTextViewDealershipInfo.text!, forKey: "short_bio")
-        parmDict.setValue(self.mDealershipInfoDict.value(forKey: "registration_number"), forKey: "registration_number")
         
-        parmDict.setValue(self.mImageData, forKey: "photo")
+        
+        
+        if let value = ((self.mArrayDealershipInfo.object(at: 0) as! NSMutableArray).object(at: 0) as! NSMutableDictionary).value(forKey: "phone_number") as? String {
+            parmDict.setValue(value, forKey: "phone_number")
+        }
+        
+        if let value = ((self.mArrayDealershipInfo.object(at: 0) as! NSMutableArray).object(at: 1) as! NSMutableDictionary).value(forKey: "website") as? String {
+            parmDict.setValue(value, forKey: "website")
+        }
+        
+        if let value = ((self.mArrayDealershipInfo.object(at: 0) as! NSMutableArray).object(at: 2) as! NSMutableDictionary).value(forKey: "address") as? String {
+            parmDict.setValue(value, forKey: "address")
+        }
+        
+        if let value = ((self.mArrayDealershipInfo.object(at: 0) as! NSMutableArray).object(at: 3) as! NSMutableDictionary).value(forKey: "city") as? String {
+            parmDict.setValue(value, forKey: "city")
+        }
+        
+        if ((self.mArrayDealershipInfo.object(at: 0) as! NSMutableArray).object(at: 4) as! NSMutableDictionary).value(forKey: "zip") as? String != "" {
+            parmDict.setValue(((self.mArrayDealershipInfo.object(at: 0) as! NSMutableArray).object(at: 4) as! NSMutableDictionary).value(forKey: "zip") as? String, forKey: "zip")
+        }
+        
+        if ((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 0) as! NSMutableDictionary).value(forKey: "facebook") as? String != "" {
+            parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 0) as! NSMutableDictionary).value(forKey: "facebook") as? String, forKey: "facebook")
+        }
+        
+        if ((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 1) as! NSMutableDictionary).value(forKey: "instagram") as? String != "" {
+            parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 1) as! NSMutableDictionary).value(forKey: "instagram") as? String, forKey: "instagram")
+        }
+        
+        if ((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 2) as! NSMutableDictionary).value(forKey: "google_plus") as? String != "" {
+            parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 2) as! NSMutableDictionary).value(forKey: "google_plus") as? String, forKey: "google_plus")
+        }
+        
+        if ((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 3) as! NSMutableDictionary).value(forKey: "twitter") as? String != "" {
+            parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 3) as! NSMutableDictionary).value(forKey: "twitter") as? String, forKey: "twitter")
+        }
+        
+        if ((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 4) as! NSMutableDictionary).value(forKey: "whatsapp") as? String != "" {
+            parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 4) as! NSMutableDictionary).value(forKey: "whatsapp") as? String, forKey: "whatsapp")
+        }
+        
+        
+        if  self.mTextViewDealershipInfo.text != "" {
+            parmDict.setValue(self.mTextViewDealershipInfo.text! , forKey: "short_bio")
+        }
+        
+        parmDict.setValue(self.mDealershipInfoDict.value(forKey: "registration_number"), forKey: "registration_number")
+        //parmDict.setValue(self.mImageData, forKey: "photo")
         
         servicesManager.editDealership(parameters: parmDict, completion: { (result, error) in
             DispatchQueue.main.async {
                 
                 
                 if let success = result.value(forKey: "updated") as? NSNumber {
+                   
                     SVProgressHUD.dismiss()
                     print("Updated Successfully \(success)")
+                    
+                    self.isEditMode                                             = false
+                    self.mTextFieldDealershipTitle.isUserInteractionEnabled     = false
+                    self.mTextViewDealershipInfo.isUserInteractionEnabled       = false
+                    
                     TSMessage.showNotification(in: self , title: "\nInfo updated successfully.", subtitle: nil, type: TSMessageNotificationType.message)
                     let editButtonItem      = UIBarButtonItem.init(image: UIImage(named:"edit_white"), style: .plain, target: self, action: #selector(self.editAction))
                     self.navigationItem.rightBarButtonItems = [editButtonItem]
@@ -657,9 +786,10 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                     
                 }else{
                     
-                    TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
                     
                     if let value = result.value(forKey: "error") {
+                        
+                        TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
                         
                         if value as! String == "Unauthenticated." {
                             
@@ -680,10 +810,60 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                             })
                         }else{
                             SVProgressHUD.dismiss()
-                            
                         }
                     }else{
                         SVProgressHUD.dismiss()
+                        
+                        if let value = result.value(forKey: "email") {
+                            
+                            print(value)
+                            TSMessage.showNotification(in: self , title: "\n The email must be a valid email address.", subtitle: nil, type: TSMessageNotificationType.message)
+
+                        }
+                        
+                        else if let value = result.value(forKey: "facebook") {
+                            
+                            print(value)
+                            TSMessage.showNotification(in: self , title: "\n The facebook format is invalid.", subtitle: nil, type: TSMessageNotificationType.message)
+                            
+                        }
+                        
+                        else if let value = result.value(forKey: "instagram") {
+                            
+                            print(value)
+                            TSMessage.showNotification(in: self , title: "\n The instagram format is invalid.", subtitle: nil, type: TSMessageNotificationType.message)
+                            
+                        }
+                        
+                        else if let value = result.value(forKey: "google_plus") {
+                            
+                            print(value)
+                            TSMessage.showNotification(in: self , title: "\n The Google Plus format is invalid.", subtitle: nil, type: TSMessageNotificationType.message)
+                            
+                        }
+                        
+                        else if let value = result.value(forKey: "twitter") {
+                            
+                            print(value)
+                            TSMessage.showNotification(in: self , title: "\n The Twitter format is invalid.", subtitle: nil, type: TSMessageNotificationType.message)
+                            
+                        }
+                        
+                        else if let value = result.value(forKey: "twitter") {
+                            
+                            print(value)
+                            TSMessage.showNotification(in: self , title: "\n The Twitter format is invalid.", subtitle: nil, type: TSMessageNotificationType.message)
+                            
+                        }
+                        
+                        else if let value = result.value(forKey: "whatsapp") {
+                            
+                            print(value)
+                            TSMessage.showNotification(in: self , title: "\n Whatsapp is invalid phone number, example: +1234567890", subtitle: nil, type: TSMessageNotificationType.message)
+                            
+                        }
+                        
+                        
                         
                     }
                     
@@ -692,6 +872,14 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             }
         })
         
+    }
+    
+    func validateWebsiteUrl (stringURL : NSString) -> Bool {
+        
+        let urlRegEx    = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        let predicate   = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
+        _               = NSPredicate.withSubstitutionVariables(predicate)
+        return predicate.evaluate(with: stringURL)
     }
     
     /*
