@@ -32,8 +32,9 @@ class ProfileViewController: UIViewController , MJPendingPopupDelegate , UIImage
     
     var mDictUserInfo = NSDictionary()
     
-    var mImageData    = Data()
-    var mStrBase64    = String()
+    var mImageUser    = UIImage()
+    //var mImageData    = Data()
+    //var mStrBase64    = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,8 @@ class ProfileViewController: UIViewController , MJPendingPopupDelegate , UIImage
         self.mTextFieldUserName.isUserInteractionEnabled = false
         self.mSaveButton.isHidden                        = true
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,7 +124,8 @@ class ProfileViewController: UIViewController , MJPendingPopupDelegate , UIImage
                     SVProgressHUD.dismiss()
                     
                     self.mDictUserInfo              = result
-                    //self.mImageViewUser.sd_setImage(with: URL(string:self.mDictUserInfo.value(forKey: "profile_image_thumb_url") as! String)  , placeholderImage: UIImage.init(named: "Profile-1"))
+                    SDImageCache.shared().removeImage(forKey: self.mDictUserInfo.value(forKey: "profile_image_medium_url") as! String, fromDisk: true)
+                    self.mImageViewUser.sd_setImage(with: URL(string:self.mDictUserInfo.value(forKey: "profile_image_medium_url") as! String)  , placeholderImage: UIImage.init(named: "Profile-1"))
                     self.mTextFieldUserName.text    = self.mDictUserInfo.value(forKey: "name") as? String
                     self.mLabelPhoneNumber .text    = "\(self.mDictUserInfo.value(forKey: "phone") as! String)"
                     
@@ -228,28 +232,14 @@ class ProfileViewController: UIViewController , MJPendingPopupDelegate , UIImage
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
             let resizedImage            = image.resizeWith(width: 250)
             self.mImageViewUser.image   = resizedImage
-            
-            self.mImageData             = UIImageJPEGRepresentation(resizedImage!, 1.0)! as Data
-            self.mStrBase64             = mImageData.base64EncodedString(options:.lineLength64Characters) as String
-            
-            print("Update Profile")
-            
-            self.mCameraButton.isHidden                      = true
-            self.mTextFieldUserName.isUserInteractionEnabled = false
+            self.mImageUser             = resizedImage!
+            //self.mImageData             = UIImageJPEGRepresentation(resizedImage!, 1.0)! as Data
+            //self.mStrBase64             = mImageData.base64EncodedString(options:.lineLength64Characters) as String
             
         }
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        
-        print("Update Profile")
-        
-        self.mCameraButton.isHidden                      = true
-        self.mTextFieldUserName.isUserInteractionEnabled = false
-        
-        return true
-    }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool{
         
@@ -276,10 +266,10 @@ class ProfileViewController: UIViewController , MJPendingPopupDelegate , UIImage
         //parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 3) as! NSMutableDictionary).value(forKey: "twitter") as! String, forKey: "twitter")
         //parmDict.setValue(((self.mArrayDealershipInfo.object(at: 1) as! NSMutableArray).object(at: 4) as! NSMutableDictionary).value(forKey: "whatsapp") as! String, forKey: "whatsapp")
         //parmDict.setValue(self.mTextViewDealershipInfo.text!, forKey: "short_bio")
-        parmDict.setValue(self.mImageData, forKey: "photo")
+        //parmDict.setValue(self.mImageData, forKey: "photo")
         
         
-        servicesManager.editProfile(parameters: parmDict, completion: { (result, error) in
+        servicesManager.editProfile(parameters: parmDict, image : self.mImageUser , completion: { (result, error) in
             DispatchQueue.main.async {
                 
                 
@@ -343,6 +333,10 @@ class ProfileViewController: UIViewController , MJPendingPopupDelegate , UIImage
      }
      */
     
+    
+    func generateBoundaryString() -> String {
+        return "Boundary-\(NSUUID().uuidString)"
+    }
 }
 
 extension UIImage {

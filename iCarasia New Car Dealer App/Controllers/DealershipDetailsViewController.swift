@@ -24,8 +24,10 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     var mDealershipInfoDict     = NSDictionary()
     var mArrayDealershipInfo    = NSMutableArray()
     
-    var mImageData    = Data()
-    var mStrBase64    = String()
+    var mImageDealership        = UIImage()
+    
+    //var mImageData    = Data()
+    //var mStrBase64    = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +93,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         
         mTextFieldDealershipTitle.text  = mDealershipInfoDict.value(forKey: "name") as! String?
         mLabelDealershipMake.text       = mDealershipInfoDict.value(forKeyPath: "make.name") as! String?
-        //mTextViewDealershipInfo.text    = ""
+        mTextViewDealershipInfo.text    = mDealershipInfoDict.value(forKey:"short_description") as! String?
         
         // First Section //
         
@@ -653,8 +655,10 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             let resizedImage                = image.resizeWith(percentage: 0.5)
             self.mImageViewDealership.image = resizedImage
             
-            self.mImageData                 = UIImageJPEGRepresentation(resizedImage!, 1.0)! as Data
-            self.mStrBase64                 = mImageData.base64EncodedString(options:.lineLength64Characters) as String
+            self.mImageDealership             = resizedImage!
+
+            //self.mImageData                 = UIImageJPEGRepresentation(resizedImage!, 1.0)! as Data
+            //self.mStrBase64                 = mImageData.base64EncodedString(options:.lineLength64Characters) as String
             
             print("Update Profile")
         }
@@ -760,13 +764,13 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         
         
         if  self.mTextViewDealershipInfo.text != "" {
-            parmDict.setValue(self.mTextViewDealershipInfo.text! , forKey: "short_bio")
+            parmDict.setValue(self.mTextViewDealershipInfo.text! , forKey: "short_description")
         }
         
         parmDict.setValue(self.mDealershipInfoDict.value(forKey: "registration_number"), forKey: "registration_number")
         //parmDict.setValue(self.mImageData, forKey: "photo")
         
-        servicesManager.editDealership(parameters: parmDict, completion: { (result, error) in
+        servicesManager.editDealership( parameters: parmDict, image : self.mImageDealership , completion: { (result, error) in
             DispatchQueue.main.async {
                 
                 
@@ -776,6 +780,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                     print("Updated Successfully \(success)")
                     
                     self.isEditMode                                             = false
+                    self.mButtonCamera.isHidden                                  = true
                     self.mTextFieldDealershipTitle.isUserInteractionEnabled     = false
                     self.mTextViewDealershipInfo.isUserInteractionEnabled       = false
                     
@@ -863,8 +868,12 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                             
                         }
                         
-                        
-                        
+                        else if let value = result.value(forKey: "photo") {
+                            
+                            print(value)
+                            TSMessage.showNotification(in: self , title: "\n The photo has invalid image dimensions.", subtitle: nil, type: TSMessageNotificationType.message)
+                            
+                        }
                     }
                     
                 }

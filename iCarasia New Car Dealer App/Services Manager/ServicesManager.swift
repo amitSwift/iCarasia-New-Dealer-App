@@ -902,8 +902,9 @@ class ServicesManager: NSObject {
     
     //MARK: - Edit Profile -
     
-    func editProfile(parameters : NSMutableDictionary!, completion: @escaping (_ result: NSDictionary , _ error : NSError? ) -> Void){
+    func editProfile(parameters : NSMutableDictionary! , image : UIImage! , completion: @escaping (_ result: NSDictionary , _ error : NSError? ) -> Void){
         
+        /*
         var parametersString: String                            = ""
         for (key, value) in parameters{
             if(parametersString.isEmpty){ parametersString      = parametersString+"\(key)"+"=\(value)" }
@@ -911,6 +912,7 @@ class ServicesManager: NSObject {
                 parametersString                                = parametersString+"&\(key)"+"=\(value)" }
         }
         parametersString                          = parametersString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        */
         
         
         let urlString: String               = BASE_URL + "/api/profile"
@@ -921,9 +923,18 @@ class ServicesManager: NSObject {
         request.addValue("Bearer : \(self.token())", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-type")
-        request.setValue("\(UInt(parametersString.lengthOfBytes(using: String.Encoding.utf8)))", forHTTPHeaderField: "Content-Length")
-        request.httpBody                    = parametersString.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        //request.setValue("\(UInt(parametersString.lengthOfBytes(using: String.Encoding.utf8)))", forHTTPHeaderField: "Content-Length")
+        //request.httpBody                    = parametersString.data(using: String.Encoding.utf8, allowLossyConversion: true)
         request.timeoutInterval             = 90.0
+        
+        
+        let boundary = generateBoundaryString()
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        let imageData = UIImageJPEGRepresentation(image , 1)
+        
+        request.httpBody = createBodyWithParameters(parameters: parameters, filePathKey: "photo", imageDataKey: imageData , boundary: boundary, filename: "images.jpeg") as Data
+        
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             
@@ -956,9 +967,10 @@ class ServicesManager: NSObject {
     
     //MARK: - Edit Dealership -
     
-    func editDealership(parameters : NSMutableDictionary!, completion: @escaping (_ result: NSDictionary , _ error : NSError? ) -> Void){
+    func editDealership(parameters : NSMutableDictionary! , image : UIImage! , completion: @escaping (_ result: NSDictionary , _ error : NSError? ) -> Void){
         
         let delarId                                             = parameters.value(forKey:"dealer_ID")
+        
         
         var parametersString: String                            = ""
         for (key, value) in parameters{
@@ -968,7 +980,7 @@ class ServicesManager: NSObject {
         }
         parametersString                    = parametersString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         parametersString                    = parametersString.replacingOccurrences(of: "+", with: "%2B")
-        
+ 
         
         let urlString: String               = BASE_URL + "dealer-api/dealership/\(delarId!)/profile"
         let urlWithPercentEscapes           = urlString.addingPercentEncoding( withAllowedCharacters: .urlQueryAllowed)
@@ -978,9 +990,18 @@ class ServicesManager: NSObject {
         request.addValue("Bearer : \(self.token())", forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-type")
+        
         request.setValue("\(UInt(parametersString.lengthOfBytes(using: String.Encoding.utf8)))", forHTTPHeaderField: "Content-Length")
-        request.httpBody                    = parametersString.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        //request.httpBody                    = parametersString.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        
         request.timeoutInterval             = 90.0
+        
+        let boundary = generateBoundaryString()
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        let imageData = UIImageJPEGRepresentation(image , 1)
+        
+        request.httpBody = createBodyWithParameters(parameters: parameters, filePathKey: "photo", imageDataKey: imageData , boundary: boundary, filename: "images.jpeg") as Data
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             
@@ -1010,6 +1031,35 @@ class ServicesManager: NSObject {
         return
     }
     
+    func generateBoundaryString() -> String {
+        return "Boundary-\(NSUUID().uuidString)"
+    }
+    
+    func createBodyWithParameters(parameters: NSDictionary!, filePathKey: String!, imageDataKey: Data!, boundary: String, filename: String) -> NSData {
+        
+        let body = NSMutableData();
+        if parameters != nil {
+            
+            for (key, value) in parameters! {
+                body.appendString("--\(boundary)\r\n")
+                body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.appendString("\(value)\r\n")
+            }
+        }
+        
+        if imageDataKey != nil{
+            
+            let mimetype = "image/jpeg"
+            body.appendString("--\(boundary)\r\n")
+            body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+            body.appendString("Content-Type: \(mimetype)\r\n\r\n")
+            body.append(imageDataKey as Data)
+            body.appendString("\r\n")
+            body.appendString("--\(boundary)--\r\n")
+        }
+        
+        return body
+    }
 }
 
 // MARK: - Extension for image Uploading -
