@@ -841,6 +841,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                     self.mButtonCamera.isHidden                                  = true
                     self.mTextFieldDealershipTitle.isUserInteractionEnabled     = false
                     self.mTextViewDealershipInfo.isUserInteractionEnabled       = false
+                    
                     SDImageCache.shared().removeImage(forKey:self.mDealershipInfoDict.value(forKey: "profile_image_large_url") as! String , fromDisk: true)
                     SDImageCache.shared().removeImage(forKey:self.mDealershipInfoDict.value(forKey: "profile_image_medium_url") as! String , fromDisk: true)
                     
