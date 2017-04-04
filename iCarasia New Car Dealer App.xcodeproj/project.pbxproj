@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28B6DA0D1E93656900334EFE /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6D9FE1E93656900334EFE /* TOActivityCroppedImageProvider.m */; };
-		28B6DA0E1E93656900334EFE /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA001E93656900334EFE /* TOCroppedImageAttributes.m */; };
-		28B6DA0F1E93656900334EFE /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA021E93656900334EFE /* TOCropViewControllerTransitioning.m */; };
-		28B6DA101E93656900334EFE /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA041E93656900334EFE /* UIImage+CropRotate.m */; };
-		28B6DA111E93656900334EFE /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA061E93656900334EFE /* TOCropOverlayView.m */; };
-		28B6DA121E93656900334EFE /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA081E93656900334EFE /* TOCropScrollView.m */; };
-		28B6DA141E93656900334EFE /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA0C1E93656900334EFE /* TOCropView.m */; };
-		28B6DA171E93658A00334EFE /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA161E93658A00334EFE /* TOCropViewController.m */; };
 		AA7E05567A2C3060F9693CBA /* libPods-iCarasia New Car Dealer App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBB9CB9D18DF93ABA738F1D /* libPods-iCarasia New Car Dealer App.a */; };
 		F10591261E6D24760025B45B /* AcComViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10591251E6D24760025B45B /* AcComViewController.swift */; };
 		F10591281E6D3A3C0025B45B /* BrandOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10591271E6D3A3C0025B45B /* BrandOffersViewController.swift */; };
@@ -47,15 +39,15 @@
 		F124CE421E5EC4E100FAE9CF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124CE411E5EC4E100FAE9CF /* MainTabBarController.swift */; };
 		F12ED3A31E88EB9B00B7FA43 /* ChangeBranchManagerPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12ED3A11E88EB9B00B7FA43 /* ChangeBranchManagerPopUpVC.swift */; };
 		F12ED3A41E88EB9B00B7FA43 /* SelectBranchManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12ED3A21E88EB9B00B7FA43 /* SelectBranchManagerVC.swift */; };
-		F13140411E93AC9A00367ECC /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140301E93AC9A00367ECC /* TOActivityCroppedImageProvider.m */; };
-		F13140421E93AC9A00367ECC /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140321E93AC9A00367ECC /* TOCropOverlayView.m */; };
-		F13140431E93AC9A00367ECC /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140341E93AC9A00367ECC /* TOCroppedImageAttributes.m */; };
-		F13140441E93AC9A00367ECC /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140361E93AC9A00367ECC /* TOCropScrollView.m */; };
-		F13140451E93AC9A00367ECC /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140381E93AC9A00367ECC /* TOCropToolbar.m */; };
-		F13140461E93AC9A00367ECC /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = F131403A1E93AC9A00367ECC /* TOCropView.m */; };
-		F13140471E93AC9A00367ECC /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F131403C1E93AC9A00367ECC /* TOCropViewController.m */; };
-		F13140481E93AC9A00367ECC /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = F131403E1E93AC9A00367ECC /* TOCropViewControllerTransitioning.m */; };
-		F13140491E93AC9A00367ECC /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140401E93AC9A00367ECC /* UIImage+CropRotate.m */; };
+		F13140771E93AFD800367ECC /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140681E93AFD800367ECC /* TOActivityCroppedImageProvider.m */; };
+		F13140791E93AFD800367ECC /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = F131406C1E93AFD800367ECC /* TOCropViewControllerTransitioning.m */; };
+		F131407B1E93AFD800367ECC /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140701E93AFD800367ECC /* TOCropOverlayView.m */; };
+		F131407C1E93AFD800367ECC /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140721E93AFD800367ECC /* TOCropScrollView.m */; };
+		F131407D1E93AFD800367ECC /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140741E93AFD800367ECC /* TOCropToolbar.m */; };
+		F131407E1E93AFD800367ECC /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140761E93AFD800367ECC /* TOCropView.m */; };
+		F13140811E93AFE000367ECC /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F13140801E93AFE000367ECC /* TOCropViewController.m */; };
+		F13140821E93B1E900367ECC /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = F131406A1E93AFD800367ECC /* TOCroppedImageAttributes.m */; };
+		F13140831E93B1ED00367ECC /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = F131406E1E93AFD800367ECC /* UIImage+CropRotate.m */; };
 		F16A8DA11E93792400C845F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F16A8DA31E93792400C845F0 /* Localizable.strings */; };
 		F16A8DA81E937AD600C845F0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A8DA71E937AD600C845F0 /* StringExtension.swift */; };
 		F174D85B1E717B6D00CBC1BE /* MJPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = F174D8581E717B6D00CBC1BE /* MJPopupBackgroundView.m */; };
@@ -90,14 +82,6 @@
 
 /* Begin PBXFileReference section */
 		1CBB9CB9D18DF93ABA738F1D /* libPods-iCarasia New Car Dealer App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCarasia New Car Dealer App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		28B6D9FE1E93656900334EFE /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
-		28B6DA001E93656900334EFE /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCroppedImageAttributes.m; sourceTree = "<group>"; };
-		28B6DA021E93656900334EFE /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTransitioning.m; sourceTree = "<group>"; };
-		28B6DA041E93656900334EFE /* UIImage+CropRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropRotate.m"; sourceTree = "<group>"; };
-		28B6DA061E93656900334EFE /* TOCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropOverlayView.m; sourceTree = "<group>"; };
-		28B6DA081E93656900334EFE /* TOCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropScrollView.m; sourceTree = "<group>"; };
-		28B6DA0C1E93656900334EFE /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
-		28B6DA161E93658A00334EFE /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
 		8FCEAE108437A7226B8176CA /* Pods-iCarasia New Car Dealer App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCarasia New Car Dealer App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCarasia New Car Dealer App/Pods-iCarasia New Car Dealer App.debug.xcconfig"; sourceTree = "<group>"; };
 		F10591251E6D24760025B45B /* AcComViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcComViewController.swift; sourceTree = "<group>"; };
 		F10591271E6D3A3C0025B45B /* BrandOffersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandOffersViewController.swift; sourceTree = "<group>"; };
@@ -136,24 +120,24 @@
 		F124CE411E5EC4E100FAE9CF /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F12ED3A11E88EB9B00B7FA43 /* ChangeBranchManagerPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeBranchManagerPopUpVC.swift; sourceTree = "<group>"; };
 		F12ED3A21E88EB9B00B7FA43 /* SelectBranchManagerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBranchManagerVC.swift; sourceTree = "<group>"; };
-		F131402F1E93AC9A00367ECC /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityCroppedImageProvider.h; sourceTree = "<group>"; };
-		F13140301E93AC9A00367ECC /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
-		F13140311E93AC9A00367ECC /* TOCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropOverlayView.h; sourceTree = "<group>"; };
-		F13140321E93AC9A00367ECC /* TOCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropOverlayView.m; sourceTree = "<group>"; };
-		F13140331E93AC9A00367ECC /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCroppedImageAttributes.h; sourceTree = "<group>"; };
-		F13140341E93AC9A00367ECC /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCroppedImageAttributes.m; sourceTree = "<group>"; };
-		F13140351E93AC9A00367ECC /* TOCropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropScrollView.h; sourceTree = "<group>"; };
-		F13140361E93AC9A00367ECC /* TOCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropScrollView.m; sourceTree = "<group>"; };
-		F13140371E93AC9A00367ECC /* TOCropToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropToolbar.h; sourceTree = "<group>"; };
-		F13140381E93AC9A00367ECC /* TOCropToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropToolbar.m; sourceTree = "<group>"; };
-		F13140391E93AC9A00367ECC /* TOCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropView.h; sourceTree = "<group>"; };
-		F131403A1E93AC9A00367ECC /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
-		F131403B1E93AC9A00367ECC /* TOCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewController.h; sourceTree = "<group>"; };
-		F131403C1E93AC9A00367ECC /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
-		F131403D1E93AC9A00367ECC /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewControllerTransitioning.h; sourceTree = "<group>"; };
-		F131403E1E93AC9A00367ECC /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTransitioning.m; sourceTree = "<group>"; };
-		F131403F1E93AC9A00367ECC /* UIImage+CropRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropRotate.h"; sourceTree = "<group>"; };
-		F13140401E93AC9A00367ECC /* UIImage+CropRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropRotate.m"; sourceTree = "<group>"; };
+		F13140671E93AFD800367ECC /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityCroppedImageProvider.h; sourceTree = "<group>"; };
+		F13140681E93AFD800367ECC /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
+		F13140691E93AFD800367ECC /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCroppedImageAttributes.h; sourceTree = "<group>"; };
+		F131406A1E93AFD800367ECC /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCroppedImageAttributes.m; sourceTree = "<group>"; };
+		F131406B1E93AFD800367ECC /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewControllerTransitioning.h; sourceTree = "<group>"; };
+		F131406C1E93AFD800367ECC /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTransitioning.m; sourceTree = "<group>"; };
+		F131406D1E93AFD800367ECC /* UIImage+CropRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropRotate.h"; sourceTree = "<group>"; };
+		F131406E1E93AFD800367ECC /* UIImage+CropRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropRotate.m"; sourceTree = "<group>"; };
+		F131406F1E93AFD800367ECC /* TOCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropOverlayView.h; sourceTree = "<group>"; };
+		F13140701E93AFD800367ECC /* TOCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropOverlayView.m; sourceTree = "<group>"; };
+		F13140711E93AFD800367ECC /* TOCropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropScrollView.h; sourceTree = "<group>"; };
+		F13140721E93AFD800367ECC /* TOCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropScrollView.m; sourceTree = "<group>"; };
+		F13140731E93AFD800367ECC /* TOCropToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropToolbar.h; sourceTree = "<group>"; };
+		F13140741E93AFD800367ECC /* TOCropToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropToolbar.m; sourceTree = "<group>"; };
+		F13140751E93AFD800367ECC /* TOCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropView.h; sourceTree = "<group>"; };
+		F13140761E93AFD800367ECC /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
+		F131407F1E93AFE000367ECC /* TOCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewController.h; sourceTree = "<group>"; };
+		F13140801E93AFE000367ECC /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
 		F16A8D9B1E9378C400C845F0 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Main.strings; sourceTree = "<group>"; };
 		F16A8D9C1E9378C400C845F0 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F16A8D9D1E9378D100C845F0 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Main.strings; sourceTree = "<group>"; };
@@ -283,35 +267,35 @@
 			path = "UUChart Classes";
 			sourceTree = "<group>";
 		};
-		F16A8DA91E937BA300C845F0 /* TOCrop */ = {
+		F13140661E93AFC700367ECC /* Crop */ = {
 			isa = PBXGroup;
 			children = (
-				F131402F1E93AC9A00367ECC /* TOActivityCroppedImageProvider.h */,
-				F13140301E93AC9A00367ECC /* TOActivityCroppedImageProvider.m */,
-				F13140311E93AC9A00367ECC /* TOCropOverlayView.h */,
-				F13140321E93AC9A00367ECC /* TOCropOverlayView.m */,
-				F13140331E93AC9A00367ECC /* TOCroppedImageAttributes.h */,
-				F13140341E93AC9A00367ECC /* TOCroppedImageAttributes.m */,
-				F13140351E93AC9A00367ECC /* TOCropScrollView.h */,
-				F13140361E93AC9A00367ECC /* TOCropScrollView.m */,
-				F13140371E93AC9A00367ECC /* TOCropToolbar.h */,
-				F13140381E93AC9A00367ECC /* TOCropToolbar.m */,
-				F13140391E93AC9A00367ECC /* TOCropView.h */,
-				F131403A1E93AC9A00367ECC /* TOCropView.m */,
-				F131403B1E93AC9A00367ECC /* TOCropViewController.h */,
-				F131403C1E93AC9A00367ECC /* TOCropViewController.m */,
-				F131403D1E93AC9A00367ECC /* TOCropViewControllerTransitioning.h */,
-				F131403E1E93AC9A00367ECC /* TOCropViewControllerTransitioning.m */,
-				F131403F1E93AC9A00367ECC /* UIImage+CropRotate.h */,
-				F13140401E93AC9A00367ECC /* UIImage+CropRotate.m */,
+				F131407F1E93AFE000367ECC /* TOCropViewController.h */,
+				F13140801E93AFE000367ECC /* TOCropViewController.m */,
+				F13140671E93AFD800367ECC /* TOActivityCroppedImageProvider.h */,
+				F13140681E93AFD800367ECC /* TOActivityCroppedImageProvider.m */,
+				F13140691E93AFD800367ECC /* TOCroppedImageAttributes.h */,
+				F131406A1E93AFD800367ECC /* TOCroppedImageAttributes.m */,
+				F131406B1E93AFD800367ECC /* TOCropViewControllerTransitioning.h */,
+				F131406C1E93AFD800367ECC /* TOCropViewControllerTransitioning.m */,
+				F131406D1E93AFD800367ECC /* UIImage+CropRotate.h */,
+				F131406E1E93AFD800367ECC /* UIImage+CropRotate.m */,
+				F131406F1E93AFD800367ECC /* TOCropOverlayView.h */,
+				F13140701E93AFD800367ECC /* TOCropOverlayView.m */,
+				F13140711E93AFD800367ECC /* TOCropScrollView.h */,
+				F13140721E93AFD800367ECC /* TOCropScrollView.m */,
+				F13140731E93AFD800367ECC /* TOCropToolbar.h */,
+				F13140741E93AFD800367ECC /* TOCropToolbar.m */,
+				F13140751E93AFD800367ECC /* TOCropView.h */,
+				F13140761E93AFD800367ECC /* TOCropView.m */,
 			);
-			path = TOCrop;
+			name = Crop;
 			sourceTree = "<group>";
 		};
 		F174D8551E717B6D00CBC1BE /* Third Party Classes */ = {
 			isa = PBXGroup;
 			children = (
-				F16A8DA91E937BA300C845F0 /* TOCrop */,
+				F13140661E93AFC700367ECC /* Crop */,
 				F174D8561E717B6D00CBC1BE /* MJPopup */,
 			);
 			path = "Third Party Classes";
@@ -576,64 +560,56 @@
 				F19A52501E5D99AD008BEA41 /* DVChatViewController.swift in Sources */,
 				F174D8641E717BC000CBC1BE /* ReviewFilterVC.swift in Sources */,
 				F124CE3A1E5EA3DA00FAE9CF /* UserInfoViewController.swift in Sources */,
-				F13140491E93AC9A00367ECC /* UIImage+CropRotate.m in Sources */,
+				F13140831E93B1ED00367ECC /* UIImage+CropRotate.m in Sources */,
 				F10591381E6D5C0A0025B45B /* CustomButton.swift in Sources */,
-				28B6DA101E93656900334EFE /* UIImage+CropRotate.m in Sources */,
-				28B6DA0E1E93656900334EFE /* TOCroppedImageAttributes.m in Sources */,
-				F13140431E93AC9A00367ECC /* TOCroppedImageAttributes.m in Sources */,
 				F10591611E6D940F0025B45B /* DealershipDetailsViewController.swift in Sources */,
 				F19A524B1E5D999C008BEA41 /* LoginViewController.swift in Sources */,
-				F13140411E93AC9A00367ECC /* TOActivityCroppedImageProvider.m in Sources */,
-				28B6DA141E93656900334EFE /* TOCropView.m in Sources */,
+				F13140811E93AFE000367ECC /* TOCropViewController.m in Sources */,
+				F13140771E93AFD800367ECC /* TOActivityCroppedImageProvider.m in Sources */,
 				F10591481E6D7B100025B45B /* ChartCell.swift in Sources */,
+				F13140821E93B1E900367ECC /* TOCroppedImageAttributes.m in Sources */,
 				F12ED3A31E88EB9B00B7FA43 /* ChangeBranchManagerPopUpVC.swift in Sources */,
 				F124CE421E5EC4E100FAE9CF /* MainTabBarController.swift in Sources */,
-				28B6DA121E93656900334EFE /* TOCropScrollView.m in Sources */,
 				F10591561E6D7B380025B45B /* UUBar.m in Sources */,
-				28B6DA111E93656900334EFE /* TOCropOverlayView.m in Sources */,
+				F131407E1E93AFD800367ECC /* TOCropView.m in Sources */,
 				F10591281E6D3A3C0025B45B /* BrandOffersViewController.swift in Sources */,
 				F1B1F06D1E682E8100CAC9EA /* OffersViewController.swift in Sources */,
 				F174D86D1E717C1300CBC1BE /* ReviewFilterView.swift in Sources */,
 				F174D86B1E717C1300CBC1BE /* ReviewCell.swift in Sources */,
 				F105915D1E6D839A0025B45B /* ProfileViewController.swift in Sources */,
+				F131407B1E93AFD800367ECC /* TOCropOverlayView.m in Sources */,
 				F1B1F06B1E682E6D00CAC9EA /* PerformaceViewController.swift in Sources */,
 				F174D8661E717BC000CBC1BE /* ReviewsVC.swift in Sources */,
 				F10591571E6D7B380025B45B /* UUBarChart.m in Sources */,
 				F16A8DA81E937AD600C845F0 /* StringExtension.swift in Sources */,
 				F105912C1E6D3C920025B45B /* CreateOfferViewController.swift in Sources */,
-				F13140481E93AC9A00367ECC /* TOCropViewControllerTransitioning.m in Sources */,
 				F174D8651E717BC000CBC1BE /* ReviewsReplyVC.swift in Sources */,
 				F12ED3A41E88EB9B00B7FA43 /* SelectBranchManagerVC.swift in Sources */,
 				F1CCAD071E8CEF3A005D9AF8 /* Utilities.swift in Sources */,
 				F174D86E1E717C1300CBC1BE /* ReviewFilterCell.swift in Sources */,
-				F13140421E93AC9A00367ECC /* TOCropOverlayView.m in Sources */,
 				F10591421E6D6E420025B45B /* MIBadgeButton.swift in Sources */,
-				28B6DA171E93658A00334EFE /* TOCropViewController.m in Sources */,
 				F10591581E6D7B380025B45B /* UUChart.m in Sources */,
 				F19A522E1E5D8D53008BEA41 /* AppDelegate.swift in Sources */,
 				F19A524F1E5D99AD008BEA41 /* ALChatManager.swift in Sources */,
 				F174D85E1E717B9000CBC1BE /* CustomView.swift in Sources */,
 				F10591261E6D24760025B45B /* AcComViewController.swift in Sources */,
 				F105915B1E6D7B380025B45B /* UULineChart.m in Sources */,
-				F13140441E93AC9A00367ECC /* TOCropScrollView.m in Sources */,
 				F11083711E794C1A006DFD55 /* AgentProfileViewController.swift in Sources */,
 				F105915F1E6D877D0025B45B /* ManageDShipsViewController.swift in Sources */,
 				F10591401E6D65250025B45B /* OfferComViewController.swift in Sources */,
 				F10591591E6D7B380025B45B /* UUChartLabel.m in Sources */,
-				28B6DA0D1E93656900334EFE /* TOActivityCroppedImageProvider.m in Sources */,
 				F10591331E6D424E0025B45B /* CustomAlertView.swift in Sources */,
+				F13140791E93AFD800367ECC /* TOCropViewControllerTransitioning.m in Sources */,
 				F192C60A1E84EDDB00D4E40A /* CreateOfferPopUpVC.swift in Sources */,
 				F1E885671E7FFCAF0041E44B /* AddAgentConfirmVC.swift in Sources */,
 				F17E105D1E6EBC830063B899 /* ServicesManager.swift in Sources */,
 				F174D85B1E717B6D00CBC1BE /* MJPopupBackgroundView.m in Sources */,
-				F13140461E93AC9A00367ECC /* TOCropView.m in Sources */,
 				F10591391E6D5C0A0025B45B /* CustomImageView.swift in Sources */,
 				F10591441E6D725C0025B45B /* PerformanceCell.swift in Sources */,
-				F13140451E93AC9A00367ECC /* TOCropToolbar.m in Sources */,
 				F174D85C1E717B6D00CBC1BE /* UIViewController+MJPopupViewController.m in Sources */,
-				F13140471E93AC9A00367ECC /* TOCropViewController.m in Sources */,
+				F131407D1E93AFD800367ECC /* TOCropToolbar.m in Sources */,
 				F105915A1E6D7B380025B45B /* UUColor.m in Sources */,
-				28B6DA0F1E93656900334EFE /* TOCropViewControllerTransitioning.m in Sources */,
+				F131407C1E93AFD800367ECC /* TOCropScrollView.m in Sources */,
 				F105913A1E6D5C0A0025B45B /* CustumTextView.swift in Sources */,
 				F19A52361E5D8D54008BEA41 /* iCarasia_New_Car_Dealer_App.xcdatamodeld in Sources */,
 			);
