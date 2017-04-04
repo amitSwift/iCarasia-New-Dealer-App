@@ -159,10 +159,11 @@ class AgentsViewController: UIViewController , UITableViewDataSource , UITableVi
                     self.presentPopupViewController(addAgentConfirmVC, animationType: MJPopupViewAnimationFade)
                     
                 }else{
-                    TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
                     
                     if let value = result.value(forKey: "error") {
                         
+                        TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+
                         if value as! String == "Unauthenticated." {
                             
                             //SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
@@ -186,6 +187,12 @@ class AgentsViewController: UIViewController , UITableViewDataSource , UITableVi
                         }
                     }else{
                         SVProgressHUD.dismiss()
+                        
+                        if let value = result.value(forKey: "phone") {
+                            
+                            print(value)
+                            TSMessage.showNotification(in: self , title: "\nPhone is invalid phone number, example: +1234567890", subtitle: nil, type: TSMessageNotificationType.message)
+                        }
                     }
                 }
             }
@@ -202,8 +209,8 @@ class AgentsViewController: UIViewController , UITableViewDataSource , UITableVi
         
         let dictInfo                = self.mArrayAgentsList.object(at: indexPath.row) as! NSDictionary
         
-        //let imageView               = cell.viewWithTag(1) as! UIImageView
-        //imageView.image             = UIImage (named: "")
+        let imageView               = cell.viewWithTag(1) as! UIImageView
+        imageView.setImageWith(URL(string: (dictInfo.value(forKeyPath: "user.profile_image_thumb_url") as? String)!), usingActivityIndicatorStyle: .gray)
         
         let labelName               = cell.viewWithTag(2) as! UILabel
         if let name = dictInfo.value(forKeyPath: "user.name") {

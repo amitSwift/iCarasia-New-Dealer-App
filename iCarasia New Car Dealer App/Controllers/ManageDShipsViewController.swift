@@ -108,6 +108,7 @@ class ManageDShipsViewController: UIViewController   , UITableViewDelegate , UIT
         dealershipIcon.sd_setImage(with: URL(string:dealershipInfo.value(forKey: "profile_image_medium_url") as! String)  , placeholderImage: nil)
         
         dealershipNameLabel.text    = dealershipInfo.value(forKey: "name") as! String?
+        
         dealershipMakeLabel.text    = dealershipInfo.value(forKeyPath: "make.name") as! String?
         
         return cell

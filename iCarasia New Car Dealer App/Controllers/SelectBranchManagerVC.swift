@@ -62,11 +62,12 @@ class SelectBranchManagerVC: UIViewController , UITableViewDelegate , UITableVie
         
         
         let mCheckImageView  = cell.viewWithTag(1) as! UIImageView
-        //let mUserImageView   = cell.viewWithTag(2) as! UIImageView
+        let mUserImageView   = cell.viewWithTag(2) as! UIImageView
         let mUserNameLabel   = cell.viewWithTag(3) as! UILabel
         let mUserPhoneLabel  = cell.viewWithTag(4) as! UILabel
         
         let dictInfo                = self.mArrayAgents.object(at: indexPath.row) as! NSDictionary
+        
         if let name = dictInfo.value(forKeyPath: "user.name") {
             mUserNameLabel.text     = name as? String
         }else{
@@ -77,6 +78,10 @@ class SelectBranchManagerVC: UIViewController , UITableViewDelegate , UITableVie
             mUserPhoneLabel.text    = phone as? String
         }else{
             mUserPhoneLabel.text    = ""
+        }
+        
+        if let thumb = dictInfo.value(forKeyPath: "user.profile_image_thumb_url") {
+            mUserImageView.setImageWith(URL(string: (thumb as? String)!), usingActivityIndicatorStyle: .gray)
         }
         
         

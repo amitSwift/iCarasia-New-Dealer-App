@@ -58,15 +58,20 @@ class AgentProfileViewController: UIViewController , UITableViewDataSource , UIT
         
         print("Dealership Info : \(mAgentInfoDict)")
         
-        if let userName  = mAgentInfoDict.value(forKeyPath: "user.name") as? String {
+        if let userName  = self.mAgentInfoDict.value(forKeyPath: "user.name") as? String {
             mLableAgentName.text    = userName
         }
         
-        if let shortBio  = mAgentInfoDict.value(forKeyPath: "user.short_bio") as? String{
+        if let shortBio  = self.mAgentInfoDict.value(forKeyPath: "user.short_bio") as? String{
             mLabelAgentInfo.text    = shortBio
         }else{
             mLabelAgentInfo.text    = ""
         }
+        
+        if let shortBio  = self.mAgentInfoDict.value(forKeyPath: "user.profile_image_thumb_url") as? String{
+            self.mImageViewAgent.setImageWith(URL(string: (self.mAgentInfoDict.value(forKeyPath: "user.profile_image_thumb_url") as? String)!), usingActivityIndicatorStyle: .gray)
+        }
+        
         
         // First Section //
         

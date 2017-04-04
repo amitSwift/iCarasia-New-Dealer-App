@@ -103,11 +103,15 @@ class AgentsDealershipsViewController: UIViewController , UITableViewDelegate , 
         
         let dealershipInfo          = self.mArrayDealerships.object(at: indexPath.row) as! NSDictionary
         
-        //let dealershipIcon          = cell.viewWithTag(1) as! UIImageView
+        let dealershipIcon          = cell.viewWithTag(1) as! UIImageView
         let dealershipNameLabel     = cell.viewWithTag(2) as! UILabel
         let dealershipMakeLabel     = cell.viewWithTag(3) as! UILabel
         
+        
+        dealershipIcon.sd_setImage(with: URL(string:dealershipInfo.value(forKey: "profile_image_medium_url") as! String)  , placeholderImage: nil)
+        
         dealershipNameLabel.text    = dealershipInfo.value(forKey: "name") as! String?
+        
         dealershipMakeLabel.text    = dealershipInfo.value(forKeyPath: "make.name") as! String?
         
         return cell
