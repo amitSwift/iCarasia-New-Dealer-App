@@ -64,10 +64,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     print(error)
                 }
@@ -113,10 +122,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -155,10 +173,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -211,10 +238,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     print(error)
                 }
@@ -257,10 +293,19 @@ class ServicesManager: NSObject {
                     return
                 }
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -304,10 +349,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -349,10 +403,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     print(error)
                 }
@@ -394,10 +457,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -437,10 +509,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     print(error)
                 }
@@ -478,10 +559,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
 
@@ -523,10 +613,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     
@@ -579,10 +678,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -625,10 +733,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     
@@ -684,10 +801,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -727,10 +853,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -771,10 +906,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -829,10 +973,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -885,10 +1038,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -950,10 +1112,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)
@@ -1017,10 +1188,19 @@ class ServicesManager: NSObject {
                 }
                 
                 do {
-                    if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
-                        print(jsonDict)
-                        completion(jsonDict , error as NSError?)
+                    
+                    if data == nil {
+                        SVProgressHUD.dismiss()
+                        let delegate = UIApplication.shared.delegate as! AppDelegate
+                        TSMessage.showNotification(in: delegate.window?.rootViewController, title: "\nError encounterd while loading data, please try again later!", subtitle: nil, type: TSMessageNotificationType.message)
                     }
+                    else{
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data! as Data, options: []) as? NSDictionary {
+                            print(jsonDict)
+                            completion(jsonDict , error as NSError?)
+                        }
+                    }
+                    
                 } catch let error as NSError {
                     SVProgressHUD.dismiss()
                     print(error)

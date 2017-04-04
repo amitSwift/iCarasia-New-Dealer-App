@@ -1,0 +1,86 @@
+/* 
+  Localizable.strings
+  iCarasia New Car Dealer App
+
+  Created by Raman Kant on 4/4/17.
+  Copyright © 2017 Raman Kant. All rights reserved.
+*/
+
+"Login" = "เข้าสู่ระบบ";
+"MESSAGE" = "ข้อความ";
+"CREATE OFFER" = "สร้างข้อเสนอ";
+"Add Agent" = "เพิ่มตัวแทน";
+"RATING" = "คะแนน";
+"388-dh-YKB.text" = "Lorem Ipsum นักลงทุนได้บังคับนั่นเอ้อ Lamet, consectetaur Cillium ส่วนลดเป็นอันตรายและความมีชีวิตชีวาเพื่อให้แรงงานและความเศร้าโศก แต่ในบางสิ่งที่สำคัญที่จะทำ eiusmod หลายปีที่ผ่านมาที่ nostrud ออกกำลังกาย, โรงเรียนเทศบาลอาจไม่ทำงาน";
+"has been added to your dealership.If you don't see your agent immediately, please ask your agent to first create your account" = "ถูกเพิ่มเข้าไปในตัวแทนจำหน่ายของคุณหากคุณไม่เห็นตัวแทนของคุณทันทีโปรดขอให้ตัวแทนของคุณสร้างบัญชีของคุณก่อน";
+"User Name" = "ชื่อผู้ใช้";
+"SUBMIT" = "ส่ง";
+"CREATE MY ACCOUNT" = "สร้างบัญชีของฉัน";
+"Email Address" = "ที่อยู่อีเมล";
+"Andrew chong motors Bangsar\n" = "มอเตอร์แอนดรูมอเตอร์บางแสน \ n";
+"Today" = "วันนี้";
+"Agent Added!" = "เพิ่มตัวแทนแล้ว!";
+"Values seen are the average of the past 30 days" = "ค่าที่เห็นคือค่าเฉลี่ยของ 30 วันที่ผ่านมา";
+"Branch Manager" = "ผู้จัดการสาขา";
+"1.8 s Model" = "รุ่น 1.8 วินาที";
+"BMW Dealership" = "ตัวแทนจำหน่าย BMW";
+"CREATE OFFER" = "สร้างข้อเสนอ";
+"Logout" = "ออกจากระบบ";
+"ADD AGENT" = "เพิ่ม AGENT";
+"GOT IT" = "เข้าใจแล้ว";
+"Edit" = "แก้ไข";
+"APPLY" = "ใช้";
+"OFFER" = "เสนอ";
+"RESPONSE TIME" = "เวลาตอบสนอง";
+"1 Star" = "1 ดาว";
+"AGENTS" = "ตัวแทน";
+"SAVE" = "บันทึก";
+"CREATE OFFER" = "สร้างข้อเสนอ";
+"Honda Dealership" = "ตัวแทนจำหน่ายฮอนด้า";
+"VIEW REVIEW" = "ดูการทบทวน";
+"ORDER SUCCESS" = "ความสำเร็จของคำสั่งซื้อ";
+"BMW Dealership" = "ตัวแทนจำหน่าย BMW";
+"CREATE OFFER" = "สร้างข้อเสนอ";
+"Change Branch Manager" = "เปลี่ยนผู้จัดการสาขา";
+"VIEW DAILY STATES" = "ดูรายประเทศประจำวัน";
+"Honda Dealership" = "ตัวแทนจำหน่ายฮอนด้า";
+"RESPONSE TIME" = "เวลาตอบสนอง";
+
+"DEALER" = "ดีลเลอร์";
+"SALES AGENT" = "ตัวแทนขาย";
+"Done!" = "เสร็จแล้ว!";
+"MANAGE DEALERSHIPS" = "จัดการข้อตกลง";
+"LAST LOGIN" = "เข้าสู่ระบบล่าสุด";
+"All Dealership" = "ตัวแทนจำหน่ายทั้งหมด";
+"Pending!" = "รอ!";
+"NEED HELP? CALL 1-800-4455-6688" = "ต้องการความช่วยเหลือ? โทรติดต่อ 1-800-4455-6688";
+"HONDA OFFER" = "ข้อเสนอ HONDA";
+"The branch manager of the dealership has the ability to manage the sales agent, view the performance of the dealership,and be able to respond to ratings and reviews." = "ผู้จัดการสาขาของตัวแทนจำหน่ายมีความสามารถในการจัดการตัวแทนขายดูประสิทธิภาพการทำงานของตัวแทนจำหน่ายและสามารถตอบสนองต่อการให้คะแนนและความเห็นได้";
+"CREATE ACCOUNT" = "สร้างบัญชี";
+"Already have an account?" = "มีบัญชีแล้วหรือยัง?";
+"Your Honda Civic 1.8 S offer has been successfully created!" = "ข้อเสนอของฮอนด้าซีวิค 1.8 เอสได้รับการสร้างสรรค์ขึ้นแล้ว!";
+"Thank you Jonh for signing up with Carlist.my's new car dealer program. Our account manager will get in touch with you as soon as possible." = "ขอบคุณ Jonh สำหรับการลงทะเบียนกับ Carlist.my 's โปรแกรมตัวแทนจำหน่ายรถยนต์ใหม่ ผู้จัดการบัญชีของเราจะติดต่อคุณโดยเร็วที่สุด";
+"Message for last 7 days" = "ข้อความในช่วง 7 วันที่ผ่านมา";
+"OFFERS MODELS" = "เสนอโมเดล";
+"Andrew chong BMW motors" = "มอเตอร์แอนดรู chong BMW";
+"CHANGE" = "เปลี่ยน";
+"Enter Phone Number" = "ป้อนหมายเลขโทรศัพท์";
+"m1P-Jl-64p.text" = "27 ก.พ. 2017";
+"Values seen are the average of past 30 days" = "ค่าที่เห็นคือค่าเฉลี่ยของ 30 วันที่ผ่านมา";
+"NEED HELP? CALL 1-800-4455-6688" = "ต้องการความช่วยเหลือ? โทรติดต่อ 1-800-4455-6688";
+"oET-0t-eJL.text" = "27 ก.พ 2017";
+"The app is only available to dealers who have successfully registered with Carlist.my. If you've recently just registered, please wait for one our staff members to contact you." = "แอปนี้มีให้สำหรับตัวแทนจำหน่ายที่ลงทะเบียนกับ Carlist.my เท่านั้น หากคุณเพิ่งลงทะเบียนโปรดรอให้พนักงานของเราติดต่อคุณ";
+"Andrew chong BMW motors" = "มอเตอร์แอนดรู chong BMW";
+"(MON-FRI 9AM TO 6PM)" = "(09:00 จันทร์ถึงวันศุกร์ถึง 18:00)";
+"PAGE VIEWS" = "การดูหน้าเว็บ";
+"rQk-f0-wOn.text" = "มอเตอร์แอนดรูมอเตอร์บางแสน \ n";
+"Almost Done!" = "เกือบเสร็จแล้ว!";
+"SIGN IN" = "ลงชื่อเข้าใช้";
+"CREATE OFFER" = "สร้างข้อเสนอ";
+"PERFORMANCE" = "ประสิทธิภาพ";
+"Your Dealership" = "ตัวแทนจำหน่ายของคุณ";
+"VIEW OFFER" = "ดูข้อเสนอ";
+"Are you a dealer or sales agent?" = "คุณเป็นตัวแทนจำหน่ายหรือตัวแทนขายหรือไม่?";
+"NEED HELP? CALL 1-800-4455-6688" = "ต้องการความช่วยเหลือ? โทรติดต่อ 1-800-4455-6688";
+"RESPONSE TIME" = "เวลาตอบสนอง";
+"Are you sure?" = "คุณแน่ใจไหม?";

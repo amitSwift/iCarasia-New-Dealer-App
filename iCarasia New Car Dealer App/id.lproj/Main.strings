@@ -1,0 +1,432 @@
+
+/* Class = "UILabel"; text = "MESSAGE"; ObjectID = "030-UQ-uV3"; */
+"030-UQ-uV3.text" = "MESSAGE";
+
+/* Class = "UIViewController"; title = "CREATE OFFER"; ObjectID = "0Vb-tz-ORK"; */
+"0Vb-tz-ORK.title" = "CREATE OFFER";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "0hc-4h-88d"; */
+"0hc-4h-88d.normalTitle" = "SUBMIT";
+
+/* Class = "UILabel"; text = "4.2"; ObjectID = "0my-xW-TtL"; */
+"0my-xW-TtL.text" = "4.2";
+
+/* Class = "UITextView"; text = "The Best BMW Dealership around in K.L. We have not only the best offers, but also the best staff around. Asky anyone!"; ObjectID = "206-bc-SJp"; */
+"206-bc-SJp.text" = "The Best BMW Dealership around in K.L. We have not only the best offers, but also the best staff around. Asky anyone!";
+
+/* Class = "UITextField"; placeholder = "NA"; ObjectID = "2Ao-tl-qcW"; */
+"2Ao-tl-qcW.placeholder" = "NA";
+
+/* Class = "UITextField"; text = "Trigma Solutions Pvt Ltd."; ObjectID = "2Ao-tl-qcW"; */
+"2Ao-tl-qcW.text" = "Trigma Solutions Pvt Ltd.";
+
+/* Class = "UILabel"; text = "Add Agent"; ObjectID = "2BR-DG-Fxl"; */
+"2BR-DG-Fxl.text" = "Add Agent";
+
+/* Class = "UILabel"; text = "RATING"; ObjectID = "2Cm-yQ-YOU"; */
+"2Cm-yQ-YOU.text" = "RATING";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut "; ObjectID = "388-dh-YKB"; */
+"388-dh-YKB.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ";
+
+/* Class = "UILabel"; text = "+91 123 456 44 55 has been added to your dealership.If you don't see your agent immediately, please ask your agent to first create your account"; ObjectID = "3oL-gK-yaP"; */
+"3oL-gK-yaP.text" = "+91 123 456 44 55 has been added to your dealership.If you don't see your agent immediately, please ask your agent to first create your account";
+
+/* Class = "UILabel"; text = "Michael22"; ObjectID = "4O4-mU-dRW"; */
+"4O4-mU-dRW.text" = "Michael22";
+
+/* Class = "UITextField"; placeholder = "User Name"; ObjectID = "4qb-d4-ST5"; */
+"4qb-d4-ST5.placeholder" = "User Name";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "59p-Gt-4Ek"; */
+"59p-Gt-4Ek.normalTitle" = "SUBMIT";
+
+/* Class = "UITextField"; placeholder = "NA"; ObjectID = "5WL-IA-IKn"; */
+"5WL-IA-IKn.placeholder" = "NA";
+
+/* Class = "UITextField"; text = "+91 9625865212"; ObjectID = "5WL-IA-IKn"; */
+"5WL-IA-IKn.text" = "+91 9625865212";
+
+/* Class = "UILabel"; text = "250"; ObjectID = "5g6-Qo-DvB"; */
+"5g6-Qo-DvB.text" = "250";
+
+/* Class = "UILabel"; text = "(MON-FRI 9AM TO 6PM)"; ObjectID = "6XJ-4m-rm3"; */
+"6XJ-4m-rm3.text" = "(MON-FRI 9AM TO 6PM)";
+
+/* Class = "UIButton"; normalTitle = "CREATE MY ACCOUNT"; ObjectID = "6xR-U1-seh"; */
+"6xR-U1-seh.normalTitle" = "CREATE MY ACCOUNT";
+
+/* Class = "UILabel"; text = "Nemo enim ipsam voluptatem quia voluptas sit aspernature aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam dolorem ipsum quia dolor sit amet sed quia non numquam."; ObjectID = "8AG-26-Pgl"; */
+"8AG-26-Pgl.text" = "Nemo enim ipsam voluptatem quia voluptas sit aspernature aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam dolorem ipsum quia dolor sit amet sed quia non numquam.";
+
+/* Class = "UILabel"; text = "(MON-FRI 9AM TO 6PM)"; ObjectID = "8Jl-bA-7ms"; */
+"8Jl-bA-7ms.text" = "(MON-FRI 9AM TO 6PM)";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "8Lx-Kv-r70"; */
+"8Lx-Kv-r70.placeholder" = "Email Address";
+
+/* Class = "UILabel"; text = "Andrew chong motors Bangsar\n"; ObjectID = "8QV-ip-CUu"; */
+"8QV-ip-CUu.text" = "Andrew chong motors Bangsar\n";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "8XG-Su-uFE"; */
+"8XG-Su-uFE.text" = "Today";
+
+/* Class = "UILabel"; text = "Agent Added!"; ObjectID = "8by-n9-SF5"; */
+"8by-n9-SF5.text" = "Agent Added!";
+
+/* Class = "UILabel"; text = "Values seen are the average of the past 30 days"; ObjectID = "8de-s6-0Cg"; */
+"8de-s6-0Cg.text" = "Values seen are the average of the past 30 days";
+
+/* Class = "UILabel"; text = "RATING"; ObjectID = "8w0-76-ucM"; */
+"8w0-76-ucM.text" = "RATING";
+
+/* Class = "UILabel"; text = "Branch Manager"; ObjectID = "97t-Bi-crw"; */
+"97t-Bi-crw.text" = "Branch Manager";
+
+/* Class = "UILabel"; text = "1.8 s Model"; ObjectID = "9Dm-MA-nWs"; */
+"9Dm-MA-nWs.text" = "1.8 s Model";
+
+/* Class = "UILabel"; text = "Michael"; ObjectID = "9qL-0C-1CG"; */
+"9qL-0C-1CG.text" = "Michael";
+
+/* Class = "UILabel"; text = "NA"; ObjectID = "BKM-Y5-A3a"; */
+"BKM-Y5-A3a.text" = "NA";
+
+/* Class = "UIViewController"; title = "CREATE OFFER"; ObjectID = "Bq8-Qg-NjX"; */
+"Bq8-Qg-NjX.title" = "CREATE OFFER";
+
+/* Class = "UILabel"; text = "Honda Civic 1.8 S"; ObjectID = "DBE-gw-MHQ"; */
+"DBE-gw-MHQ.text" = "Honda Civic 1.8 S";
+
+/* Class = "UIButton"; normalTitle = "Logout"; ObjectID = "DMH-eF-sJj"; */
+"DMH-eF-sJj.normalTitle" = "Logout";
+
+/* Class = "UILabel"; text = "Nemo enim ipsam voluptatem quia voluptas manga aspernatur aut odit aut fugit, sed quia consequunture magni dolores eos qui ratione voluptatem."; ObjectID = "DMK-SS-aV3"; */
+"DMK-SS-aV3.text" = "Nemo enim ipsam voluptatem quia voluptas manga aspernatur aut odit aut fugit, sed quia consequunture magni dolores eos qui ratione voluptatem.";
+
+/* Class = "UIButton"; normalTitle = "ADD AGENT"; ObjectID = "EcV-4d-eas"; */
+"EcV-4d-eas.normalTitle" = "ADD AGENT";
+
+/* Class = "UILabel"; text = "RATING"; ObjectID = "FbK-hc-GAm"; */
+"FbK-hc-GAm.text" = "RATING";
+
+/* Class = "UIButton"; normalTitle = "GOT IT"; ObjectID = "Fdt-rq-H0X"; */
+"Fdt-rq-H0X.normalTitle" = "GOT IT";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "Fmi-Hk-2Ub"; */
+"Fmi-Hk-2Ub.normalTitle" = "Edit";
+
+/* Class = "UIButton"; normalTitle = "APPLY"; ObjectID = "Ghy-bP-GbQ"; */
+"Ghy-bP-GbQ.normalTitle" = "APPLY";
+
+/* Class = "UILabel"; text = "2.3"; ObjectID = "HFg-B3-No5"; */
+"HFg-B3-No5.text" = "2.3";
+
+/* Class = "UILabel"; text = "2.3"; ObjectID = "Hpd-k0-CN4"; */
+"Hpd-k0-CN4.text" = "2.3";
+
+/* Class = "UIViewController"; title = "OFFER"; ObjectID = "IG0-G6-pBU"; */
+"IG0-G6-pBU.title" = "OFFER";
+
+/* Class = "UILabel"; text = "27 Feb 2017"; ObjectID = "IKy-TG-Odh"; */
+"IKy-TG-Odh.text" = "27 Feb 2017";
+
+/* Class = "UITextField"; placeholder = "NA"; ObjectID = "IcM-b2-zDe"; */
+"IcM-b2-zDe.placeholder" = "NA";
+
+/* Class = "UILabel"; text = "RESPONSE TIME"; ObjectID = "J3J-Y7-MZO"; */
+"J3J-Y7-MZO.text" = "RESPONSE TIME";
+
+/* Class = "UILabel"; text = "Most recent review first"; ObjectID = "K3Y-Jx-6Xy"; */
+"K3Y-Jx-6Xy.text" = "Most recent review first";
+
+/* Class = "UILabel"; text = "27 Feb 2017"; ObjectID = "KdF-2c-CyW"; */
+"KdF-2c-CyW.text" = "27 Feb 2017";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Khf-u9-dL4"; */
+"Khf-u9-dL4.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "PAGE VIEWS"; ObjectID = "KvJ-s5-nI8"; */
+"KvJ-s5-nI8.text" = "PAGE VIEWS";
+
+/* Class = "UILabel"; text = "Nemu emilips voluptas mangam nuncum more tempore sit mangumdolore"; ObjectID = "LFq-Zj-8L8"; */
+"LFq-Zj-8L8.text" = "Nemu emilips voluptas mangam nuncum more tempore sit mangumdolore";
+
+/* Class = "UILabel"; text = "1 Star"; ObjectID = "Mqk-GG-dNR"; */
+"Mqk-GG-dNR.text" = "1 Star";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "N0n-zJ-v81"; */
+"N0n-zJ-v81.title" = " ";
+
+/* Class = "UILabel"; text = "Samanta Choi"; ObjectID = "NY3-Kq-G3l"; */
+"NY3-Kq-G3l.text" = "Samanta Choi";
+
+/* Class = "UIViewController"; title = "AGENTS"; ObjectID = "NpW-UV-UOI"; */
+"NpW-UV-UOI.title" = "AGENTS";
+
+/* Class = "UITextField"; placeholder = "NA"; ObjectID = "Nzo-DA-AqU"; */
+"Nzo-DA-AqU.placeholder" = "NA";
+
+/* Class = "UILabel"; text = "NA"; ObjectID = "ODS-BJ-Fzm"; */
+"ODS-BJ-Fzm.text" = "NA";
+
+/* Class = "UIButton"; normalTitle = "SAVE"; ObjectID = "OW8-Vn-TlO"; */
+"OW8-Vn-TlO.normalTitle" = "SAVE";
+
+/* Class = "UIViewController"; title = "CREATE OFFER"; ObjectID = "Oz6-P3-NeK"; */
+"Oz6-P3-NeK.title" = "CREATE OFFER";
+
+/* Class = "UILabel"; text = "Honda Dealership"; ObjectID = "P2N-bW-tJR"; */
+"P2N-bW-tJR.text" = "Honda Dealership";
+
+/* Class = "UIButton"; normalTitle = "VIEW REVIEW"; ObjectID = "P5X-NN-fQd"; */
+"P5X-NN-fQd.normalTitle" = "VIEW REVIEW";
+
+/* Class = "UILabel"; text = "012-322-3333"; ObjectID = "PhI-dY-wx6"; */
+"PhI-dY-wx6.text" = "012-322-3333";
+
+/* Class = "UIViewController"; title = "ORDER SUCCESS"; ObjectID = "PxZ-1l-8YP"; */
+"PxZ-1l-8YP.title" = "ORDER SUCCESS";
+
+/* Class = "UILabel"; text = "BMW Dealership"; ObjectID = "Q0H-Nf-LOH"; */
+"Q0H-Nf-LOH.text" = "BMW Dealership";
+
+/* Class = "UIViewController"; title = "CREATE OFFER"; ObjectID = "Q75-TX-zlc"; */
+"Q75-TX-zlc.title" = "CREATE OFFER";
+
+/* Class = "UILabel"; text = "6"; ObjectID = "QKN-11-6R9"; */
+"QKN-11-6R9.text" = "6";
+
+/* Class = "UILabel"; text = "Change Branch Manager"; ObjectID = "Qa4-hF-0mt"; */
+"Qa4-hF-0mt.text" = "Change Branch Manager";
+
+/* Class = "UILabel"; text = "Nemu emilips voluptas mangam nuncum more tempore"; ObjectID = "RBH-Jo-5qB"; */
+"RBH-Jo-5qB.text" = "Nemu emilips voluptas mangam nuncum more tempore";
+
+/* Class = "UIButton"; normalTitle = "VIEW DAILY STATES"; ObjectID = "RKY-SV-keB"; */
+"RKY-SV-keB.normalTitle" = "VIEW DAILY STATES";
+
+/* Class = "UILabel"; text = "Honda Dealership"; ObjectID = "Rtr-n6-O8m"; */
+"Rtr-n6-O8m.text" = "Honda Dealership";
+
+/* Class = "UILabel"; text = "Nemu emilips voluptas mangam nuncum more tempore sit mangumdolore"; ObjectID = "SOx-tO-Bqc"; */
+"SOx-tO-Bqc.text" = "Nemu emilips voluptas mangam nuncum more tempore sit mangumdolore";
+
+/* Class = "UILabel"; text = "RESPONCE TIME"; ObjectID = "TBb-ix-MQ0"; */
+"TBb-ix-MQ0.text" = "RESPONCE TIME";
+
+/* Class = "UISegmentedControl"; Tg5-E1-0bp.segmentTitles[0] = "DEALER"; ObjectID = "Tg5-E1-0bp"; */
+"Tg5-E1-0bp.segmentTitles[0]" = "DEALER";
+
+/* Class = "UISegmentedControl"; Tg5-E1-0bp.segmentTitles[1] = "SALES AGENT"; ObjectID = "Tg5-E1-0bp"; */
+"Tg5-E1-0bp.segmentTitles[1]" = "SALES AGENT";
+
+/* Class = "UILabel"; text = "156"; ObjectID = "UXK-5f-pia"; */
+"UXK-5f-pia.text" = "156";
+
+/* Class = "UILabel"; text = "Samantha Choi"; ObjectID = "VZS-BN-YO6"; */
+"VZS-BN-YO6.text" = "Samantha Choi";
+
+/* Class = "UILabel"; text = "MESSAGE"; ObjectID = "Vaa-Fw-EXB"; */
+"Vaa-Fw-EXB.text" = "MESSAGE";
+
+/* Class = "UILabel"; text = "Done!"; ObjectID = "Vtv-Vi-fo9"; */
+"Vtv-Vi-fo9.text" = "Done!";
+
+/* Class = "UILabel"; text = "Nemu emilips voluptas "; ObjectID = "WK1-fJ-dTO"; */
+"WK1-fJ-dTO.text" = "Nemu emilips voluptas ";
+
+/* Class = "UIButton"; normalTitle = "MANAGE DEALERSHIPS"; ObjectID = "XYa-6V-oEd"; */
+"XYa-6V-oEd.normalTitle" = "MANAGE DEALERSHIPS";
+
+/* Class = "UILabel"; text = "27 Feb 2017"; ObjectID = "XZa-W2-uml"; */
+"XZa-W2-uml.text" = "27 Feb 2017";
+
+/* Class = "UILabel"; text = "LAST LOGIN"; ObjectID = "Yk5-9K-rEl"; */
+"Yk5-9K-rEl.text" = "LAST LOGIN";
+
+/* Class = "UILabel"; text = "All Dealership"; ObjectID = "Zjq-tw-aYS"; */
+"Zjq-tw-aYS.text" = "All Dealership";
+
+/* Class = "UILabel"; text = "Pending!"; ObjectID = "Zy5-FS-RMn"; */
+"Zy5-FS-RMn.text" = "Pending!";
+
+/* Class = "UILabel"; text = "4.2"; ObjectID = "aL0-OH-AOL"; */
+"aL0-OH-AOL.text" = "4.2";
+
+/* Class = "UILabel"; text = "7.3"; ObjectID = "akN-C4-GGb"; */
+"akN-C4-GGb.text" = "7.3";
+
+/* Class = "UILabel"; text = "6"; ObjectID = "bPc-Hz-SWw"; */
+"bPc-Hz-SWw.text" = "6";
+
+/* Class = "UILabel"; text = "4.2"; ObjectID = "bhg-Hn-fQ2"; */
+"bhg-Hn-fQ2.text" = "4.2";
+
+/* Class = "UILabel"; text = "NEED HELP? CALL 1-800-4455-6688"; ObjectID = "bk0-22-N0d"; */
+"bk0-22-N0d.text" = "NEED HELP? CALL 1-800-4455-6688";
+
+/* Class = "UIViewController"; title = "HONDA OFFER"; ObjectID = "bsq-I4-oPX"; */
+"bsq-I4-oPX.title" = "HONDA OFFER";
+
+/* Class = "UILabel"; text = "Nemu emilips voluptas mangam nuncum more tempore sit mangumdolore"; ObjectID = "cKp-aI-f62"; */
+"cKp-aI-f62.text" = "Nemu emilips voluptas mangam nuncum more tempore sit mangumdolore";
+
+/* Class = "UILabel"; text = "The branch manager of the dealership has the ability to manage the sales agent, view the performance of the dealership,and be able to respond to ratings and reviews."; ObjectID = "cPq-Xx-s6R"; */
+"cPq-Xx-s6R.text" = "The branch manager of the dealership has the ability to manage the sales agent, view the performance of the dealership,and be able to respond to ratings and reviews.";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut "; ObjectID = "eF9-fi-jCb"; */
+"eF9-fi-jCb.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ";
+
+/* Class = "UILabel"; text = "Trigma Solutions Pvt Ltd."; ObjectID = "eLd-aA-Sxd"; */
+"eLd-aA-Sxd.text" = "Trigma Solutions Pvt Ltd.";
+
+/* Class = "UILabel"; text = "Raman Kant"; ObjectID = "ebD-o4-DHu"; */
+"ebD-o4-DHu.text" = "Raman Kant";
+
+/* Class = "UIViewController"; title = "CREATE ACCOUNT"; ObjectID = "fG4-hR-nVJ"; */
+"fG4-hR-nVJ.title" = "CREATE ACCOUNT";
+
+/* Class = "UILabel"; text = "Already have an account?"; ObjectID = "fLS-sW-F8z"; */
+"fLS-sW-F8z.text" = "Already have an account?";
+
+/* Class = "UILabel"; text = "Your Honda Civic 1.8 S offer has been successfully created!"; ObjectID = "fig-Fk-sTN"; */
+"fig-Fk-sTN.text" = "Your Honda Civic 1.8 S offer has been successfully created!";
+
+/* Class = "UITextField"; text = "NA"; ObjectID = "fse-xd-DGY"; */
+"fse-xd-DGY.text" = "NA";
+
+/* Class = "UIButton"; normalTitle = "GOT IT"; ObjectID = "hIC-A4-eu6"; */
+"hIC-A4-eu6.normalTitle" = "GOT IT";
+
+/* Class = "UITextField"; placeholder = "NA"; ObjectID = "han-AO-yaG"; */
+"han-AO-yaG.placeholder" = "NA";
+
+/* Class = "UITextField"; text = "www.google.com"; ObjectID = "han-AO-yaG"; */
+"han-AO-yaG.text" = "www.google.com";
+
+/* Class = "UILabel"; text = "Micheal\n"; ObjectID = "hmd-Xz-rxb"; */
+"hmd-Xz-rxb.text" = "Micheal\n";
+
+/* Class = "UILabel"; text = "Thank you Jonh for signing up with Carlist.my's new car dealer program. Our account manager will get in touch with you as soon as possible."; ObjectID = "iMe-Dc-xfd"; */
+"iMe-Dc-xfd.text" = "Thank you Jonh for signing up with Carlist.my's new car dealer program. Our account manager will get in touch with you as soon as possible.";
+
+/* Class = "UILabel"; text = "www.google.com"; ObjectID = "ikL-2Z-z9X"; */
+"ikL-2Z-z9X.text" = "www.google.com";
+
+/* Class = "UILabel"; text = "+91 9625865212"; ObjectID = "jkO-Ct-e1Q"; */
+"jkO-Ct-e1Q.text" = "+91 9625865212";
+
+/* Class = "UILabel"; text = "Message for last 7 days"; ObjectID = "k3h-S8-iYe"; */
+"k3h-S8-iYe.text" = "Message for last 7 days";
+
+/* Class = "UIViewController"; title = "OFFERS MODELS"; ObjectID = "kXC-UU-4jU"; */
+"kXC-UU-4jU.title" = "OFFERS MODELS";
+
+/* Class = "UILabel"; text = "Andrew chong BMW motors"; ObjectID = "kd1-wX-yYL"; */
+"kd1-wX-yYL.text" = "Andrew chong BMW motors";
+
+/* Class = "UILabel"; text = "27 Feb 2017"; ObjectID = "ktd-Bx-11r"; */
+"ktd-Bx-11r.text" = "27 Feb 2017";
+
+/* Class = "UIButton"; normalTitle = "CHANGE"; ObjectID = "lTN-Cv-1w0"; */
+"lTN-Cv-1w0.normalTitle" = "CHANGE";
+
+/* Class = "UITextField"; placeholder = "Enter Phone Number"; ObjectID = "ljn-gm-Vvs"; */
+"ljn-gm-Vvs.placeholder" = "Enter Phone Number";
+
+/* Class = "UILabel"; text = "27 Feb 2017"; ObjectID = "m1P-Jl-64p"; */
+"m1P-Jl-64p.text" = "27 Feb 2017";
+
+/* Class = "UILabel"; text = "Values seen are the average of past 30 days"; ObjectID = "m8k-Dl-LYR"; */
+"m8k-Dl-LYR.text" = "Values seen are the average of past 30 days";
+
+/* Class = "UILabel"; text = "2.3"; ObjectID = "nj8-vm-Bt4"; */
+"nj8-vm-Bt4.text" = "2.3";
+
+/* Class = "UILabel"; text = "NEED HELP? CALL 1-800-4455-6688"; ObjectID = "oAB-Ii-Nqb"; */
+"oAB-Ii-Nqb.text" = "NEED HELP? CALL 1-800-4455-6688";
+
+/* Class = "UILabel"; text = "27 Feb 2017"; ObjectID = "oET-0t-eJL"; */
+"oET-0t-eJL.text" = "27 Feb 2017";
+
+/* Class = "UILabel"; text = "The app is only available to dealers who have successfully registered with Carlist.my. If you've recently just registered, please wait for one our staff members to contact you."; ObjectID = "pPh-OP-hgo"; */
+"pPh-OP-hgo.text" = "The app is only available to dealers who have successfully registered with Carlist.my. If you've recently just registered, please wait for one our staff members to contact you.";
+
+/* Class = "UILabel"; text = "Andrew chong BMW motors"; ObjectID = "pja-oi-47F"; */
+"pja-oi-47F.text" = "Andrew chong BMW motors";
+
+/* Class = "UILabel"; text = "Andrew Tan"; ObjectID = "qCu-rl-9tT"; */
+"qCu-rl-9tT.text" = "Andrew Tan";
+
+/* Class = "UILabel"; text = "(MON-FRI 9AM TO 6PM)"; ObjectID = "qvR-qr-sfe"; */
+"qvR-qr-sfe.text" = "(MON-FRI 9AM TO 6PM)";
+
+/* Class = "UILabel"; text = "PAGE VIEWS"; ObjectID = "r4l-Rh-PAW"; */
+"r4l-Rh-PAW.text" = "PAGE VIEWS";
+
+/* Class = "UILabel"; text = "Andrew chong motors Bangsar\n"; ObjectID = "rQk-f0-wOn"; */
+"rQk-f0-wOn.text" = "Andrew chong motors Bangsar\n";
+
+/* Class = "UILabel"; text = "Nemu emilips voluptas mangam nuncum more tempore sit mangumdolore"; ObjectID = "rcO-iH-YAV"; */
+"rcO-iH-YAV.text" = "Nemu emilips voluptas mangam nuncum more tempore sit mangumdolore";
+
+/* Class = "UILabel"; text = "Almost Done!"; ObjectID = "s9H-Nw-2rN"; */
+"s9H-Nw-2rN.text" = "Almost Done!";
+
+/* Class = "UILabel"; text = "6"; ObjectID = "sUb-d2-WqJ"; */
+"sUb-d2-WqJ.text" = "6";
+
+/* Class = "UILabel"; text = "156"; ObjectID = "sr1-Rl-1Hi"; */
+"sr1-Rl-1Hi.text" = "156";
+
+/* Class = "UIButton"; normalTitle = "SIGN IN"; ObjectID = "tDd-D4-Hbi"; */
+"tDd-D4-Hbi.normalTitle" = "SIGN IN";
+
+/* Class = "UIButton"; normalTitle = "CREATE OFFER"; ObjectID = "tjn-pJ-Pkw"; */
+"tjn-pJ-Pkw.normalTitle" = "CREATE OFFER";
+
+/* Class = "UILabel"; text = "Michael"; ObjectID = "uYr-mY-eIW"; */
+"uYr-mY-eIW.text" = "Michael";
+
+/* Class = "UIViewController"; title = "PERFORMANCE"; ObjectID = "udY-ON-Pin"; */
+"udY-ON-Pin.title" = "PERFORMANCE";
+
+/* Class = "UILabel"; text = "Your Dealership"; ObjectID = "uqT-sf-fTk"; */
+"uqT-sf-fTk.text" = "Your Dealership";
+
+/* Class = "UILabel"; text = "7.3"; ObjectID = "vtD-4a-nPx"; */
+"vtD-4a-nPx.text" = "7.3";
+
+/* Class = "UIButton"; normalTitle = "VIEW OFFER"; ObjectID = "vtI-WW-uCh"; */
+"vtI-WW-uCh.normalTitle" = "VIEW OFFER";
+
+/* Class = "UILabel"; text = "Michael22"; ObjectID = "wFt-Vg-QDd"; */
+"wFt-Vg-QDd.text" = "Michael22";
+
+/* Class = "UILabel"; text = "Michael"; ObjectID = "wps-gl-qBi"; */
+"wps-gl-qBi.text" = "Michael";
+
+/* Class = "UILabel"; text = "Are you a dealer or sales agent?"; ObjectID = "wxR-3Z-Y7j"; */
+"wxR-3Z-Y7j.text" = "Are you a dealer or sales agent?";
+
+/* Class = "UIButton"; normalTitle = "GOT IT"; ObjectID = "xPQ-Mn-FjP"; */
+"xPQ-Mn-FjP.normalTitle" = "GOT IT";
+
+/* Class = "UILabel"; text = "NEED HELP? CALL 1-800-4455-6688"; ObjectID = "xQ2-9g-rSC"; */
+"xQ2-9g-rSC.text" = "NEED HELP? CALL 1-800-4455-6688";
+
+/* Class = "UILabel"; text = "Michael"; ObjectID = "xbG-5f-Wsw"; */
+"xbG-5f-Wsw.text" = "Michael";
+
+/* Class = "UILabel"; text = "RESPONCE TIME"; ObjectID = "xxn-wa-ZjA"; */
+"xxn-wa-ZjA.text" = "RESPONCE TIME";
+
+/* Class = "UILabel"; text = "Are you sure?"; ObjectID = "you-Z0-Cgs"; */
+"you-Z0-Cgs.text" = "Are you sure?";
+
+/* Class = "UIButton"; normalTitle = "GOT IT"; ObjectID = "yxI-WA-6ya"; */
+"yxI-WA-6ya.normalTitle" = "GOT IT";
+
+/* Class = "UILabel"; text = "MESSAGE"; ObjectID = "zwh-un-bzL"; */
+"zwh-un-bzL.text" = "MESSAGE";

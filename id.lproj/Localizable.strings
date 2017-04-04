@@ -1,0 +1,83 @@
+/* 
+  Localizable.strings
+  iCarasia New Car Dealer App
+
+  Created by Raman Kant on 4/4/17.
+  Copyright © 2017 Raman Kant. All rights reserved.
+*/
+
+"MESSAGE" = "PESAN";
+"CREATE OFFER" = "MENCIPTAKAN PENAWARAN";
+"SUBMIT" = "MENYERAHKAN";
+"Add Agent" = "Tambah Agen";
+"RATING" = "Penilaian";
+"has been added to your dealership.If you don't see your agent immediately, please ask your agent to first create your account" = " telah ditambahkan ke Anda dealership.If Anda tidak melihat agen Anda segera, silakan meminta agen Anda untuk pertama kali membuat akun Anda";
+"User Name" = "Nama pengguna";
+"SUBMIT" = "MENYERAHKAN";
+"(MON-FRI 9AM TO 6PM)" = "(MON-FRI 09:00 TO 18:00)";
+"CREATE MY ACCOUNT" = "BUAT MY ACCOUNT";
+"Email Address" = "Alamat email";
+"Today" = "Hari ini";
+"Agent Added!" = "Agen Ditambahkan!";
+"Values seen are the average of the past 30 days" = "Nilai terlihat adalah rata-rata 30 hari terakhir";
+"Branch Manager" = "Manajer cabang";
+"1.8 s Model" = "1,8 s Model";
+"BMW Dealership" = "BMW Dealer";
+"CREATE OFFER" = "MENCIPTAKAN PENAWARAN";
+"Honda Civic 1.8 S" = "Honda Civic 1.8 S";
+"Logout" = "Logout";
+"ADD AGENT" = "ADD AGEN";
+"GOT IT" = "MENGERTI";
+"Edit" = "mengedit";
+"APPLY" = "MENERAPKAN";
+"OFFER" = "MENAWARKAN";
+"RESPONSE TIME" = "WAKTU MERESPON";
+"Most recent review first" = "Kebanyakan tinjauan baru-baru pertama";
+"PAGE VIEWS" = "PANDANGAN HALAMAN";
+"1 Star" = "1 bintang";
+"AGENTS" = "AGEN";
+"SAVE" = "MENYIMPAN";
+"CREATE OFFER" = "MENCIPTAKAN PENAWARAN";
+"Honda Dealership" = "Honda Dealer";
+"VIEW REVIEW" = "VIEW REVIEW";
+"ORDER SUCCESS" = "PESANAN SUKSES";
+"BMW Dealershi" = "BMW Dealer";
+"CREATE OFFER" = "MENCIPTAKAN PENAWARAN";
+"Change Branch Manager" = "Perubahan Branch Manager";
+"VIEW DAILY STATES" = "VIEW HARIAN SERIKAT";
+"Honda Dealership" = "Honda Dealer";
+"RESPONSE TIME" = "WAKTU MERESPON";
+"DEALER" = "PEDAGANG";
+"SALES AGENT" = "AGEN PENJUALAN";
+"Done!" = "Selesai!";
+"MANAGE DEALERSHIPS" = "MENGELOLA dealer";
+"LAST LOGIN" = "LOGIN TERAKHIR";
+"All Dealership" = "All Dealership";
+"Pending!" = "tertunda!";
+"NEED HELP? CALL 1-800-4455-6688" = "BUTUH BANTUAN? PANGGILAN 1-800-4455-6688";
+"OFFER" = "PENAWARAN";
+"The branch manager of the dealership has the ability to manage the sales agent, view the performance of the dealership,and be able to respond to ratings and reviews." = "Manajer cabang dealer memiliki kemampuan untuk mengelola agen penjualan, melihat kinerja dealer, dan mampu menanggapi peringkat dan ulasan.";
+"CREATE ACCOUNT" = "MEMBUAT AKUN";
+"Already have an account?" = "Sudah memiliki akun?";
+"GOT IT" = "MENGERTI";
+"Thank you Jonh for signing up with Carlist.my's new car dealer program. Our account manager will get in touch with you as soon as possible." = "Terima kasih Jonh untuk mendaftar dengan Program dealer mobil baru Carlist.my ini. account manager kami akan menghubungi Anda sesegera mungkin.";
+"Message for last 7 days" = "Pesan untuk 7 hari terakhir";
+"OFFERS MODELS" = "PENAWARAN MODEL";
+"CHANGE" = "PERUBAHAN";
+"Enter Phone Number" = "Masukkan nomor telepon";
+"Values seen are the average of past 30 days" = "Nilai terlihat adalah rata-rata 30 hari terakhir";
+"The app is only available to dealers who have successfully registered with Carlist.my. If you've recently just registered, please wait for one our staff members to contact you." = "Aplikasi ini hanya tersedia untuk dealer yang telah berhasil terdaftar Carlist.my. Jika Anda baru saja hanya terdaftar, silahkan tunggu satu anggota staf kami untuk menghubungi Anda.";
+"(MON-FRI 9AM TO 6PM)" = "(MON-FRI 9AM TO 6PM)";
+"PAGE VIEWS" = "PANDANGAN HALAMAN";
+"Almost Done!" = "Hampir selesai!";
+"SIGN IN" = "MASUK";
+"CREATE OFFER" = "MENCIPTAKAN PENAWARAN";
+"PERFORMANCE" = "KINERJA";
+"Your Dealership" = "Dealer Anda";
+"VIEW OFFER" = "VIEW PENAWARAN";
+"Are you a dealer or sales agent?" = "Apakah Anda seorang dealer atau agen penjualan?";
+"Login" = "Masuk";
+"NEED HELP? CALL 1-800-4455-6688" = "PERLU BANTUAN? HUBUNGI 1-800-4455-6688";
+"Are you sure?" = "Apakah Anda yakin?";
+"GOT IT" = "MENGERTI";
+"MESSAGE" = "PESAN";

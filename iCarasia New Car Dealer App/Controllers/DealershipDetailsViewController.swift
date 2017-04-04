@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DealershipDetailsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIImagePickerControllerDelegate , UINavigationControllerDelegate , UITextFieldDelegate {
+class DealershipDetailsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIImagePickerControllerDelegate , UINavigationControllerDelegate , UITextFieldDelegate,TOCropViewControllerDelegate{
     
     @IBOutlet weak var mTableDealerShipDetails       : UITableView!
     @IBOutlet weak var mViewHeader                   : UIView!
@@ -25,6 +25,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     var mArrayDealershipInfo    = NSMutableArray()
     
     var mImageDealership        = UIImage()
+    var croppingStyle           = TOCropViewCroppingStyle.default
     
     //var mImageData    = Data()
     //var mStrBase64    = String()
@@ -47,14 +48,11 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         
         mImageViewDealership.layer.cornerRadius = 5.0
         self.setupUI()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
         let delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.enableIQKeyBoardManager()
     }
@@ -75,8 +73,8 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        let frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.width)
-        mViewHeader.frame = frame
+        let frame           = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: mTextViewDealershipInfo.frame.minY)
+        mViewHeader.frame   = frame
     }
     
     // MARK: - UI Setup -
@@ -94,7 +92,9 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         mTextFieldDealershipTitle.text  = mDealershipInfoDict.value(forKey: "name") as! String?
         mLabelDealershipMake.text       = mDealershipInfoDict.value(forKeyPath: "make.name") as! String?
         mTextViewDealershipInfo.text    = mDealershipInfoDict.value(forKey:"short_description") as! String?
+        mImageViewDealership.sd_setImage(with: URL(string:mDealershipInfoDict.value(forKey: "profile_image_large_url") as! String)  , placeholderImage: nil)
         
+
         // First Section //
         
         let arrayFirstSection = NSMutableArray()
@@ -183,7 +183,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                     return
                 }
             }
-           
+            
             self.saveDealershipInfo()
         }else{
             
@@ -320,7 +320,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     
     //MARK: - Button Actions -
     
-        
+    
     @IBAction func addDeralerShip ( sender : UIButton ){
         
     }
@@ -341,7 +341,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 imagePicker.delegate                    = self
                 imagePicker.sourceType                  = UIImagePickerControllerSourceType.camera;
                 imagePicker.mediaTypes                  = [kUTTypeImage as String]
-                imagePicker.allowsEditing               = true
+                imagePicker.allowsEditing               = false
                 self.present(imagePicker, animated: true, completion: nil)
             }
         }
@@ -356,7 +356,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 imagePicker.delegate                    = self
                 imagePicker.sourceType                  = UIImagePickerControllerSourceType.photoLibrary;
                 imagePicker.mediaTypes                  = [kUTTypeImage as String]
-                imagePicker.allowsEditing               = true
+                imagePicker.allowsEditing               = false
                 self.present(imagePicker, animated: true, completion: nil)
             }
         }
@@ -590,7 +590,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             title           = "Facebook"
             placeHolder     = "Facebook"
             keyBoard        = .emailAddress
-
+            
             titleInfo       = dictDetails.value(forKey: "facebook") as! String
             break
         case "instagram":
@@ -651,19 +651,77 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
             let resizedImage                = image.resizeWith(percentage: 0.5)
-            self.mImageViewDealership.image = resizedImage
+            //self.mImageViewDealership.image = resizedImage
             
-            self.mImageDealership             = resizedImage!
-
+            //self.mImageDealership             = resizedImage!
+            
             //self.mImageData                 = UIImageJPEGRepresentation(resizedImage!, 1.0)! as Data
             //self.mStrBase64                 = mImageData.base64EncodedString(options:.lineLength64Characters) as String
             
+            //set cropview controller for present
+            let cropController = TOCropViewController.init(croppingStyle: croppingStyle, image: resizedImage)
+            cropController?.delegate = self
+            
+            //self.mImageViewDealership.image = resizedImage
+            //If profile picture, push onto the same navigation stack
+            
+            self.present(cropController!, animated: true, completion: { _ in })
+            
             print("Update Profile")
         }
-        picker.dismiss(animated: true, completion: nil)
+        
+        
     }
+    
+    
+    
+    //MARK: cropview delegate
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!)
+    {
+        self.dismiss(animated: true, completion: { () -> Void in
+            if image != nil
+            {
+                let cropController:TOCropViewController = TOCropViewController(image: image)
+                cropController.delegate=self
+                self.present(cropController, animated: true, completion: nil)
+            }
+        })
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        picker.dismiss(animated: true, completion: { () -> Void in })
+    }
+    
+    // -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //        Cropper Delegate
+    // -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    
+    func cropViewController(_ cropViewController: TOCropViewController!, didCropTo image: UIImage!, with cropRect: CGRect, angle: Int)
+    {
+        //Save image to document directory //aaaa
+        
+        self.mImageDealership           = image!
+        self.mImageViewDealership.image = image
+        
+        dismiss(animated: true, completion: nil)
+        //_ = navigationController?.popViewController(animated: true)
+        
+        cropViewController.dismiss(animated: true) { () -> Void in
+            // self.imageView.image = image
+        }
+    }
+    
+    func cropViewController(_ cropViewController: TOCropViewController!, didFinishCancelled cancelled: Bool)
+    {
+        dismiss(animated: true, completion: nil)
+        cropViewController.dismiss(animated: true) { () -> Void in  }
+    }
+    
     
     //MARK: - Text Field Delegates -
     
@@ -775,7 +833,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 
                 
                 if let success = result.value(forKey: "updated") as? NSNumber {
-                   
+                    
                     SVProgressHUD.dismiss()
                     print("Updated Successfully \(success)")
                     
@@ -783,6 +841,8 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                     self.mButtonCamera.isHidden                                  = true
                     self.mTextFieldDealershipTitle.isUserInteractionEnabled     = false
                     self.mTextViewDealershipInfo.isUserInteractionEnabled       = false
+                    SDImageCache.shared().removeImage(forKey:self.mDealershipInfoDict.value(forKey: "profile_image_large_url") as! String , fromDisk: true)
+                    SDImageCache.shared().removeImage(forKey:self.mDealershipInfoDict.value(forKey: "profile_image_medium_url") as! String , fromDisk: true)
                     
                     TSMessage.showNotification(in: self , title: "\nInfo updated successfully.", subtitle: nil, type: TSMessageNotificationType.message)
                     let editButtonItem      = UIBarButtonItem.init(image: UIImage(named:"edit_white"), style: .plain, target: self, action: #selector(self.editAction))
@@ -823,51 +883,51 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                             
                             print(value)
                             TSMessage.showNotification(in: self , title: "\n The email must be a valid email address.", subtitle: nil, type: TSMessageNotificationType.message)
-
+                            
                         }
-                        
+                            
                         else if let value = result.value(forKey: "facebook") {
                             
                             print(value)
                             TSMessage.showNotification(in: self , title: "\n The facebook format is invalid.", subtitle: nil, type: TSMessageNotificationType.message)
                             
                         }
-                        
+                            
                         else if let value = result.value(forKey: "instagram") {
                             
                             print(value)
                             TSMessage.showNotification(in: self , title: "\n The instagram format is invalid.", subtitle: nil, type: TSMessageNotificationType.message)
                             
                         }
-                        
+                            
                         else if let value = result.value(forKey: "google_plus") {
                             
                             print(value)
                             TSMessage.showNotification(in: self , title: "\n The Google Plus format is invalid.", subtitle: nil, type: TSMessageNotificationType.message)
                             
                         }
-                        
+                            
                         else if let value = result.value(forKey: "twitter") {
                             
                             print(value)
                             TSMessage.showNotification(in: self , title: "\n The Twitter format is invalid.", subtitle: nil, type: TSMessageNotificationType.message)
                             
                         }
-                        
+                            
                         else if let value = result.value(forKey: "twitter") {
                             
                             print(value)
                             TSMessage.showNotification(in: self , title: "\n The Twitter format is invalid.", subtitle: nil, type: TSMessageNotificationType.message)
                             
                         }
-                        
+                            
                         else if let value = result.value(forKey: "whatsapp") {
                             
                             print(value)
                             TSMessage.showNotification(in: self , title: "\n Whatsapp is invalid phone number, example: +1234567890", subtitle: nil, type: TSMessageNotificationType.message)
                             
                         }
-                        
+                            
                         else if let value = result.value(forKey: "photo") {
                             
                             print(value)
