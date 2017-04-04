@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28B6DA0D1E93656900334EFE /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6D9FE1E93656900334EFE /* TOActivityCroppedImageProvider.m */; };
+		28B6DA0E1E93656900334EFE /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA001E93656900334EFE /* TOCroppedImageAttributes.m */; };
+		28B6DA0F1E93656900334EFE /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA021E93656900334EFE /* TOCropViewControllerTransitioning.m */; };
+		28B6DA101E93656900334EFE /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA041E93656900334EFE /* UIImage+CropRotate.m */; };
+		28B6DA111E93656900334EFE /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA061E93656900334EFE /* TOCropOverlayView.m */; };
+		28B6DA121E93656900334EFE /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA081E93656900334EFE /* TOCropScrollView.m */; };
+		28B6DA131E93656900334EFE /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA0A1E93656900334EFE /* TOCropToolbar.m */; };
+		28B6DA141E93656900334EFE /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA0C1E93656900334EFE /* TOCropView.m */; };
+		28B6DA171E93658A00334EFE /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B6DA161E93658A00334EFE /* TOCropViewController.m */; };
 		AA7E05567A2C3060F9693CBA /* libPods-iCarasia New Car Dealer App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CBB9CB9D18DF93ABA738F1D /* libPods-iCarasia New Car Dealer App.a */; };
 		F10591261E6D24760025B45B /* AcComViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10591251E6D24760025B45B /* AcComViewController.swift */; };
 		F10591281E6D3A3C0025B45B /* BrandOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10591271E6D3A3C0025B45B /* BrandOffersViewController.swift */; };
@@ -82,6 +91,24 @@
 
 /* Begin PBXFileReference section */
 		1CBB9CB9D18DF93ABA738F1D /* libPods-iCarasia New Car Dealer App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCarasia New Car Dealer App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B6D9FD1E93656900334EFE /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityCroppedImageProvider.h; sourceTree = "<group>"; };
+		28B6D9FE1E93656900334EFE /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
+		28B6D9FF1E93656900334EFE /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCroppedImageAttributes.h; sourceTree = "<group>"; };
+		28B6DA001E93656900334EFE /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCroppedImageAttributes.m; sourceTree = "<group>"; };
+		28B6DA011E93656900334EFE /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewControllerTransitioning.h; sourceTree = "<group>"; };
+		28B6DA021E93656900334EFE /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTransitioning.m; sourceTree = "<group>"; };
+		28B6DA031E93656900334EFE /* UIImage+CropRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropRotate.h"; sourceTree = "<group>"; };
+		28B6DA041E93656900334EFE /* UIImage+CropRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropRotate.m"; sourceTree = "<group>"; };
+		28B6DA051E93656900334EFE /* TOCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropOverlayView.h; sourceTree = "<group>"; };
+		28B6DA061E93656900334EFE /* TOCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropOverlayView.m; sourceTree = "<group>"; };
+		28B6DA071E93656900334EFE /* TOCropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropScrollView.h; sourceTree = "<group>"; };
+		28B6DA081E93656900334EFE /* TOCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropScrollView.m; sourceTree = "<group>"; };
+		28B6DA091E93656900334EFE /* TOCropToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropToolbar.h; sourceTree = "<group>"; };
+		28B6DA0A1E93656900334EFE /* TOCropToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropToolbar.m; sourceTree = "<group>"; };
+		28B6DA0B1E93656900334EFE /* TOCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropView.h; sourceTree = "<group>"; };
+		28B6DA0C1E93656900334EFE /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
+		28B6DA151E93658A00334EFE /* TOCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewController.h; sourceTree = "<group>"; };
+		28B6DA161E93658A00334EFE /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
 		8FCEAE108437A7226B8176CA /* Pods-iCarasia New Car Dealer App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCarasia New Car Dealer App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCarasia New Car Dealer App/Pods-iCarasia New Car Dealer App.debug.xcconfig"; sourceTree = "<group>"; };
 		F10591251E6D24760025B45B /* AcComViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcComViewController.swift; sourceTree = "<group>"; };
 		F10591271E6D3A3C0025B45B /* BrandOffersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandOffersViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +226,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28B6D9FC1E93655300334EFE /* ToCropView */ = {
+			isa = PBXGroup;
+			children = (
+				28B6DA151E93658A00334EFE /* TOCropViewController.h */,
+				28B6DA161E93658A00334EFE /* TOCropViewController.m */,
+				28B6D9FD1E93656900334EFE /* TOActivityCroppedImageProvider.h */,
+				28B6D9FE1E93656900334EFE /* TOActivityCroppedImageProvider.m */,
+				28B6D9FF1E93656900334EFE /* TOCroppedImageAttributes.h */,
+				28B6DA001E93656900334EFE /* TOCroppedImageAttributes.m */,
+				28B6DA011E93656900334EFE /* TOCropViewControllerTransitioning.h */,
+				28B6DA021E93656900334EFE /* TOCropViewControllerTransitioning.m */,
+				28B6DA031E93656900334EFE /* UIImage+CropRotate.h */,
+				28B6DA041E93656900334EFE /* UIImage+CropRotate.m */,
+				28B6DA051E93656900334EFE /* TOCropOverlayView.h */,
+				28B6DA061E93656900334EFE /* TOCropOverlayView.m */,
+				28B6DA071E93656900334EFE /* TOCropScrollView.h */,
+				28B6DA081E93656900334EFE /* TOCropScrollView.m */,
+				28B6DA091E93656900334EFE /* TOCropToolbar.h */,
+				28B6DA0A1E93656900334EFE /* TOCropToolbar.m */,
+				28B6DA0B1E93656900334EFE /* TOCropView.h */,
+				28B6DA0C1E93656900334EFE /* TOCropView.m */,
+			);
+			name = ToCropView;
+			sourceTree = "<group>";
+		};
 		6CAF7DCF7C6E9D24AEB9A1D6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,13 +614,18 @@
 				F124CE3A1E5EA3DA00FAE9CF /* UserInfoViewController.swift in Sources */,
 				F16A8DC41E937BA300C845F0 /* UIImage+CropRotate.m in Sources */,
 				F10591381E6D5C0A0025B45B /* CustomButton.swift in Sources */,
+				28B6DA101E93656900334EFE /* UIImage+CropRotate.m in Sources */,
+				28B6DA0E1E93656900334EFE /* TOCroppedImageAttributes.m in Sources */,
 				F10591611E6D940F0025B45B /* DealershipDetailsViewController.swift in Sources */,
 				F19A524B1E5D999C008BEA41 /* LoginViewController.swift in Sources */,
+				28B6DA141E93656900334EFE /* TOCropView.m in Sources */,
 				F10591481E6D7B100025B45B /* ChartCell.swift in Sources */,
 				F12ED3A31E88EB9B00B7FA43 /* ChangeBranchManagerPopUpVC.swift in Sources */,
 				F16A8DBC1E937BA300C845F0 /* TOActivityCroppedImageProvider.m in Sources */,
 				F124CE421E5EC4E100FAE9CF /* MainTabBarController.swift in Sources */,
+				28B6DA121E93656900334EFE /* TOCropScrollView.m in Sources */,
 				F10591561E6D7B380025B45B /* UUBar.m in Sources */,
+				28B6DA111E93656900334EFE /* TOCropOverlayView.m in Sources */,
 				F10591281E6D3A3C0025B45B /* BrandOffersViewController.swift in Sources */,
 				F1B1F06D1E682E8100CAC9EA /* OffersViewController.swift in Sources */,
 				F174D86D1E717C1300CBC1BE /* ReviewFilterView.swift in Sources */,
@@ -584,6 +641,7 @@
 				F1CCAD071E8CEF3A005D9AF8 /* Utilities.swift in Sources */,
 				F174D86E1E717C1300CBC1BE /* ReviewFilterCell.swift in Sources */,
 				F10591421E6D6E420025B45B /* MIBadgeButton.swift in Sources */,
+				28B6DA171E93658A00334EFE /* TOCropViewController.m in Sources */,
 				F10591581E6D7B380025B45B /* UUChart.m in Sources */,
 				F16A8DC31E937BA300C845F0 /* TOCropViewControllerTransitioning.m in Sources */,
 				F19A522E1E5D8D53008BEA41 /* AppDelegate.swift in Sources */,
@@ -598,6 +656,7 @@
 				F16A8DC01E937BA300C845F0 /* TOCropToolbar.m in Sources */,
 				F10591401E6D65250025B45B /* OfferComViewController.swift in Sources */,
 				F10591591E6D7B380025B45B /* UUChartLabel.m in Sources */,
+				28B6DA0D1E93656900334EFE /* TOActivityCroppedImageProvider.m in Sources */,
 				F10591331E6D424E0025B45B /* CustomAlertView.swift in Sources */,
 				F192C60A1E84EDDB00D4E40A /* CreateOfferPopUpVC.swift in Sources */,
 				F1E885671E7FFCAF0041E44B /* AddAgentConfirmVC.swift in Sources */,
@@ -610,6 +669,7 @@
 				F16A8DC11E937BA300C845F0 /* TOCropView.m in Sources */,
 				F174D85C1E717B6D00CBC1BE /* UIViewController+MJPopupViewController.m in Sources */,
 				F105915A1E6D7B380025B45B /* UUColor.m in Sources */,
+				28B6DA0F1E93656900334EFE /* TOCropViewControllerTransitioning.m in Sources */,
 				F105913A1E6D5C0A0025B45B /* CustumTextView.swift in Sources */,
 				F19A52361E5D8D54008BEA41 /* iCarasia_New_Car_Dealer_App.xcdatamodeld in Sources */,
 			);

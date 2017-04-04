@@ -163,5 +163,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iCarasia New Car Dealer App/Controllers/DealershipDetailsViewController.swift"
+            timestampString = "512979581.600363"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "688"
+            endingLineNumber = "688"
+            landmarkName = "imagePickerController(picker:didFinishPickingImage:editingInfo:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iCarasia_New_Car_Dealer_App.DealershipDetailsViewController.imagePickerController (picker : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImagePickerController&gt;, didFinishPickingImage : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImage&gt;, editingInfo : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSDictionary&gt;) -&gt; ()"
+                  moduleName = "iCarasia New Car Dealer App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amit/Desktop/iCarAsia/iCarasia-New-Dealer-App/iCarasia%20New%20Car%20Dealer%20App/Controllers/DealershipDetailsViewController.swift"
+                  timestampString = "512979742.640677"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "689"
+                  endingLineNumber = "689"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iCarasia_New_Car_Dealer_App.DealershipDetailsViewController.(imagePickerController (picker : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImagePickerController&gt;, didFinishPickingImage : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImage&gt;, editingInfo : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSDictionary&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "iCarasia New Car Dealer App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amit/Desktop/iCarAsia/iCarasia-New-Dealer-App/iCarasia%20New%20Car%20Dealer%20App/Controllers/DealershipDetailsViewController.swift"
+                  timestampString = "512979742.642955"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "690"
+                  endingLineNumber = "690"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iCarasia New Car Dealer App/Controllers/DealershipDetailsViewController.swift"
+            timestampString = "512979701.236429"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "660"
+            endingLineNumber = "660"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
