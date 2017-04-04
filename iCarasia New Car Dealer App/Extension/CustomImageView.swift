@@ -9,6 +9,7 @@
 import UIKit
 import QuartzCore
 
+@IBDesignable
 class CustomImageView: UIImageView {
 
     @IBInspectable var cornerRadius: CGFloat = 0 {

@@ -9,6 +9,7 @@
 import UIKit
 import QuartzCore
 
+@IBDesignable
 class CustumTextView: UITextView {
 
     @IBInspectable var cornerRadius: CGFloat = 0 {

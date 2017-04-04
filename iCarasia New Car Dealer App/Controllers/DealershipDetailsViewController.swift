@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DealershipDetailsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIImagePickerControllerDelegate , UINavigationControllerDelegate , UITextFieldDelegate {
+class DealershipDetailsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIImagePickerControllerDelegate , UINavigationControllerDelegate , UITextFieldDelegate,TOCropViewControllerDelegate{
     
     @IBOutlet weak var mTableDealerShipDetails       : UITableView!
     @IBOutlet weak var mViewHeader                   : UIView!
@@ -25,6 +25,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     var mArrayDealershipInfo    = NSMutableArray()
     
     var mImageDealership        = UIImage()
+    var croppingStyle           = TOCropViewCroppingStyle.default
     
     //var mImageData    = Data()
     //var mStrBase64    = String()
@@ -47,6 +48,9 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         
         mImageViewDealership.layer.cornerRadius = 5.0
         self.setupUI()
+        
+        
+
         
         
     }
@@ -341,7 +345,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 imagePicker.delegate                    = self
                 imagePicker.sourceType                  = UIImagePickerControllerSourceType.camera;
                 imagePicker.mediaTypes                  = [kUTTypeImage as String]
-                imagePicker.allowsEditing               = true
+                imagePicker.allowsEditing               = false
                 self.present(imagePicker, animated: true, completion: nil)
             }
         }
@@ -356,7 +360,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                 imagePicker.delegate                    = self
                 imagePicker.sourceType                  = UIImagePickerControllerSourceType.photoLibrary;
                 imagePicker.mediaTypes                  = [kUTTypeImage as String]
-                imagePicker.allowsEditing               = true
+                imagePicker.allowsEditing               = false
                 self.present(imagePicker, animated: true, completion: nil)
             }
         }
@@ -651,7 +655,8 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
             let resizedImage                = image.resizeWith(percentage: 0.5)
             self.mImageViewDealership.image = resizedImage
             
@@ -660,10 +665,66 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             //self.mImageData                 = UIImageJPEGRepresentation(resizedImage!, 1.0)! as Data
             //self.mStrBase64                 = mImageData.base64EncodedString(options:.lineLength64Characters) as String
             
+            //set cropview controller for present
+            let cropController = TOCropViewController.init(croppingStyle: croppingStyle, image: resizedImage)
+            cropController?.delegate = self
+            
+            //self.mImageViewDealership.image = resizedImage
+            //If profile picture, push onto the same navigation stack
+            
+            self.present(cropController!, animated: true, completion: { _ in })
+            
             print("Update Profile")
         }
-        picker.dismiss(animated: true, completion: nil)
+        
+        
     }
+    
+    
+    
+    //MARK: cropview delegate
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!)
+    {
+        self.dismiss(animated: true, completion: { () -> Void in
+            if image != nil
+            {
+                let cropController:TOCropViewController = TOCropViewController(image: image)
+                cropController.delegate=self
+                self.present(cropController, animated: true, completion: nil)
+            }
+        })
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        picker.dismiss(animated: true, completion: { () -> Void in })
+    }
+    
+    // -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //        Cropper Delegate
+    // -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    
+    func cropViewController(_ cropViewController: TOCropViewController!, didCropTo image: UIImage!, with cropRect: CGRect, angle: Int)
+    {
+        //save image to document directory
+        
+        self.mImageViewDealership.image = image
+        
+        dismiss(animated: true, completion: nil)
+        //_ = navigationController?.popViewController(animated: true)
+        
+        cropViewController.dismiss(animated: true) { () -> Void in
+            // self.imageView.image = image
+        }
+    }
+    
+    func cropViewController(_ cropViewController: TOCropViewController!, didFinishCancelled cancelled: Bool)
+    {
+         dismiss(animated: true, completion: nil)
+        cropViewController.dismiss(animated: true) { () -> Void in  }
+    }
+    
     
     //MARK: - Text Field Delegates -
     

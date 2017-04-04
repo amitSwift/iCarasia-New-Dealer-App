@@ -29,5 +29,5 @@
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "SDWebImage/SDImageCache.h"
 #import "UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h"
-
+#import "TOCropViewController.h"
 
