@@ -2035,8 +2035,8 @@
                                                 <constraint firstAttribute="height" constant="1" id="1lt-d2-3ef"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-ps-6TT">
-                                            <rect key="frame" x="60" y="0.0" width="80" height="135"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-ps-6TT">
+                                            <rect key="frame" x="60" y="4" width="80" height="127"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="8aJ-6n-JOw"/>
                                             </constraints>
@@ -2063,7 +2063,7 @@ Saturday
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vi-92-320">
-                                            <rect key="frame" x="227" y="0.0" width="140" height="135"/>
+                                            <rect key="frame" x="227" y="4" width="140" height="127"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="140" id="pyW-fj-O2Z"/>
                                             </constraints>
@@ -2078,18 +2078,25 @@ Saturday
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="aTp-KC-cxK">
+                                            <rect key="frame" x="20" y="9" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="5aI-fM-hCF"/>
+                                                <constraint firstAttribute="height" constant="20" id="RmY-WI-Khx"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="5Vi-92-320" secondAttribute="bottom" id="0b5-7t-BkX"/>
-                                        <constraint firstAttribute="bottom" secondItem="TBB-ps-6TT" secondAttribute="bottom" id="C0T-P8-WHW"/>
                                         <constraint firstAttribute="trailing" secondItem="lxl-aI-FgV" secondAttribute="trailing" constant="8" id="Cxv-Rg-47o"/>
                                         <constraint firstItem="TBB-ps-6TT" firstAttribute="leading" secondItem="0Nd-fT-Zji" secondAttribute="leading" constant="60" id="DPp-5V-uAQ"/>
                                         <constraint firstAttribute="trailing" secondItem="5Vi-92-320" secondAttribute="trailing" constant="8" id="Exd-36-mKx"/>
                                         <constraint firstItem="lxl-aI-FgV" firstAttribute="leading" secondItem="0Nd-fT-Zji" secondAttribute="leading" constant="8" id="LLI-ha-wVh"/>
                                         <constraint firstItem="lxl-aI-FgV" firstAttribute="top" secondItem="0Nd-fT-Zji" secondAttribute="top" id="VJ6-M1-EBa"/>
-                                        <constraint firstItem="5Vi-92-320" firstAttribute="top" secondItem="0Nd-fT-Zji" secondAttribute="top" id="Yll-kI-OOg"/>
-                                        <constraint firstItem="TBB-ps-6TT" firstAttribute="top" secondItem="0Nd-fT-Zji" secondAttribute="top" id="uBw-72-LMQ"/>
+                                        <constraint firstItem="5Vi-92-320" firstAttribute="top" secondItem="0Nd-fT-Zji" secondAttribute="top" constant="4" id="Yll-kI-OOg"/>
+                                        <constraint firstItem="aTp-KC-cxK" firstAttribute="top" secondItem="lxl-aI-FgV" secondAttribute="bottom" constant="8" id="cU7-Al-ZWv"/>
+                                        <constraint firstItem="aTp-KC-cxK" firstAttribute="leading" secondItem="0Nd-fT-Zji" secondAttribute="leading" constant="20" id="lfB-e2-gge"/>
+                                        <constraint firstItem="TBB-ps-6TT" firstAttribute="top" secondItem="0Nd-fT-Zji" secondAttribute="top" constant="4" id="uBw-72-LMQ"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -2257,10 +2264,13 @@ Saturday
                     <connections>
                         <outlet property="mButtonCamera" destination="Sxq-wU-mQ3" id="WBY-Bd-kBc"/>
                         <outlet property="mImageViewDealership" destination="7Mf-5u-hpw" id="1Cy-YK-Obd"/>
+                        <outlet property="mLabelDays" destination="TBB-ps-6TT" id="J1y-la-cIt"/>
                         <outlet property="mLabelDealershipMake" destination="BKM-Y5-A3a" id="TCC-MJ-brV"/>
+                        <outlet property="mLabelHours" destination="5Vi-92-320" id="5MM-kv-mBu"/>
                         <outlet property="mTableDealerShipDetails" destination="Eyg-W9-0dq" id="2HR-R5-eXt"/>
                         <outlet property="mTextFieldDealershipTitle" destination="Nzo-DA-AqU" id="3cN-L0-FR8"/>
                         <outlet property="mTextViewDealershipInfo" destination="206-bc-SJp" id="Syt-Fp-uO5"/>
+                        <outlet property="mViewFooter" destination="0Nd-fT-Zji" id="YBL-xO-ES6"/>
                         <outlet property="mViewHeader" destination="ecc-6I-ZKZ" id="LuV-yk-bcy"/>
                     </connections>
                 </viewController>
@@ -4022,7 +4032,7 @@ Saturday
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uP5-cs-Pd6" customClass="CustomImageView" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target">
-                                <rect key="frame" x="35" y="239" width="306" height="189"/>
+                                <rect key="frame" x="35" y="165" width="306" height="189"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="189" id="vfA-sd-v5Z"/>
@@ -4040,7 +4050,7 @@ Saturday
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdh-P1-A6e" customClass="CustomButton" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target">
-                                <rect key="frame" x="80.5" y="366" width="94" height="40"/>
+                                <rect key="frame" x="80.5" y="292" width="94" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="qI0-Cu-E4B"/>
                                     <constraint firstAttribute="height" constant="40" id="r0W-NZ-Dwl"/>
@@ -4062,7 +4072,7 @@ Saturday
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Agent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BR-DG-Fxl">
-                                <rect key="frame" x="83" y="265" width="215" height="21"/>
+                                <rect key="frame" x="83" y="191" width="215" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="215" id="g74-v9-Bmc"/>
                                     <constraint firstAttribute="height" constant="21" id="oK6-GI-ta7"/>
@@ -4072,7 +4082,7 @@ Saturday
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ljn-gm-Vvs">
-                                <rect key="frame" x="80" y="308" width="218" height="30"/>
+                                <rect key="frame" x="80" y="234" width="218" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="SlM-WX-AMP"/>
                                 </constraints>
@@ -4084,7 +4094,7 @@ Saturday
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIr-Qo-ueP">
-                                <rect key="frame" x="82" y="339" width="215" height="1"/>
+                                <rect key="frame" x="82" y="265" width="215" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="YOL-6E-Jdb"/>
@@ -4094,7 +4104,7 @@ Saturday
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3g-TT-HKE" customClass="CustomButton" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target">
-                                <rect key="frame" x="204" y="366" width="94" height="40"/>
+                                <rect key="frame" x="204" y="292" width="94" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fKJ-es-RH5"/>
                                     <constraint firstAttribute="width" constant="94" id="lx0-KT-inl"/>
@@ -4119,7 +4129,7 @@ Saturday
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="J3g-TT-HKE" firstAttribute="trailing" secondItem="2BR-DG-Fxl" secondAttribute="trailing" constant="-0.5" id="3Pb-QH-5UF"/>
-                            <constraint firstItem="uP5-cs-Pd6" firstAttribute="centerY" secondItem="I0v-QY-ejM" secondAttribute="centerY" id="Dzs-2o-M9t"/>
+                            <constraint firstItem="uP5-cs-Pd6" firstAttribute="centerY" secondItem="I0v-QY-ejM" secondAttribute="centerY" constant="-74" id="Dzs-2o-M9t"/>
                             <constraint firstItem="pdh-P1-A6e" firstAttribute="leading" secondItem="2BR-DG-Fxl" secondAttribute="leading" constant="-2.5" id="ELA-do-VPg"/>
                             <constraint firstItem="ljn-gm-Vvs" firstAttribute="leading" secondItem="2BR-DG-Fxl" secondAttribute="leading" constant="-3" id="FdD-fr-kUq"/>
                             <constraint firstAttribute="trailing" secondItem="hXh-Fi-Z7g" secondAttribute="trailing" id="JbT-bQ-qAO"/>
@@ -4649,6 +4659,7 @@ Saturday
         <image name="checkbox" width="20" height="20"/>
         <image name="checkbox_empty" width="20" height="20"/>
         <image name="checked" width="20" height="20"/>
+        <image name="clock" width="30" height="30"/>
         <image name="cross" width="35" height="35"/>
         <image name="crossRed" width="20" height="20"/>
         <image name="done" width="73" height="58"/>

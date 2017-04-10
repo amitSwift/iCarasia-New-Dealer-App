@@ -1,3 +1,4 @@
+
 //
 //  DealershipDetailsViewController.swift
 //  iCarasia New Car Dealer App
@@ -12,6 +13,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     
     @IBOutlet weak var mTableDealerShipDetails       : UITableView!
     @IBOutlet weak var mViewHeader                   : UIView!
+    @IBOutlet weak var mViewFooter                   : UIView!
     
     @IBOutlet weak var mImageViewDealership          : UIImageView!
     @IBOutlet weak var mButtonCamera                 : UIButton!
@@ -21,7 +23,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     
     @IBOutlet weak var mLabelDays                    : UILabel!
     @IBOutlet weak var mLabelHours                   : UILabel!
-
+    
     
     var isEditMode              = Bool()
     
@@ -79,9 +81,8 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        let frame               = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: mTextViewDealershipInfo.frame.maxY)
+        var frame               = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: mTextViewDealershipInfo.frame.maxY)
         self.mViewHeader.frame  = frame
-
     }
     
     // MARK: - UI Setup -
@@ -108,7 +109,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         
         mImageViewDealership.sd_setImage(with: URL(string:mDealershipInfoDict.value(forKey: "profile_image_large_url") as! String)  , placeholderImage: nil)
         
-
+        
         // First Section //
         
         let arrayFirstSection = NSMutableArray()
@@ -1025,13 +1026,112 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                     
                     SVProgressHUD.dismiss()
                     self.mDealershipInfoDict = result.value(forKey: "dealership") as! NSDictionary
+                    
+                    
+                    let dailyHour       = self.mDealershipInfoDict.value(forKey: "daily_hour") as? NSDictionary
+                    
+                    let arrayOpening    = NSMutableArray()
+                    
+                    arrayOpening.add("opening_monday")
+                    arrayOpening.add("opening_tuesday")
+                    arrayOpening.add("opening_wednesday")
+                    arrayOpening.add("opening_thursday")
+                    arrayOpening.add("opening_friday")
+                    arrayOpening.add("pening_saturday")
+                    arrayOpening.add("opening_sunday")
+                    
+                    let arrayClosing    = NSMutableArray()
+                    
+                    arrayClosing.add("closing_monday")
+                    arrayClosing.add("closing_tuesday")
+                    arrayClosing.add("closing_wednesday")
+                    arrayClosing.add("closing_thursday")
+                    arrayClosing.add("closing_friday")
+                    arrayClosing.add("closing_saturday")
+                    arrayClosing.add("closing_sunday")
+                    
+                    
+                    let arrayDays    = NSMutableArray()
+                    
+                    arrayDays.add("Monday")
+                    arrayDays.add("Tuesday")
+                    arrayDays.add("Wednesday")
+                    arrayDays.add("Thursday")
+                    arrayDays.add("Friday")
+                    arrayDays.add("Saturday")
+                    arrayDays.add("Sunday")
+                    
+                    
+                    let scheduleDays  = NSMutableString()
+                    let scheduleHours = NSMutableString()
+                    
+                    for index in 0..<7 {
+                        
+                        if ((dailyHour?.value(forKey: arrayOpening.object(at: index) as! String) as? String) != nil) && ((dailyHour?.value(forKey: arrayClosing.object(at: index) as! String) as? String) != nil) {
+                            
+                            let open = self.openingClosingTime( dateString: (dailyHour?.value(forKey: arrayOpening.object(at: index) as! String) as? String)! )
+                            let close = self.openingClosingTime( dateString: (dailyHour?.value(forKey: arrayClosing.object(at: index) as! String) as? String)! )
+                            
+                            
+                            if scheduleHours.isEqual(to: "") {
+                                
+                                scheduleDays.append("\(arrayDays.object(at: index) as! String)")
+                                scheduleHours.append("\(open) - \(close)")
+                                
+                            }else{
+                                
+                                scheduleHours.append("\n\(open) - \(close)")
+                                scheduleDays.append("\n\(arrayDays.object(at: index) as! String)")
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                    let paragraphStyle              = NSMutableParagraphStyle()
+                    paragraphStyle.lineSpacing      = 3
+                    var attrString                  = NSMutableAttributedString(string: scheduleDays as String)
+                    attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+                    self.mLabelDays.attributedText  = attrString
+                    
+                    
+                    attrString                      = NSMutableAttributedString(string: scheduleHours as String)
+                    attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+                    self.mLabelHours.attributedText = attrString
+                    
+                    self.mLabelDays.sizeToFit()
+                    self.mLabelHours.sizeToFit()
+                    
+                    let frame                       = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.mLabelHours.frame.maxY + 5)
+                    self.mViewFooter.frame          = frame
+                    
+                    //self.mLabelDays.layoutIfNeeded()
+                    //self.mLabelHours.layoutIfNeeded()
+                    
                     self.setupUI()
                 }
             }
         })
         
     }
-
+    
+    func openingClosingTime ( dateString : String ) -> String {
+        
+        let dateFormatter           = DateFormatter()
+        dateFormatter.dateFormat    = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.locale        = Locale.init(identifier: "en_GB")
+        let dateObj                 = dateFormatter.date(from: dateString)
+        
+        let calendar                = Calendar.current
+        let hour                    = calendar.component(.hour, from: dateObj!)
+        let minutes                 = calendar.component(.minute, from: dateObj!)
+        
+        dateFormatter.dateFormat    = "a"
+        let currentAMPMFormat       = dateFormatter.string(from: dateObj!).uppercased()
+        
+        return "\(String(format: "%02d", hour))" + ":\(String(format: "%02d", minutes))" + " \( currentAMPMFormat)"
+    }
+    
     
     func validateWebsiteUrl (stringURL : NSString) -> Bool {
         
