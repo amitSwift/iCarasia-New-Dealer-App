@@ -98,7 +98,15 @@ class AgentsViewController: UIViewController , UITableViewDataSource , UITableVi
                     self.mArrayAgentsList               = result.value(forKey: "sales_agents") as! NSArray
                     self.mBranchManagerInfo             = result.value(forKey: "branch_manager") as! NSDictionary
                     
-                    self.mLabelBrachManagerName.text    = self.mBranchManagerInfo.value(forKey: "name") as! String?
+                    if let name = self.mBranchManagerInfo.value(forKey: "name") as! String? {
+                        if name != ""{
+                            self.mLabelBrachManagerName.text    = name
+                        }else{
+                            self.mLabelBrachManagerName.text    = "NA"
+                        }
+                    }else{
+                        self.mLabelBrachManagerName.text        = self.mBranchManagerInfo.value(forKey: "phone") as! String?
+                    }
                     
                     self.mTableAgentsList.reloadData()
                     
@@ -213,10 +221,15 @@ class AgentsViewController: UIViewController , UITableViewDataSource , UITableVi
         imageView.setImageWith(URL(string: (dictInfo.value(forKeyPath: "user.profile_image_thumb_url") as? String)!), usingActivityIndicatorStyle: .gray)
         
         let labelName               = cell.viewWithTag(2) as! UILabel
-        if let name = dictInfo.value(forKeyPath: "user.name") {
-            labelName.text              = name as? String
+        if let name = dictInfo.value(forKeyPath: "user.name") as? String {
+            
+            if name != ""{
+                labelName.text          = name
+            }else{
+                labelName.text          = dictInfo.value(forKeyPath: "user.phone") as? String
+            }
         }else{
-            labelName.text              = dictInfo.value(forKeyPath: "user.phone") as? String
+            labelName.text          = dictInfo.value(forKeyPath: "user.phone") as? String
         }
         
         

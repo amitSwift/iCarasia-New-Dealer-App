@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DealershipDetailsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIImagePickerControllerDelegate , UINavigationControllerDelegate , UITextFieldDelegate,TOCropViewControllerDelegate{
+class DealershipDetailsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIImagePickerControllerDelegate , UINavigationControllerDelegate , UITextFieldDelegate , TOCropViewControllerDelegate , UITextViewDelegate {
     
     @IBOutlet weak var mTableDealerShipDetails       : UITableView!
     @IBOutlet weak var mViewHeader                   : UIView!
@@ -18,6 +18,10 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     @IBOutlet weak var mTextFieldDealershipTitle     : UITextField!
     @IBOutlet weak var mLabelDealershipMake          : UILabel!
     @IBOutlet weak var mTextViewDealershipInfo       : UITextView!
+    
+    @IBOutlet weak var mLabelDays                    : UILabel!
+    @IBOutlet weak var mLabelHours                   : UILabel!
+
     
     var isEditMode              = Bool()
     
@@ -47,7 +51,9 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         }
         
         mImageViewDealership.layer.cornerRadius = 5.0
-        self.setupUI()
+        
+        self.profileDealership()
+        //self.setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,8 +79,9 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        let frame           = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: mTextViewDealershipInfo.frame.minY)
-        mViewHeader.frame   = frame
+        let frame               = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: mTextViewDealershipInfo.frame.maxY)
+        self.mViewHeader.frame  = frame
+
     }
     
     // MARK: - UI Setup -
@@ -89,9 +96,16 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         mTextViewDealershipInfo.isUserInteractionEnabled    = false
         mArrayDealershipInfo.removeAllObjects()
         
-        mTextFieldDealershipTitle.text  = mDealershipInfoDict.value(forKey: "name") as! String?
-        mLabelDealershipMake.text       = mDealershipInfoDict.value(forKeyPath: "make.name") as! String?
-        mTextViewDealershipInfo.text    = mDealershipInfoDict.value(forKey:"short_description") as! String?
+        mTextFieldDealershipTitle.text      = mDealershipInfoDict.value(forKey: "name") as! String?
+        mLabelDealershipMake.text           = mDealershipInfoDict.value(forKeyPath: "make.name") as! String?
+        
+        if let value = mDealershipInfoDict.value(forKey:"short_description") as? String {
+            mTextViewDealershipInfo.text    = value
+        }else{
+            mTextViewDealershipInfo.text    = ""
+        }
+        self.mTextViewDealershipInfo.sizeToFit()
+        
         mImageViewDealership.sd_setImage(with: URL(string:mDealershipInfoDict.value(forKey: "profile_image_large_url") as! String)  , placeholderImage: nil)
         
 
@@ -155,6 +169,9 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         mArrayDealershipInfo.add(arraySecondSection)
         self.mTableDealerShipDetails.reloadData()
         
+        //self.mTableDealerShipDetails.beginUpdates()
+        //self.mTableDealerShipDetails.endUpdates()
+        
     }
     
     func setupUIEditMode () {
@@ -168,6 +185,8 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             
             self.mTextFieldDealershipTitle.text          = self.mTextFieldDealershipTitle.text?.trimmingCharacters(in: .whitespaces)
             self.mTextViewDealershipInfo.text            = self.mTextViewDealershipInfo.text?.trimmingCharacters(in: .whitespaces)
+            self.mTextViewDealershipInfo.sizeToFit()
+            self.mTextViewDealershipInfo.layoutIfNeeded()
             
             if mTextFieldDealershipTitle.text?.characters.count == 0 {
                 TSMessage.showNotification(in: self , title: "\nEnter dealership name.", subtitle: nil, type: TSMessageNotificationType.message)
@@ -191,15 +210,24 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             let editButtonItem      = UIBarButtonItem.init(image: UIImage(named:"save"), style: .plain, target: self, action: #selector(editAction))
             self.navigationItem.rightBarButtonItems = [editButtonItem]
             
-            self.isEditMode                                     = true
-            self.mButtonCamera.isHidden                         = false
-            mTextFieldDealershipTitle.isUserInteractionEnabled  = true
-            mTextViewDealershipInfo.isUserInteractionEnabled    = true
-            mArrayDealershipInfo.removeAllObjects()
+            self.isEditMode                                             = true
+            self.mButtonCamera.isHidden                                 = false
+            self.mTextFieldDealershipTitle.isUserInteractionEnabled     = true
+            self.mTextViewDealershipInfo.isUserInteractionEnabled       = true
+            self.mArrayDealershipInfo.removeAllObjects()
             
-            mTextFieldDealershipTitle.text  = mDealershipInfoDict.value(forKey: "name") as! String?
-            mLabelDealershipMake.text       = mDealershipInfoDict.value(forKeyPath: "make.name") as! String?
-            //mTextViewDealershipInfo.text    = ""
+            self.mTextFieldDealershipTitle.text  = mDealershipInfoDict.value(forKey: "name") as! String?
+            self.mLabelDealershipMake.text       = mDealershipInfoDict.value(forKeyPath: "make.name") as! String?
+            self.mTextViewDealershipInfo.text    = mDealershipInfoDict.value(forKey:"short_description") as! String?
+            
+            var frame               = self.mTextViewDealershipInfo.frame
+            if frame.size.height < 50{
+                frame.size.height   = 50
+            }
+            self.mTextViewDealershipInfo.frame = frame
+            
+            frame               = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: mTextViewDealershipInfo.frame.maxY)
+            self.mViewHeader.frame  = frame
             
             // First Section //
             
@@ -314,8 +342,10 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             
             mArrayDealershipInfo.add(arraySecondSection)
             self.mTableDealerShipDetails.reloadData()
+            
+            //self.mTableDealerShipDetails.beginUpdates()
+            //self.mTableDealerShipDetails.endUpdates()
         }
-        
     }
     
     //MARK: - Button Actions -
@@ -510,26 +540,26 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         let dictDetails     = (self.mArrayDealershipInfo.object(at: indexPath.section) as! NSArray).object(at: indexPath.row) as! NSDictionary
         var titleValue      : String!
         var placeHolder     : String!
-        var enableField     : Bool!
+        //var enableField     : Bool!
         var keyBoard        : UIKeyboardType!
         
         switch dictDetails.allKeys[0] as! String {
         case "phone_number":
-            enableField     = false
+            //enableField     = false
             cellIdentifier  = "phoneCell"
             placeHolder     = "Phone Number"
             keyBoard        = .phonePad
             titleValue      = dictDetails.value(forKey: "phone_number") as! String!
             break
         case "website":
-            enableField     = true
+            //enableField     = true
             cellIdentifier  = "websiteCell"
             placeHolder     = "Website"
             keyBoard        = .emailAddress
             titleValue      = dictDetails.value(forKey: "website") as! String!
             break
         case "address":
-            enableField     = false
+            //enableField     = false
             placeHolder     = "Location"
             cellIdentifier  = "locationCell"
             keyBoard        = .emailAddress
@@ -542,7 +572,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             break
             
         case "city":
-            enableField     = false
+            //enableField     = false
             cellIdentifier  = "locationCell"
             placeHolder     = "City"
             keyBoard        = .emailAddress
@@ -550,7 +580,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             break
             
         case "zip":
-            enableField     = false
+            //enableField     = false
             cellIdentifier  = "locationCell"
             placeHolder     = "Aip Code"
             keyBoard        = .numberPad
@@ -587,7 +617,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         switch dictDetails.allKeys[0] as! String {
         case "facebook":
             image           = "facebook"
-            title           = "Facebook"
+            //title           = "Facebook"
             placeHolder     = "Facebook"
             keyBoard        = .emailAddress
             
@@ -595,7 +625,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             break
         case "instagram":
             image           = "instagram"
-            title           = "Instagram"
+            //title           = "Instagram"
             placeHolder     = "Instagram"
             keyBoard        = .emailAddress
             
@@ -603,21 +633,21 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             break
         case "google_plus":
             image           = "google-plus"
-            title           = "Google +"
+            //title           = "Google +"
             placeHolder     = "Google +"
             keyBoard        = .emailAddress
             titleInfo = dictDetails.value(forKey: "google_plus") as! String
             break
         case "twitter":
             image           = "twitter"
-            title           = "Twitter"
+            //title           = "Twitter"
             placeHolder     = "Twitter"
             keyBoard        = .emailAddress
             titleInfo       = dictDetails.value(forKey: "twitter") as! String
             break
         case "whatsapp":
             image           = "whatsapp"
-            title           = "Whatsapp"
+            //title           = "Whatsapp"
             placeHolder     = "Whatsapp"
             keyBoard        = .phonePad
             titleInfo       = dictDetails.value(forKey: "whatsapp") as! String
@@ -656,7 +686,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
             let resizedImage                = image.resizeWith(percentage: 0.5)
             //self.mImageViewDealership.image = resizedImage
             
-            //self.mImageDealership             = resizedImage!
+            //self.mImageDealership           = resizedImage!
             
             //self.mImageData                 = UIImageJPEGRepresentation(resizedImage!, 1.0)! as Data
             //self.mStrBase64                 = mImageData.base64EncodedString(options:.lineLength64Characters) as String
@@ -838,7 +868,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                     print("Updated Successfully \(success)")
                     
                     self.isEditMode                                             = false
-                    self.mButtonCamera.isHidden                                  = true
+                    self.mButtonCamera.isHidden                                 = true
                     self.mTextFieldDealershipTitle.isUserInteractionEnabled     = false
                     self.mTextViewDealershipInfo.isUserInteractionEnabled       = false
                     
@@ -943,6 +973,65 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         })
         
     }
+    
+    
+    func profileDealership (){
+        
+        if !SVProgressHUD.isVisible() {
+            SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+        }
+        
+        let servicesManager = ServicesManager()
+        let dictParams      = NSMutableDictionary()
+        dictParams.setValue(self.mDealershipInfoDict.value(forKey: "id"), forKey: "dealership_ID")
+        
+        servicesManager.dealerShipProfile(parameters: dictParams, completion: { (result, error) in
+            
+            DispatchQueue.main.async {
+                
+                if let error =  result.value(forKey: "error") {
+                    
+                    print(error)
+                    
+                    //TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+                    
+                    if let value = result.value(forKey: "error") {
+                        
+                        if value as! String == "Unauthenticated." {
+                            
+                            //SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+                            let servicesManager = ServicesManager()
+                            servicesManager.autheticateUser(parameters: nil, completion: { (result, error) in
+                                
+                                DispatchQueue.main.async {
+                                    //SVProgressHUD.dismiss()
+                                    if let token = result.value(forKey: "token") {
+                                        // Save Token To User Defaults //
+                                        let tokenValue = UserDefaults()
+                                        tokenValue.set(token, forKey: "iCar_Token")
+                                        self.profileDealership()
+                                    }
+                                }
+                            })
+                        }
+                        else{
+                            SVProgressHUD.dismiss()
+                        }
+                    }else{
+                        SVProgressHUD.dismiss()
+                    }
+                }
+                else{
+                    
+                    SVProgressHUD.dismiss()
+                    self.mDealershipInfoDict = result.value(forKey: "dealership") as! NSDictionary
+                    self.setupUI()
+                }
+            }
+        })
+        
+    }
+
     
     func validateWebsiteUrl (stringURL : NSString) -> Bool {
         

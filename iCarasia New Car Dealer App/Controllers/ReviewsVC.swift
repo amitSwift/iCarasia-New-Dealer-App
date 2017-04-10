@@ -100,12 +100,13 @@ class ReviewsVC: UITableViewController , MJSecondPopupDelegate {
                     
                 }else{
                     
-                    TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
                     
                     if let value = result.value(forKey: "error") {
                         
                         if value as! String == "Unauthenticated." {
                             
+                            TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+
                             //SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
                             let servicesManager = ServicesManager()
                             servicesManager.autheticateUser(parameters: nil, completion: { (result, error) in
@@ -122,6 +123,14 @@ class ReviewsVC: UITableViewController , MJSecondPopupDelegate {
                                 }
                             })
                         }
+                        else{
+                            TSMessage.showNotification(in: self , title: "\nAn error encountered while loading data, please try again.", subtitle: nil, type: TSMessageNotificationType.message)
+                            SVProgressHUD.dismiss()
+                        }
+                    }
+                    else{
+                        TSMessage.showNotification(in: self , title: "\nAn error encountered while loading data, please try again.", subtitle: nil, type: TSMessageNotificationType.message)
+                        SVProgressHUD.dismiss()
                     }
                     
                 }
@@ -152,11 +161,11 @@ class ReviewsVC: UITableViewController , MJSecondPopupDelegate {
                     
                 }else{
                     
-                    TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
-                    
                     if let value = result.value(forKey: "error") {
                         
                         if value as! String == "Unauthenticated." {
+                            
+                            TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
                             
                             //SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
                             let servicesManager = ServicesManager()
@@ -173,7 +182,14 @@ class ReviewsVC: UITableViewController , MJSecondPopupDelegate {
                                     }
                                 }
                             })
+                        }else{
+                            TSMessage.showNotification(in: self , title: "\nAn error encountered while loading data, please try again.", subtitle: nil, type: TSMessageNotificationType.message)
+                            SVProgressHUD.dismiss()
                         }
+                    }else{
+                        TSMessage.showNotification(in: self , title: "\nAn error encountered while loading data, please try again.", subtitle: nil, type: TSMessageNotificationType.message)
+                        SVProgressHUD.dismiss()
+
                     }
                     
                 }
@@ -205,12 +221,13 @@ class ReviewsVC: UITableViewController , MJSecondPopupDelegate {
                     print("Review Added Successfully")
                 }else{
                     
-                    TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
-                    
                     if let value = result.value(forKey: "error") {
+                        
                         
                         if value as! String == "Unauthenticated." {
                             
+                            TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "error") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
+
                             //SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
                             let servicesManager = ServicesManager()
                             servicesManager.autheticateUser(parameters: nil, completion: { (result, error) in
@@ -227,6 +244,13 @@ class ReviewsVC: UITableViewController , MJSecondPopupDelegate {
                                 }
                             })
                         }
+                        else{
+                            TSMessage.showNotification(in: self , title: "\nAn error encountered while loading data, please try again.", subtitle: nil, type: TSMessageNotificationType.message)
+                            SVProgressHUD.dismiss()
+                        }
+                    }else{
+                        TSMessage.showNotification(in: self , title: "\nAn error encountered while loading data, please try again.", subtitle: nil, type: TSMessageNotificationType.message)
+                        SVProgressHUD.dismiss()
                     }
                     
                 }

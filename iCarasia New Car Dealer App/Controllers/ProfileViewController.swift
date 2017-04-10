@@ -148,6 +148,7 @@ class ProfileViewController: UIViewController , MJPendingPopupDelegate , UIImage
             return
         }
         
+        self.view.endEditing(true)
         self.saveProfileInfo()
     }
     
@@ -277,10 +278,11 @@ class ProfileViewController: UIViewController , MJPendingPopupDelegate , UIImage
                     SVProgressHUD.dismiss()
                     print("Updated Successfully \(success)")
                     TSMessage.showNotification(in: self , title: "\nProfile info updated successfully.", subtitle: nil, type: TSMessageNotificationType.message)
+                    self.mCameraButton.isHidden                         = true
                     self.mSaveButton.isHidden                           = true
                     self.mEditButton.isHidden                           = false
                     self.mLogoutButton.isHidden                         = false
-                    
+                    self.mTextFieldUserName.isUserInteractionEnabled    = false
                     
                 }else{
                     

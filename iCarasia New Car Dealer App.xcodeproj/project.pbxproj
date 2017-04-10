@@ -34,8 +34,7 @@
 		F10591611E6D940F0025B45B /* DealershipDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10591601E6D940F0025B45B /* DealershipDetailsViewController.swift */; };
 		F11083711E794C1A006DFD55 /* AgentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11083701E794C1A006DFD55 /* AgentProfileViewController.swift */; };
 		F124CE3A1E5EA3DA00FAE9CF /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124CE391E5EA3DA00FAE9CF /* UserInfoViewController.swift */; };
-		F124CE3C1E5EC14900FAE9CF /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F124CE3B1E5EC14900FAE9CF /* UserNotificationsUI.framework */; };
-		F124CE3E1E5EC15100FAE9CF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F124CE3D1E5EC15100FAE9CF /* UserNotifications.framework */; };
+		F124CE3E1E5EC15100FAE9CF /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F124CE3D1E5EC15100FAE9CF /* UserNotifications.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		F124CE421E5EC4E100FAE9CF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F124CE411E5EC4E100FAE9CF /* MainTabBarController.swift */; };
 		F12ED3A31E88EB9B00B7FA43 /* ChangeBranchManagerPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12ED3A11E88EB9B00B7FA43 /* ChangeBranchManagerPopUpVC.swift */; };
 		F12ED3A41E88EB9B00B7FA43 /* SelectBranchManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12ED3A21E88EB9B00B7FA43 /* SelectBranchManagerVC.swift */; };
@@ -191,7 +190,6 @@
 			files = (
 				F105913C1E6D5E1B0025B45B /* QuartzCore.framework in Frameworks */,
 				F124CE3E1E5EC15100FAE9CF /* UserNotifications.framework in Frameworks */,
-				F124CE3C1E5EC14900FAE9CF /* UserNotificationsUI.framework in Frameworks */,
 				AA7E05567A2C3060F9693CBA /* libPods-iCarasia New Car Dealer App.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -693,6 +691,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -738,6 +737,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -758,6 +758,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = HP5HATHJEV;
 				INFOPLIST_FILE = "iCarasia New Car Dealer App/Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iCarasia.malaysia;
@@ -781,6 +782,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = HP5HATHJEV;
 				INFOPLIST_FILE = "iCarasia New Car Dealer App/Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iCarasia.malaysia;

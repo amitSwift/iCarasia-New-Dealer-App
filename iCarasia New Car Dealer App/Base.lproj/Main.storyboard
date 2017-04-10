@@ -448,7 +448,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hke-ZW-0yU" id="H0O-Vj-ddz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="audi" translatesAutoresizingMaskIntoConstraints="NO" id="lN1-e1-3pM" customClass="CustomImageView" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target">
@@ -1926,7 +1926,7 @@
         <!--Dealership Details View Controller-->
         <scene sceneID="Krd-Sh-lRD">
             <objects>
-                <viewController storyboardIdentifier="DealershipDetailsViewController" id="U8C-AI-9nd" customClass="DealershipDetailsViewController" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DealershipDetailsViewController" automaticallyAdjustsScrollViewInsets="NO" id="U8C-AI-9nd" customClass="DealershipDetailsViewController" customModule="iCarasia_New_Car_Dealer_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yqx-c1-fb3"/>
                         <viewControllerLayoutGuide type="bottom" id="gC6-UR-cEo"/>
@@ -1990,16 +1990,16 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The Best BMW Dealership around in K.L. We have not only the best offers, but also the best staff around. Asky anyone!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="206-bc-SJp">
-                                            <rect key="frame" x="8" y="295" width="359" height="50"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="NA" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="206-bc-SJp">
+                                            <rect key="frame" x="8" y="295" width="359" height="55"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="Vmh-pe-Wtl"/>
+                                                <constraint firstAttribute="height" constant="55" id="Vmh-pe-Wtl"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             <connections>
-                                                <outlet property="delegate" destination="U8C-AI-9nd" id="frS-EE-agI"/>
+                                                <outlet property="delegate" destination="U8C-AI-9nd" id="dbm-6a-mfT"/>
                                             </connections>
                                         </textView>
                                     </subviews>
@@ -2022,6 +2022,74 @@
                                         <constraint firstItem="wm6-rh-uy0" firstAttribute="leading" secondItem="ecc-6I-ZKZ" secondAttribute="leading" id="qw2-7v-5z9"/>
                                         <constraint firstAttribute="trailing" secondItem="wm6-rh-uy0" secondAttribute="trailing" id="tT0-wK-iMQ"/>
                                         <constraint firstItem="wm6-rh-uy0" firstAttribute="top" secondItem="ecc-6I-ZKZ" secondAttribute="top" id="zhZ-pN-vjZ"/>
+                                    </constraints>
+                                </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="0Nd-fT-Zji">
+                                    <rect key="frame" x="0.0" y="533" width="375" height="135"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lxl-aI-FgV">
+                                            <rect key="frame" x="8" y="0.0" width="359" height="1"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="1lt-d2-3ef"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-ps-6TT">
+                                            <rect key="frame" x="60" y="0.0" width="80" height="135"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="8aJ-6n-JOw"/>
+                                            </constraints>
+                                            <attributedString key="attributedText">
+                                                <fragment>
+                                                    <string key="content">Monday
+Tuesday      
+Wednesday              Thursday
+Friday
+Saturday
+</string>
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="3" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="Sunday">
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="3" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vi-92-320">
+                                            <rect key="frame" x="227" y="0.0" width="140" height="135"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="140" id="pyW-fj-O2Z"/>
+                                            </constraints>
+                                            <attributedString key="attributedText">
+                                                <fragment>
+                                                    <string key="content">07:15 AM - 07:15 AM    07:15 AM - 07:15 AM    07:15 AM - 07:15 AM     07:15 AM - 07:15 AM      07:15 AM - 07:15 AM     07:15 AM - 07:15 AM    07:15 AM - 07:15 AM</string>
+                                                    <attributes>
+                                                        <font key="NSFont" metaFont="system"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="5Vi-92-320" secondAttribute="bottom" id="0b5-7t-BkX"/>
+                                        <constraint firstAttribute="bottom" secondItem="TBB-ps-6TT" secondAttribute="bottom" id="C0T-P8-WHW"/>
+                                        <constraint firstAttribute="trailing" secondItem="lxl-aI-FgV" secondAttribute="trailing" constant="8" id="Cxv-Rg-47o"/>
+                                        <constraint firstItem="TBB-ps-6TT" firstAttribute="leading" secondItem="0Nd-fT-Zji" secondAttribute="leading" constant="60" id="DPp-5V-uAQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="5Vi-92-320" secondAttribute="trailing" constant="8" id="Exd-36-mKx"/>
+                                        <constraint firstItem="lxl-aI-FgV" firstAttribute="leading" secondItem="0Nd-fT-Zji" secondAttribute="leading" constant="8" id="LLI-ha-wVh"/>
+                                        <constraint firstItem="lxl-aI-FgV" firstAttribute="top" secondItem="0Nd-fT-Zji" secondAttribute="top" id="VJ6-M1-EBa"/>
+                                        <constraint firstItem="5Vi-92-320" firstAttribute="top" secondItem="0Nd-fT-Zji" secondAttribute="top" id="Yll-kI-OOg"/>
+                                        <constraint firstItem="TBB-ps-6TT" firstAttribute="top" secondItem="0Nd-fT-Zji" secondAttribute="top" id="uBw-72-LMQ"/>
                                     </constraints>
                                 </view>
                                 <prototypes>

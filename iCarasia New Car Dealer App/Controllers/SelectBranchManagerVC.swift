@@ -68,8 +68,12 @@ class SelectBranchManagerVC: UIViewController , UITableViewDelegate , UITableVie
         
         let dictInfo                = self.mArrayAgents.object(at: indexPath.row) as! NSDictionary
         
-        if let name = dictInfo.value(forKeyPath: "user.name") {
-            mUserNameLabel.text     = name as? String
+        if let name = dictInfo.value(forKeyPath: "user.name") as? String {
+            if name != ""{
+                mUserNameLabel.text = name
+            }else{
+                mUserNameLabel.text = "NA"
+            }
         }else{
             mUserNameLabel.text     = ""
         }

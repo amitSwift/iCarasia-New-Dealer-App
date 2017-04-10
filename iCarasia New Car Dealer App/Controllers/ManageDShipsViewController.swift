@@ -11,8 +11,8 @@ import UIKit
 class ManageDShipsViewController: UIViewController   , UITableViewDelegate , UITableViewDataSource {
 
     @IBOutlet weak var mTableDealerShipsList    : UITableView!
+    
     //@IBOutlet weak var mButtonAddDealerShip     : UIButton!
-   
     
     var mArrayDealerships = NSArray()
     
@@ -32,6 +32,8 @@ class ManageDShipsViewController: UIViewController   , UITableViewDelegate , UIT
         
         self.getDealerships()
         NotificationCenter.default.addObserver(self, selector: #selector(getDealerships), name: NSNotification.Name(rawValue: "refresh_Dealerships_List"), object: nil)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
