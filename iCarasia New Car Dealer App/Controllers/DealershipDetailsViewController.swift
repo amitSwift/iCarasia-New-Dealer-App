@@ -1090,13 +1090,15 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
                     
                     let paragraphStyle              = NSMutableParagraphStyle()
                     paragraphStyle.lineSpacing      = 3
+                    let multipleAttributes: [String : Any] = [ NSParagraphStyleAttributeName: paragraphStyle, NSFontAttributeName: UIFont.systemFont(ofSize: 12),]
+
                     var attrString                  = NSMutableAttributedString(string: scheduleDays as String)
-                    attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+                    attrString.addAttributes(multipleAttributes, range:NSMakeRange(0, attrString.length))
                     self.mLabelDays.attributedText  = attrString
                     
                     
                     attrString                      = NSMutableAttributedString(string: scheduleHours as String)
-                    attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+                    attrString.addAttributes(multipleAttributes, range:NSMakeRange(0, attrString.length))
                     self.mLabelHours.attributedText = attrString
                     
                     self.mLabelDays.sizeToFit()
@@ -1129,7 +1131,7 @@ class DealershipDetailsViewController: UIViewController , UITableViewDelegate , 
         dateFormatter.dateFormat    = "a"
         let currentAMPMFormat       = dateFormatter.string(from: dateObj!).uppercased()
         
-        return "\(String(format: "%02d", hour))" + ":\(String(format: "%02d", minutes))" + " \( currentAMPMFormat)"
+        return "\(String(format: "%02d", hour > 12 ? hour-12 : hour ))" + ":\(String(format: "%02d", minutes))" + " \( currentAMPMFormat)"
     }
     
     

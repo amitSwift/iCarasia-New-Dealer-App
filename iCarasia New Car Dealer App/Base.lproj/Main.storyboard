@@ -2035,47 +2035,20 @@
                                                 <constraint firstAttribute="height" constant="1" id="1lt-d2-3ef"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-ps-6TT">
-                                            <rect key="frame" x="60" y="4" width="80" height="127"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBB-ps-6TT">
+                                            <rect key="frame" x="60" y="4" width="80" height="0.0"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="8aJ-6n-JOw"/>
                                             </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment>
-                                                    <string key="content">Monday
-Tuesday      
-Wednesday              Thursday
-Friday
-Saturday
-</string>
-                                                    <attributes>
-                                                        <font key="NSFont" metaFont="system"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="3" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment content="Sunday">
-                                                    <attributes>
-                                                        <font key="NSFont" metaFont="system"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="3" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                            <attributedString key="attributedText"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vi-92-320">
-                                            <rect key="frame" x="227" y="4" width="140" height="127"/>
+                                            <rect key="frame" x="227" y="4" width="140" height="0.0"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="140" id="pyW-fj-O2Z"/>
                                             </constraints>
-                                            <attributedString key="attributedText">
-                                                <fragment>
-                                                    <string key="content">07:15 AM - 07:15 AM    07:15 AM - 07:15 AM    07:15 AM - 07:15 AM     07:15 AM - 07:15 AM      07:15 AM - 07:15 AM     07:15 AM - 07:15 AM    07:15 AM - 07:15 AM</string>
-                                                    <attributes>
-                                                        <font key="NSFont" metaFont="system"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="3" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
+                                            <attributedString key="attributedText"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="aTp-KC-cxK">
@@ -2291,7 +2264,7 @@ Saturday
                                 <rect key="frame" x="0.0" y="28" width="375" height="133"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tyc-5L-uBt" id="ibc-ot-Hft">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="132.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="audi" translatesAutoresizingMaskIntoConstraints="NO" id="jJG-fb-A6q">

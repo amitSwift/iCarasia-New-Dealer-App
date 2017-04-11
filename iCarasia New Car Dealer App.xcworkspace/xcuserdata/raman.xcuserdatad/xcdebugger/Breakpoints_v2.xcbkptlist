@@ -647,11 +647,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iCarasia New Car Dealer App/Controllers/DealershipDetailsViewController.swift"
-            timestampString = "513521369.551343"
+            timestampString = "513581002.156822"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1111"
-            endingLineNumber = "1111"
+            startingLineNumber = "1113"
+            endingLineNumber = "1113"
             landmarkName = "profileDealership()"
             landmarkType = "7">
          </BreakpointContent>
