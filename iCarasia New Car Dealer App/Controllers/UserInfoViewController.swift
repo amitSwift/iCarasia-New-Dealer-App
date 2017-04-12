@@ -108,7 +108,7 @@ class UserInfoViewController: UIViewController {
                     vc.mUserName    = self.mTextFieldUserName.text!
                     self.navigationController?.pushViewController(vc, animated: true)
                     
-                    //self.loginUserOnApplogic(userName: self.mTextFieldUserName.text!, eMailAddress: self.mTextFieldEmailAddress.text! , password: "12345678")
+                   self.loginUserOnApplogic(userName: "rahul.kumar@trigma.in", eMailAddress: "rahul.kumar@trigma.in" , password: "12345678")
                 }
                 else  if let eMail = result.value(forKey: "email") {
                     
@@ -163,7 +163,7 @@ class UserInfoViewController: UIViewController {
             ALUserDefaultsHandler.setPassword(alUser.password)
         }
         
-        let chatManager = ALChatManager(applicationKey: "3e73f592d7000ffd1cb34b31cc3bd117c")
+        let chatManager = ALChatManager(applicationKey: "trigma3562077492201b0dc3e12a5103e9fc947")
         chatManager.registerUser(alUser) { (response, error) in
             
             SVProgressHUD.dismiss()

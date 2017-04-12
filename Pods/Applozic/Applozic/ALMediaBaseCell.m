@@ -71,7 +71,7 @@
         
         self.mMessageStatusImageView.contentMode = UIViewContentModeScaleToFill;
         self.mMessageStatusImageView.backgroundColor = [UIColor clearColor];
-         [self.contentView addSubview:self.mMessageStatusImageView];
+        [self.contentView addSubview:self.mMessageStatusImageView];
         
         self.mDowloadRetryButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.mDowloadRetryButton setContentMode:UIViewContentModeCenter];
@@ -79,7 +79,7 @@
         self.mDowloadRetryButton.layer.cornerRadius = 4;
         [self.mDowloadRetryButton.titleLabel setFont:[UIFont fontWithName:[ALApplozicSettings getFontFace] size:14]];
         [self.contentView addSubview:self.mDowloadRetryButton];
-
+        
         self.imageWithText = [[UITextView alloc] init];
         [self.imageWithText setFont:[UIFont fontWithName:[ALApplozicSettings getFontFace] size:MESSAGE_TEXT_SIZE]];
         self.imageWithText.editable = NO;
@@ -97,7 +97,7 @@
         UIMenuItem * msgInfo = [[UIMenuItem alloc] initWithTitle:@"Info" action:@selector(msgInfo:)];
         [[UIMenuController sharedMenuController] setMenuItems: @[msgInfo]];
         [[UIMenuController sharedMenuController] update];
-
+        
         if (IS_IPHONE_5)
         {
             heightLocation = 180.0;
@@ -126,11 +126,11 @@
 }
 
 - (void)msgInfo:(id)sender{
-
+    
 }
 
 -(void)setupProgress{
-
+    
 }
 
 -(void)hidePlayButtonOnUploading
@@ -139,7 +139,7 @@
 }
 
 -(void)cancelAction{
-
+    
 }
 
 @end

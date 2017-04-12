@@ -64,6 +64,7 @@
     [super populateCell:alMessage viewSize:viewSize];
     
     self.mUserProfileImageView.alpha = 1;
+    self.mUserProfileImageView.hidden = YES;
     
     BOOL today = [[NSCalendar currentCalendar] isDateInToday:[NSDate dateWithTimeIntervalSince1970:[alMessage.createdAtTime doubleValue]/1000]];
     NSString * theDate = [NSString stringWithFormat:@"%@",[alMessage getCreatedAtTimeChat:today]];
@@ -100,10 +101,10 @@
         self.mBubleImageView.backgroundColor = [ALApplozicSettings getReceiveMsgColor];
         self.mNameLabel.frame = self.mUserProfileImageView.frame;
         [self.mNameLabel setText:[ALColorUtility getAlphabetForProfileImage:receiverName]];
-
+        
         BUBBLE_ABSCISSA = self.mUserProfileImageView.frame.size.width + ADJUST_USER_PROFILE;
         
-        self.mBubleImageView.frame = CGRectMake(BUBBLE_ABSCISSA, ZERO, CELL_WIDTH, CELL_HEIGHT);
+        self.mBubleImageView.frame = CGRectMake(BUBBLE_ABSCISSA-50, ZERO, CELL_WIDTH, CELL_HEIGHT);
         
         self.mImageView.frame = CGRectMake(self.mBubleImageView.frame.origin.x + FLOAT_CONSTANT,
                                            self.mBubleImageView.frame.origin.y + FLOAT_CONSTANT,
@@ -156,7 +157,7 @@
         self.mBubleImageView.backgroundColor = [ALApplozicSettings getSendMsgColor];
         USER_PROFILE_ABSCISSA = viewSize.width - 50;
         self.mUserProfileImageView.frame = CGRectMake(USER_PROFILE_ABSCISSA, FLOAT_CONSTANT, ZERO, USER_PROFILE_CONSTANT);
-
+        
         BUBBLE_ABSCISSA = viewSize.width - self.mUserProfileImageView.frame.origin.x + 60;
         self.mBubleImageView.frame = CGRectMake(BUBBLE_ABSCISSA, ZERO, CELL_WIDTH, CELL_HEIGHT);
         
@@ -174,8 +175,8 @@
         
         self.mMessageStatusImageView.frame = CGRectMake(self.mDateLabel.frame.origin.x + self.mDateLabel.frame.size.width,
                                                         self.mDateLabel.frame.origin.y, MSG_STATUS_CONSTANT, MSG_STATUS_CONSTANT);
-
-    
+        
+        
         self.mMessageStatusImageView.hidden = NO;
         NSString * imageName;
         
@@ -185,27 +186,27 @@
             {
                 imageName = @"ic_action_read.png";
             }
-            break;
+                break;
             case DELIVERED:
             {
                 imageName = @"ic_action_message_delivered.png";
             }
-            break;
+                break;
             case SENT:
             {
                 imageName = @"ic_action_message_sent.png";
             }
-            break;
+                break;
             default:
             {
                 imageName = @"ic_action_about.png";
             }
-            break;
+                break;
         }
         
         self.mMessageStatusImageView.image = [ALUtilityClass getImageFromFramworkBundle:imageName];
     }
-
+    
     self.mDateLabel.text = theDate;
     theUrl = nil;
     NSString *latLongArgument = [self formatLocationJson:alMessage];
@@ -248,7 +249,7 @@
     NSDictionary *jsonStringDic = [NSJSONSerialization JSONObjectWithData:objectData
                                                                   options:NSJSONReadingMutableContainers
                                                                     error:&error];
-  
+    
     NSArray* latLog = [[NSArray alloc] initWithObjects:[jsonStringDic valueForKey:@"lat"],[jsonStringDic valueForKey:@"lon"], nil];
     
     if(!latLog.count)
@@ -300,7 +301,7 @@
     ALMessageInfoViewController *msgInfoVC = (ALMessageInfoViewController *)[storyboardM instantiateViewControllerWithIdentifier:@"ALMessageInfoView"];
     
     msgInfoVC.contentURL = theUrl;
-     __weak typeof(ALMessageInfoViewController *) weakObj = msgInfoVC;
+    __weak typeof(ALMessageInfoViewController *) weakObj = msgInfoVC;
     [msgInfoVC setMessage:self.mMessage andHeaderHeight:msgFrameHeight withCompletionHandler:^(NSError *error) {
         
         if(!error)

@@ -101,8 +101,9 @@ UIViewController * modalCon;
     [super populateCell:alMessage viewSize:viewSize];
     
     self.mUserProfileImageView.alpha = 1;
+    self.mUserProfileImageView.hidden = YES;//amit
     self.progresLabel.alpha = 0;
-
+    
     [self.mDowloadRetryButton setHidden:NO];
     [self.contentView bringSubviewToFront:self.mDowloadRetryButton];
     
@@ -151,8 +152,8 @@ UIViewController * modalCon;
         
         [self.mNameLabel setText:[ALColorUtility getAlphabetForProfileImage:receiverName]];
         
-        self.mBubleImageView.frame = CGRectMake(self.mUserProfileImageView.frame.size.width + BUBBLE_PADDING_X,
-                                                0, viewSize.width - BUBBLE_PADDING_WIDTH, viewSize.width - BUBBLE_PADDING_HEIGHT);
+        self.mBubleImageView.frame = CGRectMake(self.mUserProfileImageView.frame.size.width + BUBBLE_PADDING_X-50,
+                                                0, viewSize.width - BUBBLE_PADDING_WIDTH, viewSize.width - BUBBLE_PADDING_HEIGHT);//amit
         
         self.mBubleImageView.layer.shadowOpacity = 0.3;
         self.mBubleImageView.layer.shadowOffset = CGSizeMake(0, 2);
@@ -376,7 +377,7 @@ UIViewController * modalCon;
     self.mDateLabel.text = theDate;
     
     theUrl = nil;
-
+    
     if (alMessage.imageFilePath != NULL)
     {
         NSString * docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];

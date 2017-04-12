@@ -61,7 +61,7 @@
 -(instancetype) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-
+    
     if(self)
     {
         self.mDowloadRetryButton.frame = CGRectMake(self.mBubleImageView.frame.origin.x + self.mBubleImageView.frame.size.width/2.0 - 50 , self.mBubleImageView.frame.origin.y + self.mBubleImageView.frame.size.height/2.0 - 20 , 100, 40);
@@ -98,8 +98,9 @@
     
     NSString * theDate = [NSString stringWithFormat:@"%@",[alMessage getCreatedAtTimeChat:today]];
     
-//    [self.mDowloadRetryButton setHidden:NO];
+    //    [self.mDowloadRetryButton setHidden:NO];
     self.mDowloadRetryButton.alpha = 1;
+    self.mUserProfileImageView.hidden = YES;
     [self.contentView bringSubviewToFront:self.mDowloadRetryButton];
     
     self.progresLabel.alpha = 0;
@@ -120,7 +121,7 @@
     
     if([alMessage.type isEqualToString:@MT_INBOX_CONSTANT])
     {
-
+        
         self.mBubleImageView.backgroundColor = [ALApplozicSettings getReceiveMsgColor];
         
         [self.mUserProfileImageView setFrame:CGRectMake(USER_PROFILE_PADDING_X, 0,
@@ -128,16 +129,16 @@
         
         if([ALApplozicSettings isUserProfileHidden])
         {
-             [self.mUserProfileImageView setFrame:CGRectMake(USER_PROFILE_PADDING_X, 0, 0, USER_PROFILE_HEIGHT)];
+            [self.mUserProfileImageView setFrame:CGRectMake(USER_PROFILE_PADDING_X, 0, 0, USER_PROFILE_HEIGHT)];
         }
         
         self.mUserProfileImageView.layer.cornerRadius = self.mUserProfileImageView.frame.size.width/2;
         self.mUserProfileImageView.layer.masksToBounds = YES;
         
-        [self.mBubleImageView setFrame:CGRectMake(self.mUserProfileImageView.frame.size.width + BUBBLE_PADDING_X,
+        [self.mBubleImageView setFrame:CGRectMake(self.mUserProfileImageView.frame.size.width + BUBBLE_PADDING_X-50,
                                                   self.mUserProfileImageView.frame.origin.y,
                                                   viewSize.width - BUBBLE_PADDING_WIDTH,
-                                                  viewSize.width - BUBBLE_PADDING_HEIGHT)];
+                                                  viewSize.width - BUBBLE_PADDING_HEIGHT)];//amit
         
         [self.mImageView setFrame:CGRectMake(self.mBubleImageView.frame.origin.x + IMAGE_VIEW_PADDING_X,
                                              self.mBubleImageView.frame.origin.y + IMAGE_VIEW_PADDING_Y,
@@ -168,7 +169,7 @@
         
         if(alMessage.message.length > 0)
         {
-           [self.imageWithText setHidden:NO];
+            [self.imageWithText setHidden:NO];
             self.imageWithText.textColor = [ALApplozicSettings getReceiveMsgTextColor];
             self.mBubleImageView.frame = CGRectMake(self.mUserProfileImageView.frame.size.width + BUBBLE_PADDING_X,
                                                     0, viewSize.width - BUBBLE_PADDING_WIDTH,
@@ -231,7 +232,7 @@
     else
     {
         [self.mUserProfileImageView setFrame:CGRectMake(viewSize.width - USER_PROFILE_PADDING_X_OUTBOX, 5, 0, USER_PROFILE_WIDTH)];
-
+        
         self.mBubleImageView.backgroundColor = [ALApplozicSettings getSendMsgColor];
         
         [self.mMessageStatusImageView setHidden:NO];
@@ -292,7 +293,7 @@
         }
         else if (alMessage.imageFilePath && !alMessage.fileMeta.blobKey)
         {
-
+            
             self.mDowloadRetryButton.alpha = 1;
             [self.mDowloadRetryButton setTitle:[alMessage.fileMeta getTheSize] forState:UIControlStateNormal];
             [self.mDowloadRetryButton setImage:[ALUtilityClass getImageFromFramworkBundle:@"uploadI1.png"] forState:UIControlStateNormal];
@@ -344,8 +345,8 @@
         }
         self.mMessageStatusImageView.image = [ALUtilityClass getImageFromFramworkBundle:imageName];
     }
-
-
+    
+    
     return self;
 }
 
@@ -382,7 +383,7 @@
     MPMoviePlayerViewController * videoViewController = [[MPMoviePlayerViewController alloc] initWithContentURL:self.videoFileURL];
     [videoViewController.moviePlayer setFullscreen:YES];
     [videoViewController.moviePlayer setScalingMode: MPMovieScalingModeAspectFit];
-   
+    
     [self.delegate showVideoFullScreen:videoViewController];
 }
 

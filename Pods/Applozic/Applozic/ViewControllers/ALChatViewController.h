@@ -51,6 +51,10 @@
 
 @property (strong, nonatomic) id <ALChatViewControllerDelegate> chatViewDelegate;
 
+@property (strong, nonatomic) IBOutlet UIView *headerView;
+
+//amit
+
 -(void)fetchAndRefresh;
 -(void)fetchAndRefresh:(BOOL)flag;
 

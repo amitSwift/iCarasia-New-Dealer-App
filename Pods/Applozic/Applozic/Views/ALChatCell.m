@@ -91,7 +91,7 @@
         
         self.mMessageLabel = [[ALHyperLabel alloc] init];
         self.mMessageLabel.numberOfLines = 0;
-
+        
         NSString *fontName = [ALUtilityClass parsedALChatCostomizationPlistForKey:APPLOZIC_CHAT_FONTNAME];
         
         if (!fontName) {
@@ -166,6 +166,8 @@
                                                         font:self.mChannelMemberName.font.fontName
                                                     fontSize:self.mChannelMemberName.font.pointSize];
     
+    
+    
     [self.mBubleImageView setHidden:NO];
     [self.mDateLabel setHidden:NO];
     [self.mMessageLabel setTextAlignment:NSTextAlignmentLeft];
@@ -174,6 +176,7 @@
     self.mMessageStatusImageView.hidden = YES;
     [self.contentView bringSubviewToFront:self.mMessageStatusImageView];
     self.mUserProfileImageView.backgroundColor = [UIColor whiteColor];
+    self.mUserProfileImageView.hidden = YES;
     self.mMessageLabel.backgroundColor = [UIColor clearColor];
     
     if([alMessage.type isEqualToString:@"100"])
@@ -206,7 +209,7 @@
         self.mNameLabel.frame = self.mUserProfileImageView.frame;
         [self.mNameLabel setText:[ALColorUtility getAlphabetForProfileImage:receiverName]];
         
-        self.mBubleImageView.frame = CGRectMake(self.mUserProfileImageView.frame.size.width + 13,
+        self.mBubleImageView.frame = CGRectMake(self.mUserProfileImageView.frame.size.width + 13-50,
                                                 0, theTextSize.width + BUBBLE_PADDING_WIDTH,
                                                 theTextSize.height + BUBBLE_PADDING_HEIGHT);
         
@@ -245,6 +248,9 @@
             [self.mChannelMemberName setText:receiverName];
         }
         
+        self.mBubleImageView.layer.borderColor=[[UIColor colorWithRed:53.0f/255.0f green:159.0f/255.0f blue:240.0f/255.0f alpha:1] CGColor];
+        self.mBubleImageView.layer.borderWidth = 1.5;
+        
         self.mMessageLabel.textColor = [ALApplozicSettings getReceiveMsgTextColor];
         
         self.mDateLabel.frame = CGRectMake(self.mBubleImageView.frame.origin.x,
@@ -261,7 +267,7 @@
         else
         {
             [self.mUserProfileImageView sd_setImageWithURL:[NSURL URLWithString:@""]];
-            [self.mNameLabel setHidden:NO];
+            [self.mNameLabel setHidden:YES];
             self.mUserProfileImageView.backgroundColor = [ALColorUtility getColorForAlphabet:receiverName];
         }
         
@@ -287,9 +293,12 @@
             self.mBubleImageView.backgroundColor = [UIColor whiteColor];
         }
         self.mUserProfileImageView.alpha = 0;
-        self.mUserProfileImageView.frame = CGRectMake(viewSize.width - 53, 0, 0, 45);
+        //self.mUserProfileImageView.frame = CGRectMake(viewSize.width - 53, 0, 0, 45);
+        self.mUserProfileImageView.frame = CGRectMake(0, 0, 0, 0);
         
+        self.mUserProfileImageView.hidden = YES;
         self.mMessageStatusImageView.hidden = NO;
+        self.mMessageLabel.backgroundColor = [UIColor clearColor];
         
         
         self.mBubleImageView.frame = CGRectMake((viewSize.width - theTextSize.width - BUBBLE_PADDING_X_OUTBOX) , 0,
@@ -300,6 +309,8 @@
         self.mBubleImageView.layer.shadowOffset = CGSizeMake(0, 2);
         self.mBubleImageView.layer.shadowRadius = 1;
         self.mBubleImageView.layer.masksToBounds = NO;
+        self.mBubleImageView.layer.borderColor=[[UIColor clearColor] CGColor];
+        self.mBubleImageView.layer.borderWidth = 0;
         
         msgFrameHeight = self.mBubleImageView.frame.size.height;
         
@@ -393,6 +404,7 @@
         self.mMessageLabel.attributedText = [[NSAttributedString alloc] initWithString:self.mMessage.message attributes:attrs];
         [self setHyperLinkAttribute];
     }
+    
     
     return self;
     

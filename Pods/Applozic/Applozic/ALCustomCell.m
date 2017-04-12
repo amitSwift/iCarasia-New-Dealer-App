@@ -21,7 +21,7 @@
 -(instancetype)populateCell:(ALMessage*) alMessage viewSize:(CGSize)viewSize
 {
     [super populateCell:alMessage viewSize:viewSize];
-
+    
     [self.mMessageLabel setFont:[UIFont fontWithName:[ALApplozicSettings getCustomMessageFont]
                                                 size:[ALApplozicSettings getCustomMessageFontSize]]];
     
@@ -33,6 +33,7 @@
     
     [self.mDateLabel setHidden:YES];
     self.mUserProfileImageView.alpha = 0;
+    self.mUserProfileImageView.hidden = YES;//amit
     self.mNameLabel.hidden = YES;
     self.mChannelMemberName.hidden = YES;
     self.mMessageStatusImageView.hidden = YES;
@@ -48,9 +49,9 @@
     
     CGPoint theTextPoint = CGPointMake((screenSize.width - bubbleWidth)/2, 0);
     
-    CGRect frame = CGRectMake(theTextPoint.x, theTextPoint.y,
-                              bubbleWidth, theTextSize.height + (2 * padding));
-
+    CGRect frame = CGRectMake(theTextPoint.x-50, theTextPoint.y,
+                              bubbleWidth, theTextSize.height + (2 * padding));//amit
+    
     self.mBubleImageView.backgroundColor = [ALApplozicSettings getCustomMessageBackgroundColor];
     [self.mBubleImageView setFrame:frame];
     [self.mBubleImageView setHidden:NO];
@@ -58,7 +59,7 @@
     [self.mMessageLabel setFrame: CGRectMake(self.mBubleImageView.frame.origin.x + padding ,padding,
                                              theTextSize.width,
                                              theTextSize.height)];
-
+    
     return self;
 }
 

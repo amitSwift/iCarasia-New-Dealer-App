@@ -179,7 +179,7 @@
                                                        self.mBubleImageView.frame.origin.y + CHANNEL_PADDING_Y,
                                                        self.mBubleImageView.frame.size.width +
                                                        CHANNEL_PADDING_WIDTH, CHANNEL_PADDING_HEIGHT);
-
+            
             [self.mImageView setFrame:CGRectMake(self.mBubleImageView.frame.origin.x,
                                                  self.mChannelMemberName.frame.origin.y + 5 +
                                                  self.mChannelMemberName.frame.size.height,
@@ -237,7 +237,7 @@
         }
         else
         {
-             self.mDowloadRetryButton.alpha = 0;
+            self.mDowloadRetryButton.alpha = 0;
             self.downloadRetryView.alpha = 0;
             self.sizeLabel.alpha = 0;
         }
@@ -290,11 +290,11 @@
                                                self.mBubleImageView.frame.origin.y + 5,
                                                self.mBubleImageView.frame.size.width - self.mImageView.frame.size.width - DOC_NAME_PADDING_WIDTH,
                                                DOC_NAME_HEIGHT)];
-
+        
         [self setupProgressValueX: (self.downloadRetryView.frame.origin.x + self.downloadRetryView.frame.size.width/2 - 30)
                              andY: (self.downloadRetryView.frame.origin.y + self.downloadRetryView.frame.size.height/2 - 30)];
         
-
+        
         
         self.mDateLabel.frame = CGRectMake((self.mBubleImageView.frame.origin.x +
                                             self.mBubleImageView.frame.size.width) - theDateSize.width - DATE_PADDING_WIDTH,
@@ -307,7 +307,7 @@
         
         [self.mImageView setImage:[ALUtilityClass getImageFromFramworkBundle:@"documentSend.png"]];
         
-         msgFrameHeight = self.mBubleImageView.frame.size.height;
+        msgFrameHeight = self.mBubleImageView.frame.size.height;
         
         self.progresLabel.alpha = 0;
         
@@ -321,7 +321,7 @@
         }
         else if(!alMessage.imageFilePath && alMessage.fileMeta.blobKey)
         {
-             self.mDowloadRetryButton.alpha = 1;
+            self.mDowloadRetryButton.alpha = 1;
             self.downloadRetryView.alpha = 1;
             self.sizeLabel.alpha = 1;
             [self.sizeLabel setText:[alMessage.fileMeta getTheSize]];
@@ -329,7 +329,7 @@
         }
         else if (alMessage.imageFilePath && !alMessage.fileMeta.blobKey)
         {
-              self.mDowloadRetryButton.alpha = 1;
+            self.mDowloadRetryButton.alpha = 1;
             self.downloadRetryView.alpha = 1;
             self.sizeLabel.alpha = 1;
             [self.sizeLabel setText:[alMessage.fileMeta getTheSize]];
@@ -510,7 +510,7 @@
     UIStoryboard *storyboardM = [UIStoryboard storyboardWithName:@"Applozic" bundle:[NSBundle bundleForClass:ALChatViewController.class]];
     ALMessageInfoViewController *msgInfoVC = (ALMessageInfoViewController *)[storyboardM instantiateViewControllerWithIdentifier:@"ALMessageInfoView"];
     
-     __weak typeof(ALMessageInfoViewController *) weakObj = msgInfoVC;
+    __weak typeof(ALMessageInfoViewController *) weakObj = msgInfoVC;
     
     [msgInfoVC setMessage:self.mMessage andHeaderHeight:msgFrameHeight withCompletionHandler:^(NSError *error) {
         

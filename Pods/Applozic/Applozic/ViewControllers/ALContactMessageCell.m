@@ -77,7 +77,7 @@
     if(self)
     {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-//        self.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0  blue:242/255.0 alpha:1];
+        //        self.backgroundColor = [UIColor colorWithRed:242/255.0 green:242/255.0  blue:242/255.0 alpha:1];
         self.contentView.userInteractionEnabled = YES;
         
         self.contactProfileImage = [[UIImageView alloc] init];
@@ -90,14 +90,14 @@
         [self.userContact setFont:[UIFont fontWithName:[ALApplozicSettings getFontFace] size:14]];
         [self.userContact setNumberOfLines:2];
         [self.contentView addSubview:self.userContact];
-
+        
         self.emailId = [[UILabel alloc] init];
         [self.emailId setBackgroundColor:[UIColor clearColor]];
         [self.emailId setTextColor:[UIColor blackColor]];
         [self.emailId setFont:[UIFont fontWithName:[ALApplozicSettings getFontFace] size:14]];
         [self.emailId setNumberOfLines:2];
         [self.contentView addSubview:self.emailId];
-
+        
         self.contactPerson = [[UILabel alloc] init];
         [self.contactPerson setBackgroundColor:[UIColor clearColor]];
         [self.contactPerson setTextColor:[UIColor blackColor]];
@@ -111,7 +111,7 @@
         [self.addContactButton addTarget:self action:@selector(addButtonAction) forControlEvents:UIControlEventTouchUpInside];
         [self.addContactButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         [self.contentView addSubview:self.addContactButton];
-
+        
     }
     return self;
 }
@@ -119,9 +119,10 @@
 -(instancetype)populateCell:(ALMessage *) alMessage viewSize:(CGSize)viewSize
 {
     self.mUserProfileImageView.alpha = 1;
+    self.mUserProfileImageView.hidden = YES;//amit
     self.progresLabel.alpha = 0;
     self.mDowloadRetryButton.alpha = 0;
-
+    
     [self.addContactButton setEnabled:NO];
     
     BOOL today = [[NSCalendar currentCalendar] isDateInToday:[NSDate dateWithTimeIntervalSince1970:[alMessage.createdAtTime doubleValue]/1000]];
@@ -129,7 +130,7 @@
     NSString * theDate = [NSString stringWithFormat:@"%@",[alMessage getCreatedAtTimeChat:today]];
     
     CGSize theDateSize = [ALUtilityClass getSizeForText:theDate maxWidth:150 font:self.mDateLabel.font.fontName fontSize:self.mDateLabel.font.pointSize];
-
+    
     self.mMessage = alMessage;
     
     [self.mChannelMemberName setHidden:YES];
@@ -159,7 +160,7 @@
         
         [self.mNameLabel setText:[ALColorUtility getAlphabetForProfileImage:alMessage.to]];
         
-        [self.mBubleImageView setFrame:CGRectMake(self.mUserProfileImageView.frame.size.width + BUBBLE_PADDING_X , 0,
+        [self.mBubleImageView setFrame:CGRectMake(self.mUserProfileImageView.frame.size.width + BUBBLE_PADDING_X -50, 0,
                                                   viewSize.width - BUBBLE_PADDING_WIDTH, viewSize.width - BUBBLE_PADDING_HEIGHT)];
         
         [self.contactProfileImage setFrame:CGRectMake(self.mBubleImageView.frame.origin.x + CNT_PROFILE_X,
@@ -243,7 +244,7 @@
                                                    self.mBubleImageView.frame.size.width - BUTTON_WIDTH, BUTTON_HEIGHT)];
         
         [self.mMessageStatusImageView setHidden:NO];
-
+        
         msgFrameHeight = self.mBubleImageView.frame.size.height - (self.addContactButton.frame.size.height + self.addContactButton.frame.size.height/2);
         
         self.mDateLabel.textAlignment = NSTextAlignmentLeft;
@@ -256,9 +257,9 @@
         self.mMessageStatusImageView.frame = CGRectMake(self.mDateLabel.frame.origin.x + self.mDateLabel.frame.size.width,
                                                         self.mDateLabel.frame.origin.y,
                                                         MSG_STATUS_WIDTH, MSG_STATUS_HEIGHT);
-     
+        
         [self.addContactButton setBackgroundColor:[UIColor whiteColor]];
-
+        
     }
     
     if ([alMessage.type isEqualToString:@MT_OUTBOX_CONSTANT]) {
@@ -286,7 +287,7 @@
     self.mDateLabel.text = theDate;
     
     theUrl = nil;
-
+    
     if (alMessage.imageFilePath != NULL)
     {
         NSString * docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -322,7 +323,7 @@
         }
         
         [self.addContactButton setEnabled:YES];
-
+        
     }
     else if((!alMessage.imageFilePath && alMessage.fileMeta.blobKey) || (alMessage.imageFilePath && !alMessage.fileMeta.blobKey))
     {
@@ -359,7 +360,7 @@
 }
 
 //==================================================================================================
-#pragma mark - KAProgressLabel Delegate Methods 
+#pragma mark - KAProgressLabel Delegate Methods
 //==================================================================================================
 
 -(void)cancelAction

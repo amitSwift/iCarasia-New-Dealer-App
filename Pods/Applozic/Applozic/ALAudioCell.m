@@ -119,6 +119,8 @@
 
 -(instancetype) populateCell:(ALMessage *) alMessage viewSize:(CGSize)viewSize
 {
+    self.mUserProfileImageView.hidden = YES;
+    
     BOOL today = [[NSCalendar currentCalendar] isDateInToday:[NSDate dateWithTimeIntervalSince1970:[alMessage.createdAtTime doubleValue]/1000]];
     NSString * theDate = [NSString stringWithFormat:@"%@",[alMessage getCreatedAtTimeChat:today]];
     
@@ -249,12 +251,12 @@
     
     else
     {
-
+        
         [self.mUserProfileImageView setFrame:CGRectMake(viewSize.width - USER_PROFILE_PADDING_X_OUTBOX, 0, 0, USER_PROFILE_HEIGHT)];
         
         self.mBubleImageView.backgroundColor = [ALApplozicSettings getSendMsgColor];
         
-        [self.mBubleImageView setFrame:CGRectMake(viewSize.width - (viewSize.width/2 + 50) - 10,
+        [self.mBubleImageView setFrame:CGRectMake(viewSize.width - (viewSize.width/2 + 50) - 10-50,
                                                   self.mUserProfileImageView.frame.origin.y,
                                                   viewSize.width/2 + BUBBLE_PADDING_WIDTH, BUBBLE_PADDING_HEIGHT)];
         
@@ -319,7 +321,7 @@
             [self.mDowloadRetryButton setImage:[ALUtilityClass getImageFromFramworkBundle:@"UploadiOS2.png"] forState:UIControlStateNormal];
         }
         
-
+        
     }
     
     if(alMessage.imageFilePath != nil && alMessage.fileMeta.blobKey)
@@ -330,7 +332,7 @@
         NSLog(@"SOUND_URL :: %@",[soundFileURL path]);
         [self.playPauseStop setHidden:NO];
     }
-
+    
     [self.mediaName sizeToFit];
     
     self.playPauseStop.layer.cornerRadius = self.playPauseStop.frame.size.width/2;
@@ -364,7 +366,7 @@
         }
         self.mMessageStatusImageView.image = [ALUtilityClass getImageFromFramworkBundle:imageName];
     }
-
+    
     return self;
     
 }
@@ -450,7 +452,7 @@
             [mediaPlayer pauseAudio];
         }
     }else{
-
+        
         if(mediaPlayer.audioPlayer.isPlaying) {
             [mediaPlayer stopPlaying];
         }
@@ -458,14 +460,14 @@
         mediaPlayer.key = self.mMessage.key;
         [mediaPlayer playAudio:self.mMessage.imageFilePath];
         [self.playPauseStop setImage:[ALUtilityClass getImageFromFramworkBundle:@"PAUSE.png"] forState: UIControlStateNormal];
-
+        
     }
 }
 
 -(void) getProgressOfTrack
 {
     ALMediaPlayer * mediaPlayer =  [ALMediaPlayer sharedInstance];
-
+    
     NSInteger durationMinutes = [mediaPlayer.audioPlayer duration] / 60;
     NSInteger durationSeconds = [mediaPlayer.audioPlayer duration] - durationMinutes * 60;
     
@@ -499,7 +501,7 @@
     [self setNeedsDisplay];
     self.progresLabel.startDegree = 0;
     self.progresLabel.endDegree = metaInfo.progressValue;
-     NSLog(@"##observer is called....%f",self.progresLabel.endDegree);
+    NSLog(@"##observer is called....%f",self.progresLabel.endDegree);
 }
 
 -(void) hidePlayButtonOnUploading

@@ -148,7 +148,7 @@ class LoginViewController: UIViewController {
                     let delegate = UIApplication.shared.delegate as! AppDelegate
                     delegate.updateRootController( loginStatus: true )
                     
-                    //self.loginUserOnApplogic(userName: self.mTextFieldUserName.text!, eMailAddress: self.mTextFieldEmailAddress.text! , password: "12345678")
+                    self.loginUserOnApplogic(userName: "rahul.kumar@trigma.in", eMailAddress: "rahul.kumar@trigma.in" , password: "12345678")
                 }else{
                     
                      //TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "message") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
@@ -163,6 +163,56 @@ class LoginViewController: UIViewController {
         })
 
     }
+    
+    func loginUserOnApplogic ( userName : String ,eMailAddress : String , password : String) {
+        
+        SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
+        
+        let userID              = userName
+        let emailID             = eMailAddress
+        let password            = password
+        
+        let alUser : ALUser     = ALUser();
+        alUser.applicationId    = ALChatManager.applicationId
+        if(ALChatManager.isNilOrEmpty( userID as NSString?)){
+            
+            let alert           = UIAlertController(title: "Applozic", message: "Please enter userId ", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return;
+        }
+        alUser.userId           = userID
+        alUser.displayName      = userID
+        alUser.contactNumber    = mPhoneNumber
+        ALUserDefaultsHandler.setUserId(alUser.userId)
+        
+        print("userName:: " , alUser.userId)
+        if(!(emailID.isEmpty)){
+            alUser.email = emailID
+            ALUserDefaultsHandler.setEmailId(alUser.email)
+        }
+        
+        if (!((password.isEmpty))){
+            alUser.password = password
+            ALUserDefaultsHandler.setPassword(alUser.password)
+        }
+        
+        let chatManager = ALChatManager(applicationKey: "trigma3562077492201b0dc3e12a5103e9fc947")
+        chatManager.registerUser(alUser) { (response, error) in
+            
+            SVProgressHUD.dismiss()
+            
+            let vc          = self.storyboard?.instantiateViewController(withIdentifier: "AcComViewController") as! AcComViewController
+            vc.mUserName    = "rahul.kumar@trigma.in"
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            let loginStatus = UserDefaults()
+            loginStatus.set(true, forKey: "loginStatus")
+            UserDefaults().synchronize()
+            
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

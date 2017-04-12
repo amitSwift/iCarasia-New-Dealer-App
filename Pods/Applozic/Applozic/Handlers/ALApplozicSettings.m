@@ -321,14 +321,14 @@
 
 +(BOOL)getCallOption
 {
-     return [[NSUserDefaults standardUserDefaults] boolForKey:USER_CALL_OPTION];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:USER_CALL_OPTION];
 }
 
 /*
-NOTIFICATION_ENABLE_SOUND = 0,
-NOTIFICATION_DISABLE_SOUND = 1,
-NOTIFICATION_DISABLE = 2
-*/
+ NOTIFICATION_ENABLE_SOUND = 0,
+ NOTIFICATION_DISABLE_SOUND = 1,
+ NOTIFICATION_DISABLE = 2
+ */
 +(void)enableNotificationSound
 {
     [ALUserDefaultsHandler setNotificationMode:NOTIFICATION_ENABLE_SOUND];
@@ -458,7 +458,7 @@ NOTIFICATION_DISABLE = 2
 
 +(BOOL)getCustomNavRightButtonMsgVC
 {
-   return [[NSUserDefaults standardUserDefaults] boolForKey:CUSTOM_NAV_RIGHT_BUTTON_MSGVC];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:CUSTOM_NAV_RIGHT_BUTTON_MSGVC];
 }
 
 +(void)setColorForToastBackground:(UIColor *)toastBGColor
@@ -514,7 +514,7 @@ NOTIFICATION_DISABLE = 2
 {
     NSData *receiveColorData = [[NSUserDefaults standardUserDefaults] objectForKey:RECEIVE_MSG_TEXT_COLOUR];
     UIColor *receiveColor = [NSKeyedUnarchiver unarchiveObjectWithData:receiveColorData];
-    return receiveColor ? receiveColor : [UIColor grayColor];
+    return receiveColor ? receiveColor : [UIColor blackColor];
 }
 
 +(void)setMsgTextViewBGColor:(UIColor *)color
@@ -648,7 +648,7 @@ NOTIFICATION_DISABLE = 2
     return color ? color : [UIColor blackColor];
 }
 
-+(void)setReceiverUserProfileOption:(BOOL)flag  
++(void)setReceiverUserProfileOption:(BOOL)flag
 {
     [[NSUserDefaults standardUserDefaults] setBool:flag forKey:ENABLE_RECEIVER_USER_PROFILE];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -671,12 +671,12 @@ NOTIFICATION_DISABLE = 2
     return size ? size : 14;
 }
 
-+(void)setCustomMessageFont:(NSString *)font 
++(void)setCustomMessageFont:(NSString *)font
 {
     [[NSUserDefaults standardUserDefaults] setValue:font forKey:CUSTOM_MSG_FONT];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
- 
+
 +(NSString *)getCustomMessageFont
 {
     NSString * font = [[NSUserDefaults standardUserDefaults] valueForKey:CUSTOM_MSG_FONT];
@@ -692,7 +692,7 @@ NOTIFICATION_DISABLE = 2
 +(BOOL)isGroupInfoDisabled
 {
     return [[NSUserDefaults standardUserDefaults] boolForKey:GROUP_INFO_DISABLED];
-
+    
 }
 
 +(void)setGroupInfoEditDisabled:(BOOL)flag

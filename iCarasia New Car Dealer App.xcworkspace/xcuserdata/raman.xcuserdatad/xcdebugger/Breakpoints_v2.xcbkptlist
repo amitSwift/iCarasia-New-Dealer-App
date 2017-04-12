@@ -25,38 +25,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/Applozic/Applozic/ViewControllers/ALChatViewController.m"
-            timestampString = "510644692.320104"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Applozic/Applozic/ViewControllers/ALMessagesViewController.m"
-            timestampString = "510645174.972044"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "-viewDidDisappear:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "iCarasia New Car Dealer App/Controllers/ReviewsReplyVC.swift"
             timestampString = "510831168.656248"
             startingColumnNumber = "9223372036854775807"
@@ -70,26 +38,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "iCarasia_New_Car_Dealer_App.ReviewsReplyVC.tableReview.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITableView&gt;"
-                  moduleName = "iCarasia New Car Dealer App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/ReviewsReplyVC.swift"
-                  timestampString = "513516576.303596"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "38">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
                   symbolName = "iCarasia_New_Car_Dealer_App.ReviewsReplyVC.tableReview.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITableView&gt;"
                   moduleName = "iCarasia New Car Dealer App"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/ReviewsReplyVC.swift"
-                  timestampString = "513516576.305547"
+                  timestampString = "513682327.343261"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -100,11 +53,26 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
+                  symbolName = "iCarasia_New_Car_Dealer_App.ReviewsReplyVC.init (style : __C.UITableViewStyle) -&gt; iCarasia_New_Car_Dealer_App.ReviewsReplyVC"
+                  moduleName = "iCarasia New Car Dealer App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/ReviewsReplyVC.swift"
+                  timestampString = "513682327.345684"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
                   symbolName = "iCarasia_New_Car_Dealer_App.ReviewsReplyVC.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; iCarasia_New_Car_Dealer_App.ReviewsReplyVC"
                   moduleName = "iCarasia New Car Dealer App"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/ReviewsReplyVC.swift"
-                  timestampString = "513516576.310375"
+                  timestampString = "513682327.347913"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -119,7 +87,7 @@
                   moduleName = "iCarasia New Car Dealer App"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/ReviewsReplyVC.swift"
-                  timestampString = "513516576.312626"
+                  timestampString = "513682327.349787"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -152,7 +120,7 @@
                   moduleName = "iCarasia New Car Dealer App"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/ReviewFilterVC.swift"
-                  timestampString = "513516576.318357"
+                  timestampString = "513682327.35545"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
@@ -163,31 +131,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "iCarasia_New_Car_Dealer_App.ReviewFilterVC.delegate.setter : Swift.Optional&lt;iCarasia_New_Car_Dealer_App.MJSecondPopupDelegate&gt;"
-                  moduleName = "iCarasia New Car Dealer App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/ReviewFilterVC.swift"
-                  timestampString = "513516576.319838"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "115">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
                   symbolName = "iCarasia_New_Car_Dealer_App.ReviewFilterVC.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; iCarasia_New_Car_Dealer_App.ReviewFilterVC"
                   moduleName = "iCarasia New Car Dealer App"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/ReviewFilterVC.swift"
-                  timestampString = "513516576.321212"
+                  timestampString = "513682327.360447"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
                   endingLineNumber = "32"
                   offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iCarasia_New_Car_Dealer_App.ReviewFilterVC.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;iCarasia_New_Car_Dealer_App.ReviewFilterVC&gt;"
+                  moduleName = "iCarasia New Car Dealer App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/ReviewFilterVC.swift"
+                  timestampString = "513682327.361767"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "85">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -391,7 +359,7 @@
                   moduleName = "iCarasia New Car Dealer App"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/AgentProfileViewController.swift"
-                  timestampString = "513516576.355488"
+                  timestampString = "513682327.399955"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "302"
@@ -406,7 +374,7 @@
                   moduleName = "iCarasia New Car Dealer App"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Controllers/AgentProfileViewController.swift"
-                  timestampString = "513516576.356983"
+                  timestampString = "513682327.401655"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "304"
@@ -567,7 +535,7 @@
                   moduleName = "iCarasia New Car Dealer App"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Services%20Manager/ServicesManager.swift"
-                  timestampString = "513516576.380528"
+                  timestampString = "513682327.432696"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1231"
@@ -582,7 +550,7 @@
                   moduleName = "iCarasia New Car Dealer App"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/raman/Desktop/iCarasia%20New%20Car%20Dealer%20App/iCarasia%20New%20Car%20Dealer%20App/Services%20Manager/ServicesManager.swift"
-                  timestampString = "513516576.381915"
+                  timestampString = "513682327.43402"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "1233"
@@ -653,6 +621,22 @@
             startingLineNumber = "1113"
             endingLineNumber = "1113"
             landmarkName = "profileDealership()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Applozic/Applozic/Views/ALChatCell.m"
+            timestampString = "513675730.509126"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "-populateCell:viewSize:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
