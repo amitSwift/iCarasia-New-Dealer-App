@@ -145,10 +145,12 @@ class LoginViewController: UIViewController {
                     loginStatus.set(true, forKey: "loginStatus")
                     UserDefaults().synchronize()
                     
-                    let delegate = UIApplication.shared.delegate as! AppDelegate
-                    delegate.updateRootController( loginStatus: true )
                     
-                    self.loginUserOnApplogic(userName: "rahul.kumar@trigma.in", eMailAddress: "rahul.kumar@trigma.in" , password: "12345678")
+                    let userName        = result.value(forKey: "applozic_id") as! String
+                    let displayName     = result.value(forKey: "name") as! String
+                    let userPassword    = result.value(forKey: "token") as! String
+                    
+                    self.loginUserOnApplogic(userName: userName, displayName: displayName , password: userPassword)
                 }else{
                     
                      //TSMessage.showNotification(in: self , title: "\n\(result.value(forKey: "message") as! String)", subtitle: nil, type: TSMessageNotificationType.message)
@@ -164,12 +166,12 @@ class LoginViewController: UIViewController {
 
     }
     
-    func loginUserOnApplogic ( userName : String ,eMailAddress : String , password : String) {
+    func loginUserOnApplogic ( userName : String , displayName : String , password : String) {
         
         SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
         
         let userID              = userName
-        let emailID             = eMailAddress
+        let emailID             = ""
         let password            = password
         
         let alUser : ALUser     = ALUser();
@@ -182,11 +184,11 @@ class LoginViewController: UIViewController {
             return;
         }
         alUser.userId           = userID
-        alUser.displayName      = userID
+        alUser.displayName      = displayName
         alUser.contactNumber    = mPhoneNumber
         ALUserDefaultsHandler.setUserId(alUser.userId)
         
-        print("userName:: " , alUser.userId)
+        print("userName: " , alUser.userId)
         if(!(emailID.isEmpty)){
             alUser.email = emailID
             ALUserDefaultsHandler.setEmailId(alUser.email)
@@ -197,18 +199,11 @@ class LoginViewController: UIViewController {
             ALUserDefaultsHandler.setPassword(alUser.password)
         }
         
-        let chatManager = ALChatManager(applicationKey: "trigma3562077492201b0dc3e12a5103e9fc947")
+        let chatManager = ALChatManager(applicationKey: "3526295e3bed189cd0a0926c42de6670")
         chatManager.registerUser(alUser) { (response, error) in
             
-            SVProgressHUD.dismiss()
-            
-            let vc          = self.storyboard?.instantiateViewController(withIdentifier: "AcComViewController") as! AcComViewController
-            vc.mUserName    = "rahul.kumar@trigma.in"
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-            let loginStatus = UserDefaults()
-            loginStatus.set(true, forKey: "loginStatus")
-            UserDefaults().synchronize()
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            delegate.updateRootController( loginStatus: true )
             
         }
     }

@@ -149,7 +149,7 @@ ABPeoplePickerNavigationControllerDelegate>
 //    self.mTableView.sectionHeaderHeight = UITableViewAutomaticDimension;
 //    self.mTableView.estimatedSectionHeaderHeight = 120;
     
-    self.mTableView.tableHeaderView = _headerView;
+    //self.mTableView.tableHeaderView = _headerView;
     
 }
 

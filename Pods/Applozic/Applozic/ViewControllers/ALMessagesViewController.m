@@ -141,12 +141,8 @@
     
     //[self navigationRightButtonAction: nil];
     
-    UIBarButtonItem *flipButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Contact"
-                                   style:UIBarButtonItemStyleBordered
-                                   target:self
-                                   action:@selector(navigationRightButtonAction:)];
-    self.navigationItem.rightBarButtonItem = flipButton;
+    UIBarButtonItem * contactsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"people_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(navigationRightButtonAction:)];
+    self.navigationItem.rightBarButtonItem = contactsButton;
 }
 
 -(void)loadMessages:(NSNotification *)notification{
@@ -170,9 +166,13 @@
 {
     [super viewWillAppear:animated];
     
+    //self.navigationItem.titleView = nil;
     self.navigationItem.title = @"MESSAGES";
+
     
-    [self dropShadowInNavigationBar];
+    //[self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont boldSystemFontOfSize:15.0]}];
+    
+    //[self dropShadowInNavigationBar];
     
     [self.navigationController.navigationBar addSubview:[ALUtilityClass setStatusBarStyle]];
     //[self.navigationItem setLeftBarButtonItem:self.barButtonItem];
@@ -222,11 +222,11 @@
     
     
     
-    [self.navigationController.navigationBar setTitleTextAttributes: @{
+    /*[self.navigationController.navigationBar setTitleTextAttributes: @{
                                                                        NSForegroundColorAttributeName:[UIColor whiteColor],
                                                                        NSFontAttributeName:[UIFont fontWithName:[ALApplozicSettings getFontFace]
                                                                                                            size:NAVIGATION_TEXT_SIZE]
-                                                                       }];
+                                                                       }];*/
     
     //self.navigationItem.title = [ALApplozicSettings getTitleForConversationScreen];
     
@@ -243,7 +243,7 @@
         [self.navigationController.navigationBar setTintColor: [ALApplozicSettings getColorForNavigationItem]];
     }
     
-    [self callLastSeenStatusUpdate];
+       [self callLastSeenStatusUpdate];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -420,7 +420,7 @@
             
             if(alContact.connected && [ALApplozicSettings getVisibilityForOnlineIndicator])
             {
-                [contactCell.onlineImageMarker setHidden:NO];
+                [contactCell.onlineImageMarker setHidden:YES];// Raman Kant
             }
             else
             {
@@ -642,7 +642,7 @@
                 [channelService getChannelInformation:message.groupId orClientChannelKey:nil withCompletion:^(ALChannel *alChannel)
                  {
                      contactCell.mUserNameLabel.text = [alChannel name];
-                     contactCell.onlineImageMarker.hidden=YES;
+                     contactCell.onlineImageMarker.hidden = YES;
                  }];
             }
             else
@@ -673,7 +673,7 @@
             }
             else if(alContact.connected && [ALApplozicSettings getVisibilityForOnlineIndicator])
             {
-                [contactCell.onlineImageMarker setHidden:NO];
+                [contactCell.onlineImageMarker setHidden:YES];// Raman Kant
             }
             else
             {
@@ -1026,7 +1026,9 @@
         ALContactCell * contactCell = [self getCell:userId];
         if(contactCell && [ALApplozicSettings getVisibilityForOnlineIndicator])
         {
-            [contactCell.onlineImageMarker setHidden:flag];
+            // Raman Kant
+            //[contactCell.onlineImageMarker setHidden:flag];
+            [contactCell.onlineImageMarker setHidden:YES];
         }
     }
 }
@@ -1099,7 +1101,7 @@
         [contactCell.onlineImageMarker setHidden:YES];
         if(alUserDetail.connected && [ALApplozicSettings getVisibilityForOnlineIndicator])
         {
-            [contactCell.onlineImageMarker setHidden:NO];
+            [contactCell.onlineImageMarker setHidden:YES];// Raman Kant
         }
         
         ALContactDBService * contactDBService = [[ALContactDBService alloc] init];

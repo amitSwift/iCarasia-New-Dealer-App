@@ -168,7 +168,7 @@ static CGFloat const sendTextViewCornerRadius = 8.0f;
     
 //    [self.view insertSubview:self.noConversationLabel belowSubview:self.typingMessageView];
     
-    [self dropShadowInNavigationBar];
+    //[self dropShadowInNavigationBar];
     
 }
 
@@ -295,7 +295,7 @@ static CGFloat const sendTextViewCornerRadius = 8.0f;
 
 -(void)sendButtonUI
 {
-    [self.sendButton setBackgroundColor:[ALApplozicSettings getColorForSendButton]];
+    //[self.sendButton setBackgroundColor:[ALApplozicSettings getColorForSendButton]];
     self.sendButton.layer.cornerRadius = sendTextViewCornerRadius;
     self.sendButton.layer.masksToBounds = YES;
     

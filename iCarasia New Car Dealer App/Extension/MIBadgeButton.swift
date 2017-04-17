@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 open class MIBadgeButton: UIButton {
     
     fileprivate var badgeLabel: UILabel

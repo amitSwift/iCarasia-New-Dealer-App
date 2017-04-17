@@ -107,8 +107,6 @@ class UserInfoViewController: UIViewController {
                     let vc          = self.storyboard?.instantiateViewController(withIdentifier: "AcComViewController") as! AcComViewController
                     vc.mUserName    = self.mTextFieldUserName.text!
                     self.navigationController?.pushViewController(vc, animated: true)
-                    
-                   self.loginUserOnApplogic(userName: "rahul.kumar@trigma.in", eMailAddress: "rahul.kumar@trigma.in" , password: "12345678")
                 }
                 else  if let eMail = result.value(forKey: "email") {
                     
@@ -135,7 +133,7 @@ class UserInfoViewController: UIViewController {
         SVProgressHUD.show(withStatus: "Please wait...", maskType: SVProgressHUDMaskType.gradient)
         
         let userID              = userName
-        let emailID             = eMailAddress
+        let emailID             = ""
         let password            = password
         
         let alUser : ALUser     = ALUser();
@@ -163,7 +161,7 @@ class UserInfoViewController: UIViewController {
             ALUserDefaultsHandler.setPassword(alUser.password)
         }
         
-        let chatManager = ALChatManager(applicationKey: "trigma3562077492201b0dc3e12a5103e9fc947")
+        let chatManager = ALChatManager(applicationKey: "3526295e3bed189cd0a0926c42de6670")
         chatManager.registerUser(alUser) { (response, error) in
             
             SVProgressHUD.dismiss()
